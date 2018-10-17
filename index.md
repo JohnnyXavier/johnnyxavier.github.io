@@ -2,22 +2,43 @@
 layout: default
 ---
 
-## /some_notes_on
+## /some notes on programming, challenges, and self practice
+I will be posting a few simple to real examples that helped me understand or review some concepts.
+Real examples are the ones that usually do not make lots of sense but are closer to 
+scenarios where impossible/unusual constrains drive the projects
 
-| [_**Java**_](./topics/java/java.html) | [_**Scala**_](./topics/scala/scala.html)| [_**C**_](./topics/c/c.html) |
-|:--------------------------|:--------------------------|:--------------------------|
-| /Language                 | /Language                 | /Language                 |
-| /Language/Loops           | /Language/Loops           | /Language/Loops --------- |
-| /Frameworks               | /Frameworks               |                           |
-| /Frameworks/Spring        | /Frameworks/Play          |                           |
-| /Frameworks/Spring/boot   | /Frameworks/Play/http     |                           |
-| /Frameworks/Spring/JDBC   |                           |                           |
+These examples helped me practice or are hosted here as a quick personal reference to save time browsing the web.
+
+Use them in full or in part if they help you out, but mind that...
+
+> ###### _**not**_ a single solution in this site is **"the truth"** about anything
+ 
+Just one of many approaches to solve a given problem
+
+### /Software_development_quick_links
+###### /this is quick list of hot topics. Follow the parents for more content
+
+|[_**Programming**_](./topics/java/java.html) | [_**Java**_](./topics/java/java.html) | [_**Scala**_](./topics/scala/scala.html)| [_**C**_](./topics/c/c.html)
+|:-----------------------|:-----------------------|:-----------------------|:--------------------------|
+| /D_Patterns            | /Lang                  | /Lang                  | /Lang                     |
+| /D_Patterns/Behavioural| <br>                                                                        |
+| /D_Patterns/Creational | /Libs                  | /Libs                  | /Libs                     |
+|                        | /Libs/Jackson          | /Lang                  |                           |
+|                        | /Lang/Gson             | /Lang                  |                           |
+|<br>                                                                                                  |
+|                        | /F_works               | /F_works               |                           |
+|                        | /F_works/Spring        | /F_works/Play          |                           |
+|                        | /F_works/Spring/boot   | /F_works/Play/http     |                           |
+|                        | /F_works/Spring/JDBC   |                        |                           |
+|                        | /F_works/Akka          |                        |                           |
+|                        | <br>                                                                        |
+|                        | /Tools/Maven           | Tools/sbt              |                           |
+|                        | /Tools/IDEs            |                        |                           |
 
 * * *
 
-<br>
-<br>
+### Projects / Other
 
-### Hosted @ ![OctocatLocal](./assets/images/blacktocat.png)
-
-![Octocat](https://assets-cdn.github.com/images/icons/emoji/octocat.png)
+| [_**Linux**_](./topics/linux/linux.html) | [_**Projects**_](./topics/scala/scala.html)| [_**tbd**_](./topics/c/c.html) 
+|:-----------------------|:-----------------------|:--------------------------|
+| /dell9560_setup        | /Lang                  | /Lang                     |
