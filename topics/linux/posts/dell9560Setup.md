@@ -9,10 +9,8 @@ This note is about installing Ubuntu 18 `Bionic Beaver` on a Dell 9560 intended 
 The actual OS installation is very straightforward so I will skip it and focus on the tweaks needed to actually make the OS work.
 > sources:
 >
-> [Dell_XPS_15_9560 archlinux wiki](https://wiki.archlinux.org/index.php/Dell_XPS_15_9560)
-> 
-> [how-to-dual-boot-windows-10-and-ubuntu-18-04-on...](https://medium.com/@pwaterz/how-to-dual-boot-windows-10-and-ubuntu-18-04-on-the-15-inch-dell-xps-9570-with-nvidia-1050ti-gpu-4b9a2901493d)
->
+> [Dell_XPS_15_9560 archlinux wiki](https://wiki.archlinux.org/index.php/Dell_XPS_15_9560)<br>
+> [how-to-dual-boot-windows-10-and-ubuntu-18-04-on...](https://medium.com/@pwaterz/how-to-dual-boot-windows-10-and-ubuntu-18-04-on-the-15-inch-dell-xps-9570-with-nvidia-1050ti-gpu-4b9a2901493d)<br>
 > [rcasero issues fixed](https://github.com/rcasero/doc/issues)
 >
 
@@ -61,9 +59,9 @@ sudo add-apt-repository ppa:graphics-drivers/ppa
 sudo apt update
 sudo apt install nvidia-driver-410 #this driver will in time be different as they update it
 sudo prime-select intel #this will select the integrated intel card, which is less power hungry
-#sudo prime-select nvidia #this will select the high performance nvidia GTX 1050 card.
+# sudo prime-select nvidia #this will select the high performance nvidia GTX 1050 card.
 
-#using the nvidia chip decreases significantly battery life
+# using the nvidia chip decreases significantly battery life
 ```
 do not reboot
 * `GRUB`:
@@ -83,9 +81,9 @@ as you are editing `grub` you can also tune a few other options.
 ```bash
 GRUB_TIMEOUT=10 # this will give you more time into the grub screen (time is in secs)
 
-#with the 4K panel the default resolution is 4k. editing text in that res is mission impossible
-#select the one that suits you best running vbeinfo in the grub menu after booting up
-GRUB_GFXMODE=1920x1440x
+# with the 4K panel the default resolution is 4k. editing text in that res is mission impossible
+# select the one that suits you best running vbeinfo in the grub menu after booting up
+GRUB_GFXMODE=1920x1440
 
 # once you are done, save the file and then update the boot loader
 sudo update-grub
@@ -99,21 +97,35 @@ I installed a few recommended power management utils, thou I could not benchmark
 The **big noticeable** difference in power consumption and temperature drop was the switching from the nvidia card to the intel one.
 I leave the usual suspects for power management here
 
+```bash
+sudo apt install tlp tlp-rdw powertop
+sudo tlp start
+sudo powertop --auto-tune
+# auto tune will behave differently if the laptop is plugged or unplugged
+# reboot
+```
+
+last but not least:
+
 * Kernel update:
 
 ```bash
 uname -r 
-4.15.0-36-generic
-#running  uname -r will display your current kernel version
+-> 4.15.0-36-generic
+# running  uname -r will display your current kernel version
 
 sudo add-apt-repository ppa:teejee2008/ppa
 sudo apt install ukuu
 sudo ukuu --install-latest #ukuu can also be used graphically
 
-#accept the prompts and then reboot
-#after rebooting, run again uname -r to check you new kernel version is up
+# accept the prompts and then reboot
+# after rebooting, run again uname -r to check you new kernel version is up
 uname -r 
-4.18.15-041815-generic
+-> 4.18.15-041815-generic
 ```
 
 After all this tweaks my laptop ran smoothly.
+
+I connect and disconnect usb perifs without problems (USB mouse and kbd, headseat via jack) and connect and disconnect
+a 2nd 24inch monitor via hdmi without problems.
+Booting has no problems and sleep / wakeup has no issues
