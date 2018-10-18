@@ -11,9 +11,7 @@ These examples helped me practice or are hosted here as a quick personal referen
 
 Use them in full or in part if they help you out, but mind that...
 
-> ###### _**not**_ a single solution in this site is **"the truth"** about anything
- 
-Just one of many approaches to solve a given problem
+> ###### examples and solutions in this site are just one of many possible approaches to solve a given problem
 
 ### /Software_development_quick_links
 ###### /this is quick list of hot topics. Follow the parents for more content
@@ -41,4 +39,4 @@ Just one of many approaches to solve a given problem
 
 | [_**Linux**_](./topics/linux/linux.html) | [_**Projects**_](./topics/scala/scala.html)| [_**tbd**_](./topics/c/c.html) 
 |:-----------------------|:-----------------------|:--------------------------|
-| /dell9560_setup        | /Lang                  | /Lang                     |
+| /[dell9560_setup](/topics/linux/posts/dell9560Setup.html)| /Lang                  | /Lang                     |
