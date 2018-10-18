@@ -3,8 +3,9 @@ layout: default
 ---
 
 ## /some notes on programming, challenges, and self practice
-I am Johnny, you can read a bit about myself in the usual about.
-I am a software dev living in the south of London.
+I am Johnny, I am a software dev living in the south of London.<br>
+You can read a bit about myself in the usual [about](/about.html).
+
 I will be posting a few simple to real examples that helped me understand or review some concepts.
 Real examples are the ones that usually do not make lots of sense but are closer to 
 scenarios where impossible/unusual constrains drive the projects

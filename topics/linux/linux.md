@@ -13,7 +13,7 @@ layout: default
 
 #### /contrib
 * StackOverflow:
-* * [rythmbox plugin misbehaviour causing chinese chars dump in home folder]()
+* * [chinese-character-folder-created-at-startup](https://askubuntu.com/questions/826801/chinese-character-folder-created-at-startup/827257#827257)
 * ArchLinux wiki:
 * * [AMD Radeon black borders HDMI monitors]()
 
