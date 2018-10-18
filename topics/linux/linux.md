@@ -6,7 +6,8 @@ layout: default
 ### some notes on linux
 
 #### /setup_notes 
-* [Full Ubuntu 18.04 `Bionic Beaver` setup on laptop dell 9560](./posts/dell9560Setup.html)
+* [Ubuntu 18.04 `Bionic Beaver` setup on laptop dell 9560](./posts/dell9560Setup.html)
+* [a developer's setup (focused mainly on the jvm)](./posts/linuxJavaDev.html)
 
 <br>
 
