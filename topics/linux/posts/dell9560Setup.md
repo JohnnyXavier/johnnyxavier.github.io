@@ -35,7 +35,7 @@ access dell's bios by restarting or turning on the computer
 * * `Virtualization Support` -> `Enable Intel Virtualization Technology` should be enabled
 * * `Virtualization Support` -> `VT for Direct I/O` should be enabled
 * touchscreen settings
-* * `System Configuration` -> `touchscreen` : enable or disable it from here
+* * `System Configuration` -> `touchscreen` : enable or disable it from here, it works fine should you choose to leave it enabled
 
 ### /OS_installation
 * insert a flash drive with Ubuntu
@@ -126,6 +126,6 @@ uname -r
 
 After all this tweaks my laptop ran smoothly.
 
-I connect and disconnect usb perifs without problems (USB mouse and kbd, headseat via jack) and connect and disconnect
+I connect and disconnect usb perifs without problems (USB mouse and kbd, headseat via jack, externals ssd HD and mecha HD via usb) and connect and disconnect
 a 2nd 24inch monitor via hdmi without problems.
 Booting has no problems and sleep / wakeup has no issues

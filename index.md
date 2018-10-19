@@ -2,7 +2,7 @@
 layout: default
 ---
 
-## /some notes on programming, challenges, and self practice
+## /some notes on programming, challenges, and practice
 I am Johnny, I am a software dev living in the south of London.<br>
 You can read a bit about myself in the usual [about](/about.html).
 
@@ -40,7 +40,7 @@ Use them in full or in part if they help you out, but mind that...
 ### Projects / Other
 ###### /this is quick list of hot topics. Follow the headers and parents for more content
 
-| [_**Linux**_](./topics/linux/linux.html) | [_**Projects**_](./topics/scala/scala.html)| [_**tbd**_](./topics/c/c.html) 
+| [_**Language**_](./topics/linux/linux.html) | [_**Projects**_](./topics/scala/scala.html)| [_**tbd**_](./topics/c/c.html) 
 |:-----------------------|:-----------------------|:--------------------------|
 | /[dell_9560_setup](/topics/linux/posts/dell9560Setup.html)| /Lang                  | /Lang                     |
 | /[java_dev_env_setup](/topics/linux/posts/linuxJavaDev.html)| /Lang                  | /Lang                     |
