@@ -121,8 +121,36 @@ sudo ukuu --install-latest #ukuu can also be used graphically
 # accept the prompts and then reboot
 # after rebooting, run again uname -r to check you new kernel version is up
 uname -r 
--> 4.18.15-041815-generic
+-> 4.19.0-041900-generic
 ```
+a few 4.18.xxx kernels broke wi-fi but 4.19 has no problems so far
+
+* Boot up time with lvm partition setup
+boot times on 9560 with ssd are insane.
+you will get `Warning:Failed to connect to lvmetad. Falling back to device scanning.` after bootup and then back to gnome afterr some 30 seconds.
+
+Disabling `lvmetad` made the err go away but did not speed up boot times
+I tried this SO solution and worked fine without needing to disable `lvmetad`
+
+you need to update the `resume` conf file to point to your correct swap like this
+
+``` bash
+sudo fdisk -l | grep swap
+-> Disk /dev/mapper/ubuntu--vg-swap_1: 976 MiB, 1023410176 bytes, 1998848 sectors
+
+# your swap dev will look different, take a note of that device path
+# update the resume file
+# note that `tee` is invoqued without -a, so if you tweaked the resume file it will be overritten, add -a to append this and keep your previous config should you need it
+echo "RESUME=/dev/mapper/ubuntu--vg-swap_1" | sudo tee /etc/initramfs-tools/conf.d/resume
+
+# update initramfs for your current kernel
+sudo update-initramfs -k `uname -r` -u ; sync 
+
+sudo reboot
+```
+credits: [Slow boot with SSD and LVM on new install of 18.04](https://askubuntu.com/questions/1037457/slow-boot-with-ssd-and-lvm-on-new-install-of-18-04)
+
+boot time is now ~ 10 secs
 
 After all this tweaks my laptop ran smoothly.
 
