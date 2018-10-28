@@ -7,7 +7,7 @@ title:            /io_forge
 tagline:          some notes on programming
 description:      "some notes on programming"
 url:              https://github.com/johnnyxavier
-baseurl:          /
+baseurl:
                   # the optional subpath of your site, e.g. "/my-jekyll-site/"
                   # This will apply to all pages in your Jekyll site.
 
