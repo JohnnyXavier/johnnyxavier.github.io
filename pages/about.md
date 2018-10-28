@@ -1,7 +1,8 @@
 ---
 layout: page
-title:
+title: /About
 ---
+## About Me
 
 <p class="message">
   Hi there!<br>
@@ -9,7 +10,6 @@ title:
 </p>
 
 ## About io_forge
-
 I started writing these notes:
 
 * To track some info that was hard to come by over the net in a single place
@@ -23,5 +23,3 @@ Use the site knowing that there is no guarantee that your neighbour's wig won't 
 (formalities link down below)
 
 As my knowledge, tools, frameworks, versions, etc, evolve, so will the solutions.
-
-

@@ -4,13 +4,12 @@ highlighter:      rouge
 
 # Setup
 title:            /io_forge
-tagline:          some notes on programming
-description:      "some notes on programming"
+tagline:          some_notes_about_programming
+description:      some notes about programming
 url:              https://github.com/johnnyxavier
 baseurl:
                   # the optional subpath of your site, e.g. "/my-jekyll-site/"
                   # This will apply to all pages in your Jekyll site.
-
 
 author:
   name:           Johnny Xavier
@@ -28,7 +27,7 @@ plugins:
 # Custom vars
 version:            2.0.1
 license:            /license.html
-about:
+about:              /pages/about.html
 
 github:
   repo:             https://github.com/johnnyxavier/

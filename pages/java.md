@@ -1,11 +1,7 @@
 ---
 layout: page
 title: /java
-authority: rockySaurio
-
 ---
-## some notes on java
-
 <p class="message">
 Testing some darcula highlight
 </p>
