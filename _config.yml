@@ -1,7 +1,56 @@
-title: io_forge
-description: some notes on programming
-author: Johnny X
-show_downloads: true
-show_github_repo: true
-google_analytics:
-theme: jekyll-theme-hacker
+# Dependencies
+markdown:         kramdown
+highlighter:      rouge
+
+# Setup
+title:            /io_forge
+tagline:          some notes on programming
+description:      "some notes on programming"
+url:              https://github.com/johnnyxavier
+baseurl:          /
+                  # the optional subpath of your site, e.g. "/my-jekyll-site/"
+                  # This will apply to all pages in your Jekyll site.
+
+
+author:
+  name:           Johnny Xavier
+  url:
+
+paginate:         5
+# paginate_path:    '/page:num'
+# Or '/my-jekyll-site/page:num' if you want to move your index pages
+
+plugins:
+  - jekyll-feed
+  - jekyll-gist
+  - jekyll-paginate
+
+# Custom vars
+version:            2.0.1
+license:            /license.html
+about:
+
+github:
+  repo:             https://github.com/johnnyxavier/
+
+# draw your top menu here
+# each item must have a title and a url.
+#   To list post categories. use type: 'categories'
+#   To create sub categories. add a submenu item
+# See the example
+menu:
+- title: 'Programming'
+  url: '/programming'
+- title: 'Java'
+  url: '/java'
+- title: 'Scala'
+  url: '/scala'
+- title: 'C'
+  url: '/c'
+- title: 'Linux'
+  url: '#'
+  submenu:
+  - title: 'Code Highlighter'
+    url: '/intro/code-highlighting-post/'
+  - title: 'Sample Post'
+    url: '/intro/sample-post/'
