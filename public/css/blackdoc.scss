@@ -34,6 +34,7 @@ $mainBackground: #333333;
 $mainText: #c8c8c8;
 $sidebarBackground: #282828;
 $sidebarText: #969696;
+$sidebarText-highlight: #caad00;
 
 html {
   font-family: "PT Sans", Helvetica, Arial, sans-serif;
@@ -73,7 +74,7 @@ a {
 }
 
 a:hover {
-  color: #caad00;
+  color: $sidebarText-highlight;
 }
 
 .btn {
@@ -99,9 +100,9 @@ b {
 /* Code */
 
 code {
-  color: #2f7de6;
+  color: $sidebarText-highlight;
   white-space: pre-wrap;
-  background-color: #161616;
+  background-color: $sidebarBackground;
 }
 
 pre {
@@ -213,12 +214,12 @@ tbody tr:nth-child(odd) th {
 
 /* Sidebar links */
 .sidebar a {
-  color: #caad00;
+  color: $sidebarText-highlight;
 }
 
 /* About section */
 .sidebar-about h1 {
-  color: #caad00;
+  color: $sidebarText-highlight;
   margin-top: 0;
   font-family: 'Noto Serif', serif;
   font-size: 2.25rem;
@@ -292,7 +293,7 @@ a.sidebar-nav-item:focus {
 .page-title,
 .post-title,
 .post-title a {
-  color: #caad00;
+  color: $sidebarText-highlight;
 }
 
 /*
@@ -421,29 +422,4 @@ a.sidebar-nav-item:focus {
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #7d7d7d;
-}
-
-.code-title {
-  display:block;
-  text-align:left;
-  margin:0 20px;
-  padding:5px 20px;
-  -webkit-border-radius:5px 5px 0 0;
-  -moz-border-radius:5px 5px 0 0;
-  border-radius:5px 5px 0 0;
-  -webkit-box-shadow:0 3px 10px rgba(0,0,0,0.5);
-  -moz-box-shadow:0 3px 10px rgba(0,0,0,0.5);
-  box-shadow:0 3px 10px rgba(0,0,0,0.5);
-  font:400 16px/24px 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  color:#444;
-  text-shadow:0 1px 0 rgba(255,255,255,0.5);
-  background-color:#f7f7f7;
-  background-image:url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2Y3ZjdmNyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjclIiBzdG9wLWNvbG9yPSIjY2ZjZmNmIiBzdG9wLW9wYWNpdHk9IjEiLz4KICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2FhYWFhYSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgPC9saW5lYXJHcmFkaWVudD4KICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2dyYWQtdWNnZy1nZW5lcmF0ZWQpIiAvPgo8L3N2Zz4=);
-  background-image:-webkit-gradient(linear, left top, left bottom, from(#f7f7f7), color-stop(7%, #cfcfcf), to(#aaa));
-  background-image:-webkit-linear-gradient(top, #f7f7f7 0%, #cfcfcf 7%, #aaa 100%);
-  background-image:-moz-linear-gradient(top, #f7f7f7 0%, #cfcfcf 7%, #aaa 100%);
-  background-image:-o-linear-gradient(top, #f7f7f7 0%, #cfcfcf 7%, #aaa 100%);
-  background-image:linear-gradient(top, #f7f7f7 0%, #cfcfcf 7%, #aaa 100%);
-  filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7f7f7', endColorstr='#aaaaaa',GradientType=0 );
-  border-bottom:1px solid #111
 }
