@@ -19,9 +19,13 @@ Below is just about everything you’ll need to style in the theme. Check the so
 
 ##### Heading 5
 
-###### Heading 6
+###### Heading 6 {Used as code title}
 
 * * *
+
+
+<p class="message">this is a  message</p>
+
 
 Lorem ipsum dolor sit amet, [test link](# "test link") adipiscing elit. **This is strong.** Nullam dignissim convallis est. Quisque aliquam. _This is emphasized._ Donec faucibus. Nunc iaculis suscipit dui. 5<sup>3</sup> = 125\. Water is H<sub>2</sub>O. Nam sit amet sem. Aliquam libero nisi, imperdiet at, tincidunt nec, gravida vehicula, nisl. <cite>The New York Times</cite> (That’s a citation). <span style="text-decoration:underline;">Underline.</span> Maecenas ornare tortor. Donec sed tellus eget sapien fringilla nonummy. Mauris a ante. Suspendisse quam sem, consequat at, commodo vitae, feugiat in, nunc. Morbi imperdiet augue quis tellus.
 
@@ -144,8 +148,7 @@ Typographically, preformatted text is not the same thing as code. Sometimes, a f
 
 Code can be presented inline, like `<?php bloginfo('stylesheet_url'); ?>`, or within a `<pre>` block.
 
-CSS code
-
+######CSS code
 ```css
 #container {
     float: left;
@@ -155,8 +158,7 @@ CSS code
 }
 ```
 
-Ruby code
-
+######Ruby code
 ```ruby
 class Song
   def initialize(title, artist, album)

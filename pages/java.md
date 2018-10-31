@@ -16,6 +16,9 @@ Testing some darcula highlight
     * Spring
         * Spring boot
         * Spring data
+            * multiple datasources
+                * via anotations
+                * via .properties
         * Spring social
         * Spring security
         * Spring MQ
@@ -24,8 +27,7 @@ Testing some darcula highlight
     * Hibernate
 
 
-<p class="code-title">Java Syntax highlight demo</p>
-
+###### Java Syntax highlight demo
 ``` java
 import java.util.Arrays;
 import java.util.List;

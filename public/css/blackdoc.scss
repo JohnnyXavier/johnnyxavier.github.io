@@ -55,8 +55,7 @@ h1,
 h2,
 h3,
 h4,
-h5,
-h6 {
+h5 {
   color: #aaa;
   margin-bottom: .5rem;
   font-weight: bold;
@@ -78,7 +77,7 @@ h3 {
   font-size: 1.25rem;
 }
 
-h4, h5, h6 {
+h4, h5 {
   margin-top: 1rem;
   font-size: 1rem;
 }
@@ -87,8 +86,7 @@ h1 a,
 h2 a,
 h3 a,
 h4 a,
-h5 a,
-h6 a {
+h5 a {
   color: #50585d;
   font-kerning: auto;
   font-feature-settings: "kern", "liga", "dlig", "hlig", "cswh";
@@ -99,8 +97,7 @@ h1 a:hover,
 h2 a:hover,
 h3 a:hover,
 h4 a:hover,
-h5 a:hover,
-h6 a:hover {
+h5 a:hover {
   color: #ffeb99;
 }
 
@@ -160,6 +157,20 @@ pre {
   font-family: Menlo, Monaco, "Courier New", monospace;
 }
 
+pre {
+  display: block;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  font-size: .8rem;
+  line-height: 1.4;
+  white-space: pre;
+  white-space: pre-wrap;
+  word-break: break-all;
+  word-wrap: break-word;
+  background-color: #f9f9f9;
+}
+
 pre code {
   padding: 0;
   font-size: 100%;
@@ -181,6 +192,25 @@ pre {
   background-color: #222;
 }
 
+/* Misc */
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+abbr {
+  font-size: 85%;
+  font-weight: bold;
+  color: #555;
+  text-transform: uppercase;
+}
+
+abbr[title] {
+  cursor: help;
+  border-bottom: 1px dotted #e5e5e5;
+}
+
 pre {
   white-space: pre;
   overflow: auto !important;
@@ -196,8 +226,36 @@ hr {
 }
 
 blockquote {
-  color: #666;
+  padding: .5rem 1rem;
+  margin: .8rem 0;
+  color: #8c8c8c;
   border-left: .25rem solid #333;
+}
+
+blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+@media (min-width: 30em) {
+  blockquote {
+    padding-right: 5rem;
+    padding-left: 1.25rem;
+  }
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  margin: 0 0 1rem;
+  border-radius: 5px;
+}
+
+/* Tables */
+table {
+  margin-bottom: 1rem;
+  width: 100%;
+  border: 1px solid #e5e5e5;
+  border-collapse: collapse;
 }
 
 td,
@@ -235,18 +293,35 @@ tbody tr:nth-child(odd) th {
  * or to a parent if there are multiple elements to show.
  */
 
+.lead {
+  font-size: 1.25rem;
+  font-weight: 300;
+}
+
 .message {
-  color: #bbb;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  color: $sidebarText-highlight;
   background-color: #333;
 }
 
 /* Gist */
+.gist .gist-file .gist-data {
+  font-size: .8rem !important;
+  line-height: 1.4;
+}
+
+.gist .gist-file {
+  font-family: Menlo, Monaco, "Courier New", monospace !important;
+}
+
 .gist-data {
   background-color: #222 !important;
   border-bottom: 1px solid #333 !important;
 }
 
 .gist .markdown-body {
+  padding: 15px;
   color: #999 !important;
 }
 
@@ -262,6 +337,18 @@ tbody tr:nth-child(odd) th {
   background-color: #222 !important;
 }
 
+.gist pre {
+  padding: 0;
+  background-color: transparent;
+}
+
+.gist code {
+  padding: 0;
+  color: inherit;
+  background-color: transparent;
+  border-radius: 0;
+}
+
 /*
  * Sidebar
  *
@@ -271,7 +358,7 @@ tbody tr:nth-child(odd) th {
 
 .sidebar {
   text-align: center;
-  padding: 2rem 1rem;
+  padding: 1rem 1rem;
   color: $sidebarText;
   background-color: $sidebarBackground;
   overflow: auto;
@@ -293,6 +380,10 @@ tbody tr:nth-child(odd) th {
   color: $sidebarText-highlight;
 }
 
+.sidebar a:hover {
+  color: #ffeb99;
+}
+
 /* About section */
 .sidebar-about h1 {
   color: $sidebarText-highlight;
@@ -311,13 +402,17 @@ tbody tr:nth-child(odd) th {
   line-height: 1.75;
 }
 
-a.sidebar-nav-item:hover,
+a.sidebar-nav-item:hover {
+  text-decoration: none;
+}
+
 a.sidebar-nav-item:focus {
   text-decoration: underline;
 }
 
 .sidebar-nav-item.active {
   font-weight: bold;
+  text-decoration: underline;
 }
 
 /* Sticky sidebar
@@ -339,10 +434,19 @@ a.sidebar-nav-item:focus {
  *
  * Align the contents of the site above the proper threshold with some margin-fu
  * with a 25%-wide `.sidebar`.
+ * Center the page content.
  */
 
+.container {
+  max-width: 36rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .content {
-  padding-top: 2rem;
+  padding-top: 1rem;
   padding-bottom: 4rem;
 }
 
@@ -513,4 +617,158 @@ a.sidebar-nav-item:focus {
 
 ::-webkit-scrollbar-thumb:hover {
   background: #7d7d7d;
+}
+
+
+/*
+POOLE CSS RULES TO REVIEW
+
+
+*/
+
+
+/*
+ * Masthead
+ *
+ * Super small header above the content for site name and short description.
+ */
+
+.masthead {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  margin-bottom: 3rem;
+}
+
+.masthead-title {
+  margin-top: 0;
+  margin-bottom: 0;
+  color: #505050;
+}
+
+.masthead-title a {
+  color: #505050;
+}
+
+.masthead-title small {
+  font-size: 75%;
+  font-weight: 400;
+  color: #c0c0c0;
+  letter-spacing: 0;
+}
+
+/*
+ * Posts and pages
+ *
+ * Each post is wrapped in `.post` and is used on default and post layouts. Each
+ * page is wrapped in `.page` and is only used on the page layout.
+ */
+
+.page,
+.post {
+  margin-bottom: 4em;
+}
+
+/* Blog post or page title */
+.page-title,
+.post-title,
+.post-title a {
+  color: #303030;
+}
+
+.page-title,
+.post-title {
+  margin-top: 0;
+}
+
+/* Meta data line below post title */
+.post-date {
+  display: block;
+  margin-top: -.5rem;
+  margin-bottom: 1rem;
+  color: #9a9a9a;
+}
+
+/* Related posts */
+.related {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  border-top: 1px solid #eee;
+}
+
+.related-posts {
+  padding-left: 0;
+  list-style: none;
+}
+
+.related-posts h3 {
+  margin-top: 0;
+}
+
+.related-posts li small {
+  font-size: 75%;
+  color: #999;
+}
+
+.related-posts li a:hover {
+  color: #268bd2;
+  text-decoration: none;
+}
+
+.related-posts li a:hover small {
+  color: inherit;
+}
+
+/*
+ * Pagination
+ *
+ * Super lightweight (HTML-wise) blog pagination. `span`s are provide for when
+ * there are no more previous or next posts to show.
+ */
+
+.pagination {
+  overflow: hidden; /* clearfix */
+  margin-left: -1rem;
+  margin-right: -1rem;
+  font-family: "PT Sans", Helvetica, Arial, sans-serif;
+  color: #ccc;
+  text-align: center;
+}
+
+/* Pagination items can be `span`s or `a`s */
+.pagination-item {
+  display: block;
+  padding: 1rem;
+  border: 1px solid #eee;
+}
+
+.pagination-item:first-child {
+  margin-bottom: -1px;
+}
+
+/* Only provide a hover state for linked pagination items */
+a.pagination-item:hover {
+  background-color: #f5f5f5;
+}
+
+@media (min-width: 30em) {
+  .pagination {
+    margin: 3rem 0;
+  }
+
+  .pagination-item {
+    float: left;
+    width: 50%;
+  }
+
+  .pagination-item:first-child {
+    margin-bottom: 0;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+  }
+
+  .pagination-item:last-child {
+    margin-left: -1px;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+  }
 }
