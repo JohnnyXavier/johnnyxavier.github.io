@@ -11,9 +11,8 @@ baseurl:
                   # the optional subpath of your site, e.g. "/my-jekyll-site/"
                   # This will apply to all pages in your Jekyll site.
 
-author:
-  name:           Johnny Xavier
-  url:
+authorName:           Johnny Xavier
+authorAbout:          /pages/about.html
 
 paginate:         5
 # paginate_path:    '/page:num'
@@ -30,7 +29,7 @@ license:            /license.html
 about:              /pages/about.html
 
 github:
-  repo:             https://github.com/johnnyxavier/
+  repo:             https://github.com/johnnyxavier
 
 # draw your top menu here
 # each item must have a title and a url.

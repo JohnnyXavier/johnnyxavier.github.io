@@ -3,25 +3,28 @@ layout: default
 ---
 
 <div class="post">
-  <h1 class="post-title">{{ page.title }}</h1>
-  <span class="post-date">{{ page.date | date_to_string }}</span>
-  <span class="related-posts">{{ site.author.name }}</span>
-  <hr>
+    <h1 class="post-title">{{ page.title }}</h1>
+    <span class="post-date">created: {{ page.date | date_to_string }}</span>
+    {% if page.updated != null %}
+    <span class="post-update"> | updated: {{ page.updated | date_to_string }}</span>
+    {% endif %}
+    <span class="post-author">by: <a href="{{site.about}}">{{ site.authorName }}</a></span>
+    <hr>
     {{ content }}
 </div>
 
 <div class="related">
-  <h2>Related Posts</h2>
-  <ul class="related-posts">
-    {% for post in site.related_posts limit:3 %}
-      <li>
-        <h3>
-          <a href="{{ site.baseurl }}{{ post.url }}">
-            {{ post.title }}
-            <small>{{ post.date | date_to_string }}</small>
-          </a>
-        </h3>
-      </li>
-    {% endfor %}
-  </ul>
+    <h2>Related Posts</h2>
+    <ul class="related-posts">
+        {% for post in site.related_posts limit:3 %}
+        <li>
+            <h3>
+                <a href="{{ site.baseurl }}{{ post.url }}">
+                    {{ post.title }}
+                    <small>{{ post.date | date_to_string }}</small>
+                </a>
+            </h3>
+        </li>
+        {% endfor %}
+    </ul>
 </div>
