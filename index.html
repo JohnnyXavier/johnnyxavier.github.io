@@ -3,6 +3,26 @@ layout: default
 title: Home
 ---
 
+<div>
+    top intro
+</div>
+
+<div class="latestsCategories">
+    <div class="cards">
+        top 5 new articles overall
+    </div>
+</div>
+
+<div class="latestsCategories">
+    for(category: categories)
+    {
+    <div class="cards">
+        top 5 new in each category
+    </div>
+    }
+</div>
+
+
 <div class="posts">
     {% for post in paginator.posts %}
     <div class="post">
