@@ -14,7 +14,7 @@ baseurl:
 authorName:           Johnny Xavier
 authorAbout:          /pages/about.html
 
-paginate:         5
+paginate:         4
 # paginate_path:    '/page:num'
 # Or '/my-jekyll-site/page:num' if you want to move your index pages
 

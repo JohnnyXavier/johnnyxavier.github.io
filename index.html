@@ -28,9 +28,8 @@ title: Home
     <a href="{{post.url}}">
         <div class="card">
             <div class="card-title">{{ post.title }}</div>
-            <img src="{{ site.baseurl }}/public/images/{{ post.image }}">
+            <img class="card-img" src="{{ site.baseurl }}/public/images/{{ post.image }}">
             <div class="card-container">
-                <!--<div class="card-title">{{ post.title }}</div>-->
                 <div class="card-extract">{{ post.extract}}</div>
                 <div class="card-author">by {{ post.author}}</div>
                 <div class="card-date">{{ post.date | date_to_string }}</div>
@@ -39,25 +38,9 @@ title: Home
     </a>
     {% endfor %}
 </div>
+<hr class="latest">
 
-<div class="latest">
-    {% for post in paginator.posts%}
-    <div class="card">
-        <img src="{{ site.baseurl }}/public/images/Ubuntu-18-04-LTS-Bionic-Beaver.png">
-        <div class="container">
-            <h4>{{ post.title }}</h4>
-            <p>{{ post.extract }}</p>
-            <div class="post-date">{{ post.date }}</div>
-        </div>
-    </div>
-    {% endfor %}
-</div>
-
-<div class="latest">
-</div>
-<hr>
-
-
+<!--
 <div class="post">
     {% for post in paginator.posts %}
     <div class="post">
@@ -89,4 +72,4 @@ title: Home
     {% else %}
     <span class="pagination-item newer">Newer</span>
     {% endif %}
-</div>
+</div>-->
