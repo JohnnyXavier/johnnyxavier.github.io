@@ -3,27 +3,62 @@ layout: default
 title: Home
 ---
 
-<div>
-    top intro
+<h1 class="post-title">About io_forge</h1>
+<h2>Some notes about programming</h2>
+<p>I started writing these notes:</p>
+
+<ul>
+    <li>To track some info that was hard to come by over the net</li>
+    <li>To practice a few topics by trying to explain them</li>
+    <li>To share a few findings I found when trying to figure out some strange problems</li>
+</ul>
+
+<p>Feel free to share, use and modify any or all pieces of code or procedures you find here.<br/>
+    Mind that no solution proposed here is a definite solution, or the best solution
+    or sometimes even maybe a bad solution.<br/>
+    Use the site knowing that there is no guarantee that your neighbour’s wig won’t catch fire if you implement
+    an algorithm from this site.</p>
+
+<p>As my knowledge, tools, frameworks, versions, etc, evolve, so will the solutions.</p>
+
+<hr>
+
+<div class="latest">
+    {% for post in paginator.posts%}
+    <a href="{{post.url}}">
+        <div class="card">
+            <div class="card-title">{{ post.title }}</div>
+            <img src="{{ site.baseurl }}/public/images/{{ post.image }}">
+            <div class="card-container">
+                <!--<div class="card-title">{{ post.title }}</div>-->
+                <div class="card-extract">{{ post.extract}}</div>
+                <div class="card-author">by {{ post.author}}</div>
+                <div class="card-date">{{ post.date | date_to_string }}</div>
+            </div>
+        </div>
+    </a>
+    {% endfor %}
 </div>
 
-<div class="latestsCategories">
-    <div class="cards">
-        top 5 new articles overall
+<div class="latest">
+    {% for post in paginator.posts%}
+    <div class="card">
+        <img src="{{ site.baseurl }}/public/images/Ubuntu-18-04-LTS-Bionic-Beaver.png">
+        <div class="container">
+            <h4>{{ post.title }}</h4>
+            <p>{{ post.extract }}</p>
+            <div class="post-date">{{ post.date }}</div>
+        </div>
     </div>
+    {% endfor %}
 </div>
 
-<div class="latestsCategories">
-    for(category: categories)
-    {
-    <div class="cards">
-        top 5 new in each category
-    </div>
-    }
+<div class="latest">
 </div>
+<hr>
 
 
-<div class="posts">
+<div class="post">
     {% for post in paginator.posts %}
     <div class="post">
         <h1 class="post-title">

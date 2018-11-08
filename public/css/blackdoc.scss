@@ -36,8 +36,9 @@ $mainBackground: #333333;
 $mainText: #c8c8c8;
 $sidebarBackground: #282828;
 $sidebarText: #969696;
-$sidebarText-highlight: #caad00;
+$sidebarText-Links: #caad00;
 $alternativeText: #268bd2;
+$text-hover: #ffeb99;
 
 html {
   font-family: "PT Sans", Helvetica, Arial, sans-serif;
@@ -111,17 +112,17 @@ h2 a:hover,
 h3 a:hover,
 h4 a:hover,
 h5 a:hover {
-  color: #ffeb99;
+  color: $text-hover;
 }
 
 a {
-  color: #ffeb99;
+  color: $text-hover;
   transition: color ease 0.3s;
   text-decoration: none;
 }
 
 a:hover {
-  color: $sidebarText-highlight;
+  color: $sidebarText-Links;
 }
 
 .btn {
@@ -194,7 +195,7 @@ pre code {
 
 code {
   padding: .25em .5em;
-  color: $sidebarText-highlight;
+  color: $sidebarText-Links;
   white-space: pre-wrap;
   font-size: 85%;
   background-color: $sidebarBackground;
@@ -357,14 +358,15 @@ a.pagination-item:hover {
  */
 
 .lead {
-  font-size: 1.25rem;
-  font-weight: 300;
+  font-size: 1rem;
+  color: $text-hover;
+  font-style: italic;
 }
 
 .message {
   margin-bottom: 1rem;
   padding: 1rem;
-  color: $sidebarText-highlight;
+  color: $sidebarText-Links;
   background-color: #333;
 }
 
@@ -413,6 +415,46 @@ a.pagination-item:hover {
 }
 
 /*
+ * cards
+ */
+.latest {
+  clear: both;
+}
+
+.card {
+  background: #3c3c3c;
+  box-shadow: 0 16px 32px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  transition: 0.3s;
+  max-width: 250px;
+  margin: 5px;
+  float: left;
+  font-size: 0.9em;
+}
+
+.card:hover {
+  box-shadow: 0 32px 64px 0 rgba(0, 0, 0, 0.2);
+}
+
+.card-title {
+  text-align: center;
+  font-weight: bold;
+  margin: 5px 0;
+}
+
+.card-extract {
+  margin: 5px 0;
+}
+
+.card-date {
+  margin: 5px 0;
+}
+
+.card-container {
+  padding: 0 10px 5px;
+}
+
+/*
  * Sidebar
  *
  * Flexible banner for housing site name, intro, and "footer" content. Starts
@@ -440,16 +482,16 @@ a.pagination-item:hover {
 
 /* Sidebar links */
 .sidebar a {
-  color: $sidebarText-highlight;
+  color: $sidebarText-Links;
 }
 
 .sidebar a:hover {
-  color: #ffeb99;
+  color: $text-hover;
 }
 
 /* About section */
 .sidebar-about h1 {
-  color: $sidebarText-highlight;
+  color: $sidebarText-Links;
   margin-top: 0;
   font-family: 'Noto Serif', serif;
   font-size: 2.25rem;
@@ -545,7 +587,7 @@ a.sidebar-nav-item:focus {
 .page-title,
 .post-title,
 .post-title a {
-  color: $sidebarText-highlight;
+  color: $sidebarText-Links;
 }
 
 .page-title,

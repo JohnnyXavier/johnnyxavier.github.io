@@ -6,15 +6,15 @@ title: /About
 
 <p class="message">
   Hi there!<br>
-  My name is John Xavier, a tech enthousiast writting some notes on the web
+  My name is John Xavier, a tech enthousiast writting some notes about programming
 </p>
 
 ## About io_forge
 I started writing these notes:
 
-* To track some info that was hard to come by over the net in a single place
+* To track some info that was hard to come by over the net
 * To practice a few topics by trying to explain them
-* to share a few findings I found myself when trying to figure out some strange problems
+* To share a few findings I found when trying to figure out some strange problems
 
 Feel free to share, use and modify any or all pieces of code or procedures you find here.<br>
 Mind that no solution proposed here is a definite solution, or the best solution
