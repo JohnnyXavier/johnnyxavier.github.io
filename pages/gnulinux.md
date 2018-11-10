@@ -2,7 +2,7 @@
 layout: page
 title: /Gnu_linux
 ---
-This is a microblog about a few things GNU\linux
+This is a collection of notes about a few things GNU\linux
 
 
 I will be collecting here some guides on installation troubleshooting and problem resolution

@@ -2,9 +2,19 @@
 layout: page
 title: /java
 ---
-<p class="message">
-Testing some darcula highlight
-</p>
+This is a collection of notes about a few things Java
+
+<ul>
+  {% for post in site.posts %}
+        {% for tag in post.tags  %}
+        {% if tag == "java" and tag == "language"  %}
+    <li>
+      <a href="{{ post.url }}">{{ post.date | date_to_string }} - {{ post.title }}</a>
+    </li>
+        {% endif %}
+        {% endfor %}
+  {% endfor %}
+</ul>
 
 * Language
     * evolution of For

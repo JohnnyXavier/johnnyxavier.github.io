@@ -14,62 +14,57 @@ title: Home
 </ul>
 
 <p>Feel free to share, use and modify any or all pieces of code or procedures you find here.<br/>
-    Mind that no solution proposed here is a definite solution, or the best solution
-    or sometimes even maybe a bad solution.<br/>
-    Use the site knowing that there is no guarantee that your neighbour’s wig won’t catch fire if you implement
-    an algorithm from this site.</p>
+    Mind that not a single solution proposed here is a definite solution, or the best solution
+    or sometimes even may be a bad solution.<br/>
+    Use the site knowing that there is no guarantee that your neighbour’s wig won’t catch fire if you follow
+    a note from here.</p>
 
 <p>As my knowledge, tools, frameworks, versions, etc, evolve, so will the solutions.</p>
 
 <hr>
 
 <div class="latest">
+    <h2>Latest notes on <strong>{{site.title}}</strong></h2>
     {% for post in paginator.posts%}
     <a href="{{post.url}}">
         <div class="card">
+            <div class="card-category">{{ post.categories | join: " " | upcase }}</div>
             <div class="card-title">{{ post.title }}</div>
-            <img class="card-img" src="{{ site.baseurl }}/public/images/{{ post.image }}">
-            <div class="card-container">
-                <div class="card-extract">{{ post.extract}}</div>
-                <div class="card-author">by {{ post.author}}</div>
-                <div class="card-date">{{ post.date | date_to_string }}</div>
+            <div class="card-body">
+                <img class="card-img" src="{{ site.baseurl }}/public/images/{{ post.image }}">
+                <div class="card-container">
+                    <div class="card-extract">{{ post.extract}}</div>
+                    <div class="card-author">by {{ post.author}}</div>
+                    <div class="card-date">{{ post.date | date_to_string }}</div>
+                </div>
             </div>
         </div>
     </a>
     {% endfor %}
 </div>
+
 <hr class="latest">
 
-<!--
-<div class="post">
-    {% for post in paginator.posts %}
-    <div class="post">
-        <h1 class="post-title">
-            <a href="{{ site.baseurl }}{{ post.url }}">
-                {{ post.title }}
-            </a>
-        </h1>
-
-        <span class="post-date">{{ post.date | date_to_string }}</span>
-
-        {{ post.content }}
-    </div>
+{% for category  in site.categories%}
+{% capture category_name %}{{ category | first }}{% endcapture %}
+<div class="latest">
+    <h2>Latest notes on <strong>/{{ category_name }}</strong></h2>
+    {% for post in site.categories[category_name] limit:4%}
+    <a href="{{post.url}}">
+        <div class="card">
+            <div class="card-title">{{ post.title }}</div>
+            <div class="card-body">
+                <img class="card-img" src="{{ site.baseurl }}/public/images/{{ post.image }}">
+                <div class="card-container">
+                    <div class="card-extract">{{ post.extract}}</div>
+                    <div class="card-author">by {{ post.author}}</div>
+                    <div class="card-date">{{ post.date | date_to_string }}</div>
+                </div>
+            </div>
+        </div>
+    </a>
     {% endfor %}
 </div>
 
-<div class="pagination">
-    {% if paginator.next_page %}
-    <a class="pagination-item older" href="{{ site.baseurl }}page{{paginator.next_page}}">Older</a>
-    {% else %}
-    <span class="pagination-item older">Older</span>
-    {% endif %}
-    {% if paginator.previous_page %}
-    {% if paginator.page == 2 %}
-    <a class="pagination-item newer" href="{{ site.baseurl }}">Newer</a>
-    {% else %}
-    <a class="pagination-item newer" href="{{ site.baseurl }}page{{paginator.previous_page}}">Newer</a>
-    {% endif %}
-    {% else %}
-    <span class="pagination-item newer">Newer</span>
-    {% endif %}
-</div>-->
+<hr class="latest">
+{% endfor%}

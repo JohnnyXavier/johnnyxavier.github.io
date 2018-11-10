@@ -419,29 +419,58 @@ a.pagination-item:hover {
  */
 .latest {
   clear: both;
+  width: 100%;
+}
+
+@media (max-width: 30em) {
+  .latest {
+    text-align: center;
+  }
 }
 
 .card {
-  background: #3c3c3c;
-  box-shadow: 0 16px 32px 0 rgba(0, 0, 0, 0.2);
-  border-radius: 5px;
+  font-size: 0.9em;
+  max-width: 200px;
+  margin: 5px;
+  display: inline-block;
+}
+
+.card-body {
   transition: 0.3s;
-  max-width: 250px;
-  margin: 10px;
-  float: left;
+  box-shadow: 0 16px 32px 0 rgba(0, 0, 0, 0.2);
+  background: #3c3c3c;
+  margin-top: 7.5px;
+  border-radius: 5px;
+}
+
+.card-category {
+  transition: 0.3s;
+  color: $sidebarText-Links;
+  background: #3c3c3c;
+  border-radius: 5px;
+  box-shadow: 0 16px 32px 0 rgba(0, 0, 0, 0.2);
+  text-align: center;
+  font-weight: bold;
+  font-size: 0.9em;
+  margin-bottom: 7.5px;
+}
+
+.card-title {
+  transition: 0.3s;
+  color: $sidebarText-Links;
+  background: #3c3c3c;
+  border-radius: 5px;
+  box-shadow: 0 16px 32px 0 rgba(0, 0, 0, 0.2);
+  text-align: center;
+  font-weight: bold;
   font-size: 0.9em;
 }
 
 .card:hover {
-  box-shadow: 0 32px 64px 0 rgba(0, 0, 0, 0.2);
-}
-
-.card-title {
-  border-radius: 5px;
-  box-shadow: 0 5px 0 rgba(0, 0, 0, 0.2);
-  text-align: center;
-  font-weight: bold;
-  margin: 5px 0;
+  .card-title {
+    box-shadow: 0 16px 32px 0 rgba(99, 99, 99, 0.93);
+    color: $text-hover;
+  }
 }
 
 .card-img {
@@ -456,11 +485,18 @@ a.pagination-item:hover {
 .card-date {
   margin: 5px 0;
   font-size: 0.9em;
-  color: $mainText;
+  text-align: right;
+  color: $sidebarText;
+}
+
+.card-author {
+  margin: 5px 0;
+  font-size: 0.9em;
+  color: $sidebarText;
 }
 
 .card-container {
-  padding: 0 10px 5px;
+  margin: 0 5px;
 }
 
 /*
@@ -494,16 +530,30 @@ a.pagination-item:hover {
   color: $sidebarText-Links;
 }
 
+.sidebar hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: rgba(235, 242, 246, 0.29) 1px solid;
+  margin: 0.5em 0;
+  padding: 0;
+}
+
 .sidebar a:hover {
   color: $text-hover;
 }
 
 /* About section */
+a.sidebar-about {
+  color: $alternativeText;
+  font-family: 'Noto Serif', serif;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
 .sidebar-about h1 {
   color: $sidebarText-Links;
   margin-top: 0;
-  font-family: 'Noto Serif', serif;
-  font-size: 2.25rem;
 }
 
 /* Sidebar nav */
