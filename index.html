@@ -31,7 +31,10 @@ title: Home
             <div class="card-category">{{ post.categories | join: " " | upcase }}</div>
             <div class="card-title">{{ post.title }}</div>
             <div class="card-body">
-                <img class="card-img" src="{{ site.baseurl }}/public/images/{{ post.image }}">
+                <div class="card-img">
+                    <div class="centerer"></div>
+                    <img src="{{ site.baseurl }}/public/images/{{ post.image }}">
+                </div>
                 <div class="card-container">
                     <div class="card-extract">{{ post.extract}}</div>
                     <div class="card-author">by {{ post.author}}</div>
@@ -54,7 +57,10 @@ title: Home
         <div class="card">
             <div class="card-title">{{ post.title }}</div>
             <div class="card-body">
-                <img class="card-img" src="{{ site.baseurl }}/public/images/{{ post.image }}">
+                <div class="card-img">
+                    <div class="centerer"></div>
+                    <img src="{{ site.baseurl }}/public/images/{{ post.image }}">
+                </div>
                 <div class="card-container">
                     <div class="card-extract">{{ post.extract}}</div>
                     <div class="card-author">by {{ post.author}}</div>
