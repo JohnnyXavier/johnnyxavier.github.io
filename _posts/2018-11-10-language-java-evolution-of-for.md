@@ -57,3 +57,26 @@ names.forEach(name -> doSomething(name));
 ```java
 names.forEach(this::doSomething);
 ```
+
+### *as a bonus, an oldie not very known... the `ListIterator<T>` added in J2 is close to the `iterator` with the added possibility of backwards traversing a list*
+it is basically written as as iterator with the difference that when you want to traverse backwards a list you specify the element on the list you want use as the point from where you want to move backwards.
+We are going to start from the very end of the list in this example.
+
+forward
+```java
+// traversing forward
+// same form as the Iterator  but we use the ListIterator interface instead
+for (ListIterator<String> listIterator = names.listIterator(); listIterator.hasNext(); ) {
+    doSomething(listIterator.next());
+}
+```
+
+backwards
+```java
+// traversing backwards
+// we specify here the size of the list to position the iterator cursor at the very end of the list
+for (ListIterator<String> listIterator = names.listIterator(names.size()); listIterator.hasPrevious(); ) {
+    doSomething(listIterator.previous());
+}
+}
+```

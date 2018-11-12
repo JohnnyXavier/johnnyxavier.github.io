@@ -5,7 +5,7 @@ author: Johnny Xavier
 image: java-logo.png
 updated:
 categories: java
-extract: This note is about showing how to filter the elements of a <strong>List</strong> with J8 <strong>streams</strong> and filters next to the classic conditional <strong>if</strong> 
+extract: This note is about showing how to filter the elements of a <strong>List</strong> with J8 <strong>streams</strong> and J8 <strong>filters</strong> next to the classic conditional <strong>if</strong> 
 tags: java language
 ---
 
