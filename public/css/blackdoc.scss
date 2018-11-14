@@ -426,11 +426,25 @@ a.pagination-item:hover {
   .latest {
     text-align: center;
   }
+  .card {
+    max-width: 45%;
+  }
+  .card-img img {
+    height: 0;
+  }
+}
+
+@media (min-width: 30em) {
+  .card {
+    max-width: 200px;
+  }
+  .card-img img {
+    max-width: 100%;
+  }
 }
 
 .card {
   font-size: 0.9em;
-  max-width: 200px;
   margin: 5px;
   display: inline-block;
   vertical-align: top;
