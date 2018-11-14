@@ -1,19 +1,45 @@
 ---
 layout: page
 title: /java
+categories: java
 ---
 This is a collection of notes about a few things Java
 
+<div class="latest">
+    <h2>Latest notes on <strong>/{{ page.categories }}</strong></h2>
+    {% for post in site.categories[page.categories] limit:4%}
+    <a href="{{post.url}}">
+        <div class="card">
+            <div class="card-title">{{ post.title }}</div>
+            <div class="card-body">
+                <div class="card-img">
+                    <div class="centerer"></div>
+                    <img src="{{ site.baseurl }}/public/images/{{ post.image }}">
+                </div>
+                <div class="card-container">
+                    <div class="card-extract">{{ post.extract}}</div>
+                    <div class="card-author">by {{ post.author}}</div>
+                    <div class="card-date">{{ post.date | date_to_string }}</div>
+                </div>
+            </div>
+        </div>
+    </a>
+    {% endfor %}
+</div>
+
+***
+
+##### /java_language_related_notes
 <ul>
-  {% for post in site.posts %}
+    {% for post in site.categories[page.categories] %}
         {% for tag in post.tags  %}
-        {% if tag == "java" and tag == "language"  %}
-    <li>
-      <a href="{{ post.url }}">{{ post.date | date_to_string }} - {{ post.title }}</a>
-    </li>
-        {% endif %}
+            {% if tag contains "language"  %}
+                <li>
+                  <a href="{{ post.url }}">{{ post.date | date_to_string }} - {{ post.title }} [{{post.tags |join: ", "}}]</a>
+                </li>
+            {% endif %}
         {% endfor %}
-  {% endfor %}
+    {% endfor %}
 </ul>
 
 * Language
@@ -22,45 +48,39 @@ This is a collection of notes about a few things Java
         * JDBC / postgreSQL queries
         * MVC no spring
         * MVC no spring
-* frameworks
-    * Spring
-        * Spring boot
-        * Spring data
-            * multiple datasources
-                * via anotations
-                * via .properties
-        * Spring social
-        * Spring security
-        * Spring MQ
-    * Akka
-        * Akka FSM
+
+***
+## /java_Frameworks_related_notes
+##### /java_SpringFramework_related_notes
+<ul>
+    {% for post in site.categories[page.categories] %}
+        {% for tag in post.tags  %}
+            {% if tag contains "Spring"  %}
+                <li>
+                  <a href="{{ post.url }}">{{ post.date | date_to_string }} - {{ post.title }}</a>
+                </li>
+            {% endif %}
+        {% endfor %}
+    {% endfor %}
+</ul>
+
+* Spring
+    * Spring boot
+    * Spring data
+        * multiple datasources
+            * via anotations
+            * via .properties
+    * Spring social
+    * Spring security
+    * Spring MQ
+
+***
+##### /java_Akka_related_notes
+
+* Akka
+    * Akka FSM
+
+##### /java_JBOSS_javaFrameworks_related_notes
+
+*JBOSS
     * Hibernate
-
-
-###### Java Syntax highlight demo
-``` java
-import java.util.Arrays;
-import java.util.List;
-
-public class Main {
-    private static final List<String> strings = Arrays.asList("hello", "World");
-
-    public static void main(String[] args) {
-
-        for (String string : strings) {
-            System.out.println(string);
-        }
-
-        strings.forEach(System.out::println);
-    }
-    
-    private static anotherfunction(List<String> messages){
-
-        for (int i = 0; i < messages.size; i++) {
-
-            System.out.println(messages[i]);
-        }
-    }
-}
-```
-

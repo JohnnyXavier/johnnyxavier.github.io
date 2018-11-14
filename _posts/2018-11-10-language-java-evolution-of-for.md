@@ -6,7 +6,7 @@ image: java-logo.png
 updated:
 categories: java
 extract: This note is about the different possibilities to write a for loop in java across time and different versions 
-tags: java language
+tags: language Java8
 ---
 
 Lets show the different alternatives of the for  loop in java applied to a List<Strings>
