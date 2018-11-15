@@ -13,6 +13,7 @@ baseurl:
 
 authorName:           Johnny Xavier
 authorAbout:          /pages/about.html
+comments:           true
 
 paginate:         4
 # paginate_path:    '/page:num'
