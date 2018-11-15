@@ -1,0 +1,23 @@
+<div class="latest">
+    <h2>Latest notes on <strong>/{{ page.categories }}</strong></h2>
+    {% for post in site.categories[page.categories] limit:4%}
+    <a href="{{post.url}}">
+        <div class="card">
+            <div class="card-title">{{ post.title }}</div>
+            <div class="card-body">
+                <div class="card-img">
+                    <div class="centerer"></div>
+                    <img src="{{ site.baseurl }}/public/images/{{ post.image }}">
+                </div>
+                <div class="card-container">
+                    <div class="card-extract">{{ post.extract}}</div>
+                    <div class="card-author">by {{ post.author}}</div>
+                    <div class="card-date">{{ post.date | date_to_string }}</div>
+                </div>
+            </div>
+        </div>
+    </a>
+    {% endfor %}
+</div>
+
+<hr>

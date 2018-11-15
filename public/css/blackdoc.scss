@@ -125,6 +125,12 @@ a:hover {
   color: $sidebarText-Links;
 }
 
+@media (min-width: 76em) {
+  .body-frame {
+    max-width: 85%;
+  }
+}
+
 .btn {
   display: inline-block;
   padding: .25rem 1rem;
@@ -815,7 +821,7 @@ a.sidebar-nav-item:focus {
  * comments by disqus
 */
 
-.disqus{
+.disqus {
   max-width: 85%;
   margin: auto;
 }

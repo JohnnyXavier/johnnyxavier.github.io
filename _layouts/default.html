@@ -4,12 +4,14 @@
 {% include head.html %}
 
 <body>
-{% include sidebar.html %}
+<div class="body-frame">
+    {% include sidebar.html %}
 
-<div class="content container">
-    {{ content }}
+    <div class="content container">
+        {{ content }}
+    </div>
+
+    <script id="dsq-count-scr" src="//johnnyxavier.disqus.com/count.js" async></script>
 </div>
-
-<script id="dsq-count-scr" src="//johnnyxavier.disqus.com/count.js" async></script>
 </body>
 </html>
