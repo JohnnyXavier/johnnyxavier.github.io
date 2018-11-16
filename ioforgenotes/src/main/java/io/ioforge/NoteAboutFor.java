@@ -13,11 +13,18 @@ public class NoteAboutFor {
     public static void main(String[] args) {
         standardForLoop();
         iteratorForLoop();
+        iteratorForEachRemaining();
         forEachLoop();
         collectionForEachWithLambda();
         collectionForEachWithMethodReference();
         listIteratorForLoopForward();
         listIteratorForLoopBackwards();
+
+    }
+
+    private static void iteratorForEachRemaining() {
+        Iterator<String> iterator = names.iterator();
+        iterator.forEachRemaining(name -> doSomething(name));
     }
 
     private static void listIteratorForLoopBackwards() {

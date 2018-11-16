@@ -19,6 +19,7 @@ Defining the `List<String>` we will use across the code:
 ```java
 List<String> strings = Arrays.asList("foo", "bar", "baz", "foobar", "raboof");
 ```
+<br>
 
 ### *Classic `if` filtering*
 The `if` statement works by testing a condition.
@@ -34,6 +35,7 @@ for (String string : strings) {
     }
 }
 ```
+<br>
 
 ##### Filtering for a List of values AND a single criterion
 ```java
@@ -47,6 +49,7 @@ for (String string : strings) {
 
 return result;
 ```
+<br>
 
 ##### Filtering for a List of values AND a multiple criteria
 ```java

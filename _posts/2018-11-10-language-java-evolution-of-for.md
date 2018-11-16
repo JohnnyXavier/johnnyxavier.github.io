@@ -16,7 +16,7 @@ Defining the `List<String>` we will use across the code:
 ```java
 List<String> names = Arrays.asList("foo", "bar", "baz", "foobar", "raboof");
 ```
-
+<br>
 
 ### *Standard  for  loop*
 this is the `for` loop found in different programming languages
@@ -26,6 +26,7 @@ for (int i = 0; i < names.size(); i++) {
             doSomething(names.get(i));
         }
 ```
+<br>
 
 ### *Iterator for  loop*
 slightly variation of the standard `for` loop, note how we keep all 3 parts of the standard `for` loop but the break condition uses the `i.hasNext()` and the increment is in the loop’s body as `i.next()`
@@ -35,7 +36,7 @@ for (Iterator<String> i = names.iterator(); i.hasNext(); ) {
             doSomething(i.next());
             }
 ```
-
+<br>
 
 ### *added in J5, forEach  loop*
 note how the above `Iterator` ceremony has been replaced by this new approach
@@ -46,14 +47,15 @@ for (String name : names) {
             doSomething(name);
         }
 ```
+<br>
 
-### *added in J8, forEach  Loop associated to the Collection  with lambda expression*
+### *added in J8, forEach Loop associated to the Collection  with lambda expression*
 J8 added the forEach to `Collections` removing a bit more of the ceremony and clutter from before.
 here with a lambda expression that takes 1 `List` item as an argument and passes it to a function to process.
 ```java
 names.forEach(name -> doSomething(name));
 ```
-
+<br>
 
 ### *added in J8, forEach Loop associated to the Collection with method reference*
 same as above but we replaced the lambda expression with a method reference
@@ -61,6 +63,24 @@ this removes all redundant mentions to arguments to be processed by a given func
 ```java
 names.forEach(this::doSomething);
 ```
+<br>
+
+### *added in J8 too, there is a forEach loop associated to the `Iterator` interface called `forEachRemaining()`*
+thou called `forEachRemaining()` as per the javadocs this `for` loop is implemented by default behaving as `while(hasNext())`
+if you go to the actual Oracle's `hotSpot` class you will see that it actually **is a `while` loop!**
+```java
+private static void iteratorForEachRemaining() {
+    Iterator<String> iterator = names.iterator();
+    iterator.forEachRemaining(name -> doSomething(name));
+}
+
+//or why not with a method::reference
+private static void iteratorForEachRemaining() {
+    Iterator<String> iterator = names.iterator();
+    iterator.forEachRemaining(this::doSomething);
+}
+```
+<br>
 
 ### *as a bonus, an oldie not very common to see... the `ListIterator<T>` added in J2 is close to the `iterator` with the added possibility of backwards traversing a list*
 it is basically used as an `iterator` with the difference that when you want to traverse backwards a `List` you specify the element on the `List` you want use as the point from where you want to move backwards.
