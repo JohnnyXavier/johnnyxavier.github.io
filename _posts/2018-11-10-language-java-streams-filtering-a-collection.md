@@ -195,6 +195,7 @@ it comes down to the following.
 * filter the transformed data
 * return the result
 
+### *J8 filtering*
 J8 came just with a tool to do this.
 `streams`
 in this note we will just check out how can we replace the above code with some features offered by `Streams` but the possibilities are way  beyond this simple filtering and processing 
