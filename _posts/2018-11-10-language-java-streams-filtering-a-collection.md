@@ -22,24 +22,25 @@ List<String> strings = Arrays.asList("foo", "bar", "baz", "foobar", "raboof");
 <br>
 
 ### *Classic `if` filtering*
-The `if` statement works by testing a condition.
+The `if` statement works by testing a condition for `true`.
 
 ##### Filtering for single return value from many valid results AND a single criterion
+we need a single value, therefore we will return as soon as something matches our single criterion
+we don't need to loop the entire collection if we found our mark before the end.
 ```java
-//we need a single value, therefore we will return
-//as soon as something matches our single criterion
-
-for (String string : strings) {
+for (String value : strings) {
     if (string.contains("foo")) {
-        return string;
+        return value;
     }
 }
 ```
 <br>
 
 ##### Filtering for a List of values AND a single criterion
+we need all the values in the `collection` that match our criterion, so we will need to parse the entire `List` and add them
+to a new container `List` as we find our matching values.
 ```java
-List<String> result = new ArrayList<>();
+List<String> resultList = new ArrayList<>();
 
 for (String string : strings) {
     if (string.contains("foo")) {
@@ -47,22 +48,31 @@ for (String string : strings) {
     }
 }
 
-return result;
+return resultList;
 ```
 <br>
 
 ##### Filtering for a List of values AND a multiple criteria
+the `if` statement starts getting a little crowded with conditions
 ```java
-// the if statement starts getting a little crowded with conditions
-
-List<String> result = new ArrayList<>();
+List<String> resultList = new ArrayList<>();
 
 for (String string : strings) {
-    if (string.contains("f") && !string.contains("bar")
-        && string.contains("r")) {
+    if (string.contains("f") && !string.contains("bar") && string.contains("r")) {
         result.add(string);
     }
 }
 
-return result;
+return resultList;
 ```
+
+this is pretty much all the filtering that can be done with ***basic*** evaluations inside an `if`.<br>
+We could add `OR` conditions, and combine them to make the `if` more complex but in the end it goes down to a truth evaluation.<br>
+What if we need to transform our data and keep filtering the data?
+<br>
+One situation for example, could be selecting a subgroup of elements, processing them somehow and then checking which ones passed a certain threshold.
+<br>
+Thou difficult to imagine in the classic bookshop examples, let's imagine we produce steel with different alloys and we select from the lot a few bars that match certain criteria then want to keep the ones that better support torsion or tension or something else to decide which alloy to produce (why not, right?)
+this means we select according to a few critera, then apply some function/s then reselect with different criteria. 
+check this.
+##### Filtering for a List of values **AND** a multiple criteria **AND** transforming data **And** refiltering

@@ -1,6 +1,6 @@
 ---
-layout: page
-title: /Programming
+layout:         page
+title:          /Programming
 categories:     programming
 ---
 <p class="message">

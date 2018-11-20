@@ -488,7 +488,7 @@ a.pagination-item:hover {
 }
 
 .card:hover {
-  .card-title {
+  .card-body, .card-title {
     box-shadow: 0 16px 32px 0 rgba(99, 99, 99, 0.93);
     color: $text-hover;
   }
