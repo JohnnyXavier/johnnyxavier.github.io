@@ -1,6 +1,6 @@
 ---
 layout: post
-title: filtering with streams in java
+title: filtering with if and with streams in java
 author: Johnny Xavier
 image: java-logo.png
 updated:
