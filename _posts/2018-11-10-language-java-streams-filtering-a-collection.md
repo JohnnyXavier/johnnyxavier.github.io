@@ -9,12 +9,12 @@ extract: This note is about showing how to filter the elements of a <strong>List
 tags: language
 ---
 
-A very common everyday need is to look for a value among many.
-To make this post easy, we are going to look for a string in a `List<String>`  in few different ways and build more realistic approaches in future posts with different Collections of various Objects
+A very common need is to look for a value among many.
+To make this first part easy, we are going to look for a string in a `List<String>` in few different ways and build more realistic approaches in future posts with different Collections of various Objects
 
-We are going to use the same filtering criteria and see what we can get from J8 streams vs a classic approach.
+We are going to use a simple example to show the classic `if` then try to get something more realistic going on and see what we can get from J8 streams vs a classic approach.
 
-Defining the `List<String>` we will use across the code:
+Defining the `List<String>` we will use across the simple `if` code:
 
 ```java
 List<String> strings = Arrays.asList("foo", "bar", "baz", "foobar", "raboof");
@@ -67,7 +67,7 @@ return resultList;
 ```
 
 this is pretty much all the filtering that can be done with ***basic*** evaluations inside an `if`.<br>
-We could add `OR` conditions, and combine them to make the `if` more complex but in the end it goes down to a truth evaluation.<br>
+We could add more conditions, and combine them to make the `if` more complex.<br>
 What if we need to transform our data and keep filtering the data?
 
 One situation for example, could be selecting a subgroup of elements, processing them somehow and then checking which ones passed a certain threshold.

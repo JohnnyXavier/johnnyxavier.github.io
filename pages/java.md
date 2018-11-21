@@ -22,7 +22,6 @@ This is a collection of notes about a few things Java
 </ul>
 
 * Language
-    * evolution of For
     * vanilla vs spring / hibernate sites and examples
         * JDBC / postgreSQL queries
         * MVC no spring
