@@ -260,4 +260,4 @@ IntelliJ IDEA incorporated a tool to do just that with streams. Given a stream i
 check this screenshot made with data from our SteelBars
 you can see how each step is represented with it's resulting state.
 
-![Strean Trace]({{ site.baseurl }}/public/images/Stream Trace_001.png "Strean Trace ")
+![Stream Trace]({{ site.baseurl }}/public/images/Stream Trace_001.png "Stream Trace ")

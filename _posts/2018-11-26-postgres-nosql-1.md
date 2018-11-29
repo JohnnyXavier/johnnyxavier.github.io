@@ -10,16 +10,13 @@ tags:       postgresql postgres nosql jsonb spring-jdbc spring-data document-sto
 ---
 
 # /Note_1_PostgreSQL_no_sql
-somme time ago we started exploring the possibility of using `PostgreSQL` as a document store db while keeping the 
-traditional sql approach. So... *sql and no sql*
+some time ago we started exploring the possibility of using `PostgreSQL` as a document store while keeping the traditional sql approach. So... *sql and no sql*
 
-We needed a doc approach for parts of the app and there were other parts that just made sense to keep under
- `sql`. Plus a lot of the data was already on `postgres`. Having 2 different databases to relate to the same data... mmm smelled like a lot of problems
+We needed a doc approach for parts of the app and there were other parts that just made sense to keep under  `sql`. Plus a lot of the data was already on `postgres`. Having 2 different databases to relate to the same data... mmm smelled like a lot of sync problems
 
 so the question goes down to...
 
-can we mix and match docs and columns on the same DB on different or same tables and have decent performance while 
-reading and saving?
+can we mix and match docs and columns on the same DB on different or same tables and have decent performance on reads and writes?
 
 to answer that I had to read a lot of `postgres` docs, stackO7s, and ultimately just try by myself as this was 
 relatively unexploited yet.
@@ -28,9 +25,11 @@ it was hard to gather info about all the topics I needed to create a working sol
 in a single place to be able to go back quickly to the very disperse documentation about this subject.
 
 these series of notes will go from installing `postgres` on `Linux` (`Ubuntu 18.10 Cosmic Cuttlefish`) to creating 
-doc columns on `postgres` to do some jolly operations over `jsonb` columns and testing some indexes.
+doc columns on `postgres` to doing some jolly operations over `jsonb` columns and testing some indexes.
 
 let's get this started!
+
+---
 
 ## /Installing_postgres_on_Ubuntu
 * Ubuntu version: 18.10 *Cosmic CuttleFish*
@@ -38,8 +37,8 @@ let's get this started!
 * postgres version: 11
 
 This is my current setup and yours may differ, the minimum requirement thou, is `postgres` 10. You can install 
-`postgres` over many OSs but the instructions here apply for a `Debian` based OSs although installing over 
-different systems are almost identical.
+`postgres` over many OSs but the instructions here apply for `Debian` based OSs although installing over 
+different systems is almost identical.
 
 ### /Getting_and_installing_postgres
 head to `postgres` website download page.<br>
@@ -140,12 +139,11 @@ Informational
 # those 2 commands should be good place to go when you need info
 ```
 
-so this is what you get after installing the database. It will also setup postgres as a service.
-this note focuses more on the database as a user and developer tool that from a dba devops perspective, so I will 
-skip a few settings to go to the core of our matter.
+so this is what you get after installing the database. It will also setup postgres as a service.<br>
+this note focuses more on the database as developer tool than from a dba devops perspective, so I will skip a few settings to go to the core of our topic.
 
 ##### on how to configure postgres with a new user and creating our playground database and schemas
-having said that, we will need to do a few setups to access postgres from outside the CLI. Back to bash
+having said that, we will need to do go through a few setup steps to access postgres from outside the CLI. Back to bash
 ###### bash
 ```bash
 # let's create a database and a user other than the main db and the root user so we can break a few things, but not 
@@ -213,8 +211,52 @@ playground=# \dn
  postgres_sql    | postgres
  public          | postgres
 (3 rows)
+
+# we are done here so let's exit the postgres cli
+# exit or quit or \q will get us out
+
+playground=#
+exit
+
+#we may want to exit the postgres user's shell too
+postgres@your_computer:~$ exit
 ```
-this setup will allow the created user `john` to connect to `playground` database with the chosen password and do 
+this setup will allow the created user `john` to connect to `playground` database with the chosen password and to 
 operate on those schemas
 
 ##### on how to configure postgres on IntelliJ / DataGrip / dbBeaver
+with the above we installed the database and configured it to our needs. Now let's leave the CLI and configure an IDE
+ to access the dbs and schemas and start getting into the dandy stuff.
+ 
+***note that this is completely optional and you can keep using the CLI, or jump into `emacs` or `vi`or any text editor you love***
+
+#### configuring Jetbrains family of apps
+although having a cost `intelliJ` is widely used and chances are it's your IDE too
+
+what we need to do is to add a `DataSource`
+* go to `view -> tool windows -> database` or you can find the tab usually to the right edge of the app
+* click the `+` sign
+* from the drop down select `datasource` -> `postgreSQL`
+
+<img style="width: 35%" src="{{ site.baseurl }}/public/images/Menu_003.png">
+
+* you will see the `datasource` popup where you have to input your DB's settings
+    * it is hosted on out own computer so `localhost` for the host
+    * `playground` is our db name
+    * user/password are the ones you created before
+    * driver is downloaded by the IDE
+
+you should get a screen similar to this one
+<img style="width: 70%" src="{{ site.baseurl }}/public/images/DataSourcesAndDrivers_004.png">
+
+if you check the schemas tabs you should see something similar to this showing the schemas we just created
+<img style="width: 70%" src="{{ site.baseurl }}/public/images/DataSourcesAndDrivers_007.png">
+
+finally on your main IDE layout your new datasource should show like this
+<img style="width: 35%" src="{{ site.baseurl }}/public/images/Selection_006.png">
+
+---
+
+this is all for the first note on postgres noSql.
+
+//TODO: dBeaver setup
