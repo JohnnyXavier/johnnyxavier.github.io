@@ -6,7 +6,7 @@ highlighter:      rouge
 title:            /io_forge
 tagline:          some_notes_about_programming
 description:      some notes about programming
-url:              https://github.com/johnnyxavier
+url:              https://johnnyxavier.github.io
 baseurl:
                   # the optional subpath of your site, e.g. "/my-jekyll-site/"
                   # This will apply to all pages in your Jekyll site.
