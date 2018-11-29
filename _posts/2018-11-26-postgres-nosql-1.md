@@ -138,6 +138,83 @@ Informational
 [...]
 
 # those 2 commands should be good place to go when you need info
-
-
 ```
+
+so this is what you get after installing the database. It will also setup postgres as a service.
+this note focuses more on the database as a user and developer tool that from a dba devops perspective, so I will 
+skip a few settings to go to the core of our matter.
+
+##### on how to configure postgres with a new user and creating our playground database and schemas
+having said that, we will need to do a few setups to access postgres from outside the CLI. Back to bash
+###### bash
+```bash
+# let's create a database and a user other than the main db and the root user so we can break a few things, but not 
+# everything.
+# back to psql
+postgres=#
+
+# let's create a user.
+CREATE USER john PASSWORD`doe`;
+
+# let's create a new database.
+CREATE DATABASE playground;
+
+# let's give our user john control of that database.
+GRANT ALL ON DATABASE playground TO john;
+
+# let's connect to database playground
+\c playground;
+
+# let' s create a schema in which our no_sql tables will live
+# and give access to our user
+CREATE SCHEMA postgres_no_sql;
+GRANT ALL ON ALL TABLES IN SCHEMA postgres_no_sql TO john;
+GRANT ALL ON ALL FUNCTIONS IN SCHEMA postgres_no_sql TO john;
+
+# let' s create a schema in which our no_sql tables will live
+# and give access to our user
+CREATE SCHEMA postgres_sql;
+GRANT ALL ON ALL TABLES IN SCHEMA postgres_sql TO john;
+GRANT ALL ON ALL FUNCTIONS IN SCHEMA postgres_sql TO john;
+```
+summing up:<br>
+we created a set of 2 schemas inside a new database called playground. This should make sure anything we break is 
+self contained. The grants give our user the permissions to create tables and use functions. After all this if you 
+list your databases and schemas you should see this
+
+###### bash
+```bash
+# list all databases with "\l"
+playground=#
+\l
+
+# you should see
+                                  List of databases
+    Name    |  Owner   | Encoding |   Collate   |    Ctype    |   Access privileges   
+------------+----------+----------+-------------+-------------+-----------------------
+ playground | postgres | UTF8     | en_GB.UTF-8 | en_GB.UTF-8 | =Tc/postgres         +
+            |          |          |             |             | postgres=CTc/postgres+
+            |          |          |             |             | john=CTc/postgres
+ postgres   | postgres | UTF8     | en_GB.UTF-8 | en_GB.UTF-8 | 
+ template0  | postgres | UTF8     | en_GB.UTF-8 | en_GB.UTF-8 | =c/postgres          +
+            |          |          |             |             | postgres=CTc/postgres
+ template1  | postgres | UTF8     | en_GB.UTF-8 | en_GB.UTF-8 | =c/postgres          +
+            |          |          |             |             | postgres=CTc/postgres
+(4 rows)
+
+# list all schemas in playground with "\dn"
+playground=# \dn
+
+# you should see
+      List of schemas
+      Name       |  Owner   
+-----------------+----------
+ postgres_no_sql | john
+ postgres_sql    | postgres
+ public          | postgres
+(3 rows)
+```
+this setup will allow the created user `john` to connect to `playground` database with the chosen password and do 
+operate on those schemas
+
+##### on how to configure postgres on IntelliJ / DataGrip / dbBeaver
