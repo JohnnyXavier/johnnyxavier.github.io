@@ -11,11 +11,11 @@ baseurl:
                   # the optional subpath of your site, e.g. "/my-jekyll-site/"
                   # This will apply to all pages in your Jekyll site.
 
-authorName:           Johnny Xavier
-authorAbout:          /pages/about.html
-comments:           true
+authorName:       Johnny Xavier
+authorAbout:      pages/about.html
+comments:         true
 
-paginate:         4
+paginate:         6
 # paginate_path:    '/page:num'
 # Or '/my-jekyll-site/page:num' if you want to move your index pages
 
