@@ -6,7 +6,7 @@ image:      Ubuntu-18-04-LTS-Bionic-Beaver.png
 updated: 
 categories: database
 extract:    This note is the 1st on a series on playing around <strong>noSQL</strong> capabilities of the tried and true <strong>PostgreSQL</strong> db 
-tags:       postgresql postgres nosql jsonb spring-jdbc spring-data document-store 
+tags:       postgresql postgres sql nosql jsonb spring-jdbc spring-data document-store configuration
 ---
 
 # /Note_1_PostgreSQL_no_sql
@@ -71,7 +71,7 @@ sudo apt install postgres postgres-contrib
 ### /configuring_postgres_the_basics
 we will cover here how to access `postgres` from the console and from an IDE.
 I personally use `IntelliJ IDEA` and sometimes `DataGrip` both from `jetbrains`, but I will cover an `Eclipse` based 
-option called `dbBeaver` as it is free and runs everywhere too. I will just cover basic setup as SQL commands are the 
+option called `dBeaver` as it is free and runs everywhere too. I will just cover basic setup as SQL commands are the 
 same regardless which IDE you use.
 
 ##### on how to access postgres from the terminal
@@ -224,11 +224,10 @@ postgres@your_computer:~$ exit
 this setup will allow the created user `john` to connect to `playground` database with the chosen password and to 
 operate on those schemas
 
-##### on how to configure postgres on IntelliJ / DataGrip / dbBeaver
-with the above we installed the database and configured it to our needs. Now let's leave the CLI and configure an IDE
- to access the dbs and schemas and start getting into the dandy stuff.
+### /configuring_postgres_the_IDEs
+with the above we installed the database and configured it to our needs. Now let's leave the CLI and configure an IDE to access the dbs and schemas and start getting into the dandy stuff.
  
-***note that this is completely optional and you can keep using the CLI, or jump into `emacs` or `vi`or any text editor you love***
+***note that this is completely optional and you can keep using the CLI, or jump into `emacs` or `vi`or any appropriate tool you love***
 
 #### configuring Jetbrains family of apps
 although having a cost `intelliJ` is widely used and chances are it's your IDE too
@@ -250,13 +249,31 @@ you should get a screen similar to this one
 <img style="width: 70%" src="{{ site.baseurl }}/public/images/DataSourcesAndDrivers_004.png">
 
 if you check the schemas tabs you should see something similar to this showing the schemas we just created
-<img style="width: 70%" src="{{ site.baseurl }}/public/images/DataSourcesAndDrivers_007.png">
+<img style="width: 70%" src="{{ site.baseurl }}/public/images/DataSourcesAndDrivers_011.png">
 
 finally on your main IDE layout your new datasource should show like this
 <img style="width: 35%" src="{{ site.baseurl }}/public/images/Selection_006.png">
 
+#### configuring dBeaver
+this tool was among my favourites. It's community edition is loaded with features and it's eclipse based, which makes it 
+very familiar for many devs. Eclipse can be configured in almost the same way
+
+* from the menus choose `Database` -> `new connection`
+* you should see a window to choose which db to setup. choose `PostgreSQL`
+<img style="width: 45%" src="{{ site.baseurl }}/public/images/CreateNewConnection_008.png">
+
+* you will see the `connection settings` popup where you have to input your DB's settings
+    * it is hosted on out own computer so `localhost` for the host
+    * `playground` is our db name
+    * user/password are the ones you created before
+    * driver is downloaded by the IDE
+
+you should get a screen similar to this one
+<img style="width: 45%" src="{{ site.baseurl }}/public/images/CreateNewConnection_009.png">
+
+finally on your main IDE layout your new database connection should show like this
+<img style="width: 30%" src="{{ site.baseurl }}/public/images/Selection_010.png">
+
 ---
 
-this is all for the first note on postgres noSql.
-
-//TODO: dBeaver setup
+this is all for now on the first note on postgres noSql.
