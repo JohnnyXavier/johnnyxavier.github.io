@@ -14,6 +14,7 @@ baseurl:
 authorName:       Johnny Xavier
 authorAbout:      pages/about.html
 comments:         true
+googleAnalytics:  UA-130252004-1
 
 paginate:         10
 # paginate_path:    '/page:num'

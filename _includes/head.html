@@ -1,4 +1,16 @@
 <head>
+    {% if site.googleAnalytics %}
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130252004-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-130252004-1');
+    </script>
+    {% endif %}
+
     <link href="http://gmpg.org/xfn/11" rel="profile">
     <link href="/public/favicon.ico" rel="shortcut icon">
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
