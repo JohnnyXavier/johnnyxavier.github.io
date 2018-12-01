@@ -15,7 +15,7 @@ authorName:       Johnny Xavier
 authorAbout:      pages/about.html
 comments:         true
 
-paginate:         6
+paginate:         10
 # paginate_path:    '/page:num'
 # Or '/my-jekyll-site/page:num' if you want to move your index pages
 
@@ -25,31 +25,9 @@ plugins:
   - jekyll-paginate
 
 # Custom vars
-version:            2.0.1
+version:            2.1.0
 license:            /pages/license.html
 about:              /pages/about.html
 
 github:
   repo:             https://github.com/johnnyxavier
-
-# draw your top menu here
-# each item must have a title and a url.
-#   To list post categories. use type: 'categories'
-#   To create sub categories. add a submenu item
-# See the example
-menu:
-- title: 'Programming'
-  url: '/programming'
-- title: 'Java'
-  url: '/java'
-- title: 'Scala'
-  url: '/scala'
-- title: 'C'
-  url: '/c'
-- title: 'Linux'
-  url: '#'
-  submenu:
-  - title: 'Code Highlighter'
-    url: '/intro/code-highlighting-post/'
-  - title: 'Sample Post'
-    url: '/intro/sample-post/'
