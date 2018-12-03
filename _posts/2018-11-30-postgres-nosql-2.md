@@ -177,7 +177,26 @@ sql> insert into postgres_no_sql.temp(json_document)
 [2018-12-01 21:29:24] Where: JSON data, line 1: {"name": "john", "last_name": "smith}
 ```
 
+so, this is not just characters for the database, it is a string with meaning that needs to make sense. Let's inser a few more records in our temporary table and try to query something inside that json field.
 
+```sql
+insert into postgres_no_sql.temp(json_document) values ('{"name": "john", "last_name": "smith"}');
+insert into postgres_no_sql.temp(json_document) values ('{"name": "john", "last_name": "doe"}');
+insert into postgres_no_sql.temp(json_document) values ('{"name": "mike", "last_name": "johnson"}');
+insert into postgres_no_sql.temp(json_document) values ('{"name": "arnie", "last_name": "mc manus"}');
+insert into postgres_no_sql.temp(json_document) values ('{"name": "tommy", "last_name": "riordan"}');
+
+select * from postgres_no_sql.temp where document ->> name = 'john';
+
+
+--this is what we get!
+ id |             json_document              
+----+----------------------------------------
+  1 | {"name": "john", "last_name": "smith"}
+  2 | {"name": "john", "last_name": "doe"}
+
+
+```
 
 
 
