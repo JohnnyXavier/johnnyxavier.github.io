@@ -122,22 +122,19 @@ when we get the book we want by asking for it's `id` or `title` we get the entir
 dandy!
 
 ##### some incredibly short and abbreviated evolutionary pill
-traditionally databases will store data in columns, each column representing a field such as name, age, birthday, price, etc, and text such as articles, biographies, comments, etc were stored in "text fields", ranging from a few chars to big blobs.
+traditionally, databases will store data in columns, each column representing a field such as name, age, birthday, price, etc, and text such as articles, biographies, comments, etc were stored in "text fields", ranging from a few chars to big blobs.
 
 that meant that as searching is performed on a column basis, querying the blobs of text was not as efficient as querying another field.<br>
 the text will be just that, text.<br>
 Meaning that the json above will have no meaning at all for a traditional database. You could not store the above json and tell the db something like, ***from the text blob column bring me the records for `author = 'tolkien'`***. It just would not make any sense. You will need to make a less efficient string search. For toy examples it would be ok, for big news articles it would be really not ok.
 
-the traditional relational approach got the "problem" of non elasticity and normalization.<br>
-Those are not problems at all actually BUT adding columns and normalizing a toy database as the one above when it grows and evolves is trivial, doing the same thing on a real working company live database with lots of hits is completely not trivial. So thinking DBs schemas was, and is, a very important part of a project's planning, as additions and changes can be difficult or painful to do down the road.
+adding columns and normalizing a toy database as the one above when it grows and evolves is trivial, doing the same thing on a real working company live database with lots of hits is completely not trivial. Additions and changes can be difficult or painful to do down the road.
 
 enters [MongoDB](https://www.mongodb.com/)... this db, a document store, could handle the above json in a way that each field has a meaning and could be queried as if it was a column from the traditional approach. Others, as [Amazon's DynamoDB](https://aws.amazon.com/dynamodb/) work similarly, but for now the one to beat is still mongo.
 
 the above json is a single field with meaning and queryable in mongo. Mongo offers a flexibility that the traditional schema could not. If you do additions or modifications to the json you store, mongo cannot care less. It will keep working fine, and now maintenance and breaking changes are reduced considerably.
 
 the key word here is -***reduced***- as maintenance effort will not disappear. If you drive any approach to the limit or you choose the wrong tool for the given job, they will all offer the poorest performance possible.<br>
-
-For example if you store completely different jsons in mongo and you have Millions of them, well... it won't be at it's top game when searching something among those documents. If you store every piece of data on a single document to avoid keeping up with columns, your db will not make any sense either.
 
 again... the key word here is ***`reduced`***.
 So this means that neither approach will be a silver bullet for every case and every need.
@@ -148,11 +145,11 @@ to the question of which of these 2 approaches to choose the answer is of course
 ## /Relational meet Document
 you will read a lot of praise to mongodb as well as a lot of criticism, and the same will go to postgresql or relational model in general.
 
-among the data types supported by postgres you will find the usual ones that support text. The most conspicuous being `varchar`. You also have the bigger `text` one and you can store a json there but again it will mean only text for the db.
+among the data types supported by postgres you will find the usual ones that support text. The most conspicuous being `character varying aka varchar(n)`. You also have the bigger `text` one and you can store a json there but again it will mean only text for the db.
 
 enters PostgreSQL `JSON` and `JSONB` data types...
 
-those two types will store json files, but now, those files have meaning for postgres and you will get a few things out of the box. One of them is grammar checking. If you try to store an incorrectly constructed json, postgres will let you know.
+those two types will store json strings, but now, those text strings will have meaning for postgres and you will get a few things out of the box. One of them is grammar checking. If you try to store an incorrectly constructed json, postgres will let you know.
 
 check this:
 ```sql
@@ -168,7 +165,7 @@ sql> insert into postgres_no_sql.temp(json_document)
      values ('{"name": "john", "last_name": "smith"}')
 [2018-12-01 21:29:04] 1 row affected in 10 ms --SUCCESS!
 
---insert an invalid json {"name": "john", "last_name": "smith}
+--insert an invalid json {"name": "john", "last_name": "smith} -> forgot to close the double quote after smith
 sql> insert into postgres_no_sql.temp(json_document)
      values ('{"name": "john", "last_name": "smith}')
 [2018-12-01 21:29:24] [22P02] ERROR: invalid input syntax for type json
@@ -177,7 +174,7 @@ sql> insert into postgres_no_sql.temp(json_document)
 [2018-12-01 21:29:24] Where: JSON data, line 1: {"name": "john", "last_name": "smith}
 ```
 
-so, this is not just characters for the database, it is a string with meaning that needs to make sense. Let's inser a few more records in our temporary table and try to query something inside that json field.
+so, this is not just characters for the database now, it is a string with meaning that needs to make sense. Let's insert a few more records in our temporary table and try to query something inside that json field.
 
 ```sql
 insert into postgres_no_sql.temp(json_document) values ('{"name": "john", "last_name": "smith"}');
@@ -188,18 +185,56 @@ insert into postgres_no_sql.temp(json_document) values ('{"name": "tommy", "last
 
 select * from postgres_no_sql.temp where document ->> name = 'john';
 
-
 --this is what we get!
  id |             json_document              
 ----+----------------------------------------
   1 | {"name": "john", "last_name": "smith"}
   2 | {"name": "john", "last_name": "doe"}
+```
+and now to add complexity, let's expand our document to add `middle name` and `nationality` without modifying our previous records and let's repeat the same query
+```sql
+-- our new inserts
+insert into postgres_no_sql.temp(json_document) values ('{"name": "john", "last_name": "trent", "country": "france", "nationality": "french"}');
+insert into postgres_no_sql.temp(json_document) values ('{"name": "laura", "last_name": "tedesco", "country": "france", "nationality": "italian"}');
+insert into postgres_no_sql.temp(json_document) values ('{"name": "mike", "last_name": "clark", "country": "england"}');
+insert into postgres_no_sql.temp(json_document) values ('{"name": "hamish", "last_name": "daly", "nationality": "scottish"}');
 
+select * from postgres_no_sql.temp where document ->> name = 'john';
 
+--this is what we get now
+ id |                                    json_document                                     
+----+--------------------------------------------------------------------------------------
+  1 | {"name": "john", "last_name": "smith"}
+  2 | {"name": "john", "last_name": "doe"}
+  6 | {"name": "john", "last_name": "trent", "country": "france", "nationality": "french"}
+(3 rows)
 ```
 
+we changed our document, some times coherently, some other records with missing json keys and the query run just fine regardless...
 
+you might be wondering.. AHA! but the query was on a field all the documents have!<br>
+let's query a field just a few documents have, `country` for example...
+```sql
+--just a few records have country in their json document
+select * from postgres_no_sql.temp where json_document ->> 'country' = 'france';
 
+--and we get...
+ id |                                      json_document                                       
+----+------------------------------------------------------------------------------------------
+  6 | {"name": "john", "last_name": "trent", "country": "france", "nationality": "french"}
+  7 | {"name": "laura", "last_name": "tedesco", "country": "france", "nationality": "italian"}
+
+```
+exactly what you would expected!
+
+so... this is postgresql right? **right!**
+and this is sql right? *mmm kinda...*
+
+I have not explained much but you can see a new player here... the **`->>`** operator after the `where` clause.
+
+well... this was just getting our feet wet on a tiny toy example for a toy query about the features of `PostgreSQL` as a document store database...
+
+on the next notes of the series we will start answering the many question on how to use this new `json` and `jsonb` fields. How to merge add delete combine data to and from these documents, how to optimize searches mixing SQL and noSQL, what to index and how, and what to avoid...
 
 ---
 
