@@ -10,7 +10,7 @@ tags:       postgresql postgres sql nosql jsonb spring-jdbc spring-data document
 ---
 
 # /Note_2_PostgreSQL_no_sql
-the first note on the postgresSQL noSql series was about installing and doing some basic setup for us to get going. In this note we're diving a little bit into postgres jsonB
+the first note on the postgresSQL noSql series was about installing and doing some basic setup for us to get going. In this note we're diving a little bit into postgres jsonB, but just a little, so we can see the differences in approaching a solution either with traditional tables and columns and a new document based focus.
 
 ## /to column or not to column
 storing data in columns is actually very easy and convenient.
