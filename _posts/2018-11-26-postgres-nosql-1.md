@@ -2,7 +2,7 @@
 layout:     post
 title:      PostgreSQL no SQL Series Note 1
 author:     Johnny Xavier
-image:      Ubuntu-18-04-LTS-Bionic-Beaver.png
+image:      PostgreSQL_logo.png
 updated: 
 categories: database
 extract:    This note is the 1st on a series on playing around <strong>noSQL</strong> capabilities of the tried and true <strong>PostgreSQL</strong> db 
