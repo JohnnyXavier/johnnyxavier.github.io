@@ -28,7 +28,7 @@ this is how this will look like with data
 ###### books
 ```bash
 id  | author    | title     | ISBN    | lent_to
----------------------------------------------
+----+-----------+-----------+---------+------
 1   | tolkien   | the hobbit| someISBN| mike
 ```
 the `lent_to` field will have the name of you friend
@@ -45,14 +45,14 @@ this is how this will look like with data with 2 tables
 ```bash
 #book:
 id  | author    | title     | ISBN    | lent_to
------------------------------------------------
+----+-----------+-----------+---------+--------
 1   | tolkien   | the hobbit| someISBN| 2
 
 #borrower:
 id  | first_name| last_name 
-----------------------------
+----+-----------+-----------
 1   | jake      | smith
-----------------------------
+----+-----------+-----------
 2   | mike      | johnson
 ```
 
@@ -67,21 +67,21 @@ and this is how it will look like with data on all 3 tables
 ```bash
 #book:
 id  | author    | title     | ISBN    | lent_to
------------------------------------------------
+----+-----------+-----------+---------+--------
 1   | tolkien   | the hobbit| someISBN| 2
 
 #borrower:
 id  | first_name| last_name | address
--------------------------------------
+----+-----------+-----------+--------
 1   | jake      | smith     | 1
--------------------------------------
+----+-----------+-----------+--------
 2   | mike      | johnson   | 1
 
 #address:
 id  | street_name| street_number| postal_code
----------------------------------------------
+----+------------+--------------+------------
 1   | rose road  | 123          | QA23RR
----------------------------------------------
+----+------------+--------------+------------
 2   | mistle lane| 98           | QA23RR
 ```
 
