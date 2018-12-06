@@ -9,7 +9,7 @@ extract:    This note is the 1st on a series on playing around <strong>noSQL</st
 tags:       postgresql postgres sql nosql jsonb spring-jdbc spring-data document-store configuration
 ---
 
-# /Note_1_PostgreSQL_no_sql
+# /the_one_with_the_database_setup
 some time ago we started exploring the possibility of using `PostgreSQL` as a document store while keeping the traditional sql approach. So... *sql and no sql*
 
 We needed a doc approach for parts of the app and there were other parts that just made sense to keep under  `sql`. Plus a lot of the data was already on `postgres`. Having 2 different databases to relate to the same data... mmm smelled like a lot of sync problems

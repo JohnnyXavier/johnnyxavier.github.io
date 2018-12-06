@@ -9,7 +9,7 @@ extract:    This note is the 2nd on a series on playing around <strong>noSQL</st
 tags:       postgresql postgres sql nosql jsonb spring-jdbc spring-data document-store basics
 ---
 
-# /Note_2_PostgreSQL_no_sql
+# /the_one_with_the_general_intro
 the first note on the postgresSQL noSql series was about installing and doing some basic setup for us to get going.<br>
 this note will serve as a general intro to no sql and we'll be diving a little bit into postgres jsonB, but just a little, so we can see the differences in approaching a solution either with traditional tables and columns and a new document based focus.
 
