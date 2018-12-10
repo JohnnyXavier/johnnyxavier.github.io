@@ -10,11 +10,11 @@ tags:       postgresql postgres sql nosql jsonb spring-jdbc spring-data document
 ---
 
 # /the_one_with_the_database_setup
-some time ago we started exploring the possibility of using `PostgreSQL` as a document store while keeping the traditional sql approach. So... *sql and no sql*
+some time ago we started exploring the possibility of using `PostgreSQL` as a document store while keeping the traditional sql approach. So... *sql and no sql* at the same time.
 
-We needed a doc approach for parts of the app and there were other parts that just made sense to keep under  `sql`. Plus a lot of the data was already on `postgres`. Having 2 different databases to relate to the same data... mmm smelled like a lot of sync problems
+We needed a doc approach for parts of the app and there were other parts that just made sense to keep under  `sql`. Plus, a lot of the data was already on `postgres`. Having 2 different databases to relate to the same data... mmm smelled like a lot of sync problems, so that was not an option at all...
 
-so the question goes down to...
+so the question went down to...
 
 can we mix and match docs and columns on the same DB on different or same tables and have decent performance on reads and writes?
 
@@ -22,23 +22,26 @@ to answer that I had to read a lot of `postgres` docs, stackO7s, and ultimately 
 relatively unexploited yet.
 
 it was hard to gather info about all the topics I needed to create a working solution, so I am putting what I found 
-in a single place to be able to go back quickly to the very disperse documentation about this subject.
+in a single place to be able to go back quickly to the very disperse documentation about this subject and expand on it if possible.
 
 these series of notes will go from installing `postgres` on `Linux` (`Ubuntu 18.10 Cosmic Cuttlefish`) to creating 
 doc columns on `postgres` to doing some jolly operations over `jsonb` columns and testing some indexes.
+
+I will use `linux` as OS, `java` ecosystem as supporting framework, and of course, `PostgreSQL` as databasse.
 
 let's get this started!
 
 ---
 
 ## /Installing_postgres_on_Ubuntu
+let's install the DB to get our feet wet.
+
 * Ubuntu version: 18.10 *Cosmic CuttleFish*
     * Linux Kernel: 4.18.0-11-generic
 * postgres version: 11
 
-This is my current setup and yours may differ, the minimum requirement thou, is `postgres` 10. You can install 
-`postgres` over many OSs but the instructions here apply for `Debian` based OSs although installing over 
-different systems is almost identical.
+This is my current setup and yours may differ, the minimum requirement thou, is `postgres` <strong>10</strong>.<br>
+You can install `postgres` over many OSs but the instructions here apply for `Debian` based OSs.
 
 ### /Getting_and_installing_postgres
 head to `postgres` website download page.<br>
@@ -70,6 +73,7 @@ sudo apt install postgres postgres-contrib
 
 ### /configuring_postgres_the_basics
 we will cover here how to access `postgres` from the console and from an IDE.
+
 I personally use `IntelliJ IDEA` and sometimes `DataGrip` both from `jetbrains`, but I will cover an `Eclipse` based 
 option called `dBeaver` as it is free and runs everywhere too. I will just cover basic setup as SQL commands are the 
 same regardless which IDE you use.
