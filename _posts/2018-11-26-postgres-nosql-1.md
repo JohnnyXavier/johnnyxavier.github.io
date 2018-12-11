@@ -156,7 +156,7 @@ having said that, we will need to do go through a few setup steps to access post
 postgres=#
 
 # let's create a user.
-CREATE USER john PASSWORD`doe`;
+CREATE USER john PASSWORD`john`;
 
 # let's create a new database.
 CREATE DATABASE playground;

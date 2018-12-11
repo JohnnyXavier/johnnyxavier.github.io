@@ -45,7 +45,7 @@ you can download all of it from github from the link below
     * spring boot (2.1.0.RELEASE)
         * hikari
         * log4j2
-        * wildfly
+        * undertow
         * liquibase
         * jackson
 * database:
@@ -90,6 +90,162 @@ $ Java HotSpot(TM) 64-Bit Server VM 18.9 (build 11.0.1+13-LTS, mixed mode)
 ##### /creating_a_new_spring_boot_project
 let's create a new spring boot project that will allow to put things to practice
 
+the easiest way to do it, is to go to [spring initializr](https://start.spring.io) and create a new project that you can download and use as starting point.<br>
+You can then import it to you IDE, or wherever you feel comfortable working in.
+
+if you have `intelliJ IDEA Ultimate` or `STS` (`Eclipse` based **S**pring **T**ool **S**uite) you can create a new spring boot project directly from the IDE.
+
+using one of the tools of your choice, select the following components from the `spring boot initializr`
+
+* springboot: 2.1.1.RELEASE (spring boot project that will handle our below dependencies and build)
+* general:
+    * lombok (utility to avoid the ceremony of getters setters and the like)
+* SQL:
+    * postgreSQL (the database driver)
+    * JDBC (spring jdbc project to handle connections et als)
+    * Liquibase (database maintenance)
+* Web:
+    * web (spring project that provides infrastructure for rest, mappings et als)
+    
+this will create a starting point for our project, choose any name you like for it.<br>
+if you downloaded it from the `initializr` web, unzip and import it to your IDE
+
+once you have the project on your IDE, we're gonna tweak a few things.
+* change the default `tomcat` and use `wildfly` as web container
+* change `logback` for `log4j2`
+* configure PostgreSQL and datasource (hikariDS)
+* minor tweaks to logging and SpringBoot interface
+
+springboot offers an easy way to perform the above tweaks without much fuzz.
+
+your `pom.xml` should look like this
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.postgresnosql</groupId>
+    <artifactId>postgresnosql</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <packaging>jar</packaging>
+
+    <name>postgresnosql</name>
+    <description>Demo project for postgresnosql jsonb</description>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.1.1.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>11</java.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <!--removing tomcat web container-->
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-tomcat</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+            <!--removing logback as logging engine-->
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-logging</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <!--adding log4j2 as logging engine-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-log4j2</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
+        </dependency>
+        <!--adding undertow web container-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-undertow</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.liquibase</groupId>
+            <artifactId>liquibase-core</artifactId>
+            <!--removing logback again from liquibase-->
+            <exclusions>
+                <exclusion>
+                    <artifactId>logback-classic</artifactId>
+                    <groupId>ch.qos.logback</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
+```
+
+then we will tweak the project's properties file.
+```properties
+#springboot tweaks
+spring.main.banner-mode=off
+
+#hikari settings without too much tweaking
+spring.datasource.hikari.username=john
+spring.datasource.hikari.password=john
+spring.datasource.url=jdbc:postgresql://localhost:5432/playground
+
+#liquibase setup
+spring.liquibase.liquibase-schema=postgres_no_sql
+
+#logging Levels -> we may want to switch these at some point
+logging.level.liquibase=info
+logging.level.root=info
+```
+
+`liquibase` handles your db maintenance in an incremental way. We are not using hibernate here, but if we were, the advantage over using hibernate automatic creation are many and will post a note about it in the future.
+
+let create a `liquibase` basic setup to get some tables created and add some data.
 
 ---
 
