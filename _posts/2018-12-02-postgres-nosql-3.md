@@ -52,7 +52,7 @@ you can download all of it from github from the link below
     * PostgreSQL 11
 
 ##### /installing_the_os
-if you need help installing the OS on a laptop, these guide below can point you into the right direction as linux and laptops with discrete cards are not the best friends by the moment
+if you need help installing the OS on a laptop, these guide below can point you into the right direction as linux and laptops with discrete cards are not the best friends at the moment
 [Ubuntu 18.10 Cosmic Cuttlefish Setup - on Dell 9560]({{ site.baseurl }}{% post_url 2018-11-01-dell-9560-setup-ubuntu1810 %})
 
 installing linux other than in a laptop with a discrete GPU is straightforward so I won't cover that here.
@@ -245,7 +245,97 @@ logging.level.root=info
 
 `liquibase` handles your db maintenance in an incremental way. We are not using hibernate here, but if we were, the advantage over using hibernate automatic creation are many and will post a note about it in the future.
 
-let create a `liquibase` basic setup to get some tables created and add some data.
+let's create a `liquibase` basic setup to get some tables created and add some data.
+
+for liquibase to work smoothly under springboot it's changelog file needs to be placed in a particular path -> folder like this<br>
+
+**src -> main -> resources -> db -> changelog**<br>
+
+now let's create a changelog file.<br>
+inside the changelog folder create a file and name it `db.changelog-master.yaml`. Liquibase also supports `xml` and `json` formats if you're not very fond of `yaml` syntax.<br>
+I will use `yaml` but post here the examples on the other 2 formats so you choose the one that suits you better<br>
+
+This file will have every modification and update we want to perform to the database and will look similar to this
+###### liquibase changelog in `YAML` format
+```yaml
+databaseChangeLog:
+- changeSet:
+    id: 1
+    author: Johnny Xavier
+    changes:
+    - sqlFile:
+        path: ../sql/dbCreation.sql
+        relativeToChangelogFile: true
+- changeSet:
+    id: 2
+    author: Johnny Xavier
+    changes:
+    - sqlFile:
+        path: ../sql/db_first_users_seed.sql
+        relativeToChangelogFile: true
+```
+
+or if you prefer the xml syntax, the equivalent would be
+###### liquibase changelog in `XML` format
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+            http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd
+            http://www.liquibase.org/xml/ns/dbchangelog-ext
+            http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet id="1" author="Johnny Xavier">
+        <sqlFile path="../sql/dbCreation.sql" relativeToChangelogFile="true"/>
+    </changeSet>
+    <changeSet id="2" author="Johnny Xavier">
+        <sqlFile path="../sql/db_first_users_seed.sql" relativeToChangelogFile="true"/>
+    </changeSet>
+</databaseChangeLog>
+```
+or the json equivalent
+###### liquibase changelog in `Json` format
+```json
+{
+  "databaseChangeLog": [
+    {
+      "changeSet": {
+        "id": "1",
+        "author": "Johnny Xavier",
+        "changes": [
+          {
+            "sqlFile": {
+              "path": "../sql/dbCreation.sql",
+              "relativeToChangelogFile": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "changeSet": {
+        "id": "2",
+        "author": "Johnny Xavier",
+        "changes": [
+          {
+            "sqlFile": {
+              "path": "../sql/db_first_users_seed.sql",
+              "relativeToChangelogFile": true
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
+```
+every `changeset` has a ***set of changes*** to apply to the db at a given time.<br>
+you can see that what I am doing here is to load the different `.sql` files that contain those changes. Those are 100% standard sql files with sql statements.<br>
+`Liquibase` itself supports a syntax to operate on databases, but we win not much using something different than sql.
 
 ---
 
