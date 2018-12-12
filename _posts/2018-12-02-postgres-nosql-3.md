@@ -59,7 +59,7 @@ installing linux other than in a laptop with a discrete GPU is straightforward s
 
 ##### /installing_java_on_Linux
 you can install `openjdk` or `Oracle's jdk`<br>
-`Ubuntu` has the openjdk packages already on it's own repos, oracle ones need to be added.
+`Ubuntu` has the `openjdk` packages already on it's own repos, `Oracle` ones need to be added.
 
 ```bash
 # for the java openjdk 11
@@ -88,7 +88,7 @@ $ Java HotSpot(TM) 64-Bit Server VM 18.9 (build 11.0.1+13-LTS, mixed mode)
 ```
 
 ##### /creating_a_new_spring_boot_project
-let's create a new spring boot project that will allow to put things to practice
+let's create a new [spring boot](http://spring.io/boot) project that will allow to put things to practice
 
 the easiest way to do it, is to go to [spring initializr](https://start.spring.io) and create a new project that you can download and use as starting point.<br>
 You can then import it to you IDE, or wherever you feel comfortable working in.
@@ -116,7 +116,7 @@ once you have the project on your IDE, we're gonna tweak a few things.
 * configure PostgreSQL and datasource (hikariDS)
 * minor tweaks to logging and SpringBoot interface
 
-springboot offers an easy way to perform the above tweaks without much fuzz.
+`springboot` offers an easy way to perform the above tweaks without much fuzz.
 
 your `pom.xml` should look like this
 ```xml
@@ -243,7 +243,7 @@ logging.level.liquibase=info
 logging.level.root=info
 ```
 
-`liquibase` handles your db maintenance in an incremental way. We are not using hibernate here, but if we were, the advantage over using hibernate automatic creation are many and will post a note about it in the future.
+`liquibase` handles your db maintenance in an incremental way. We are not using `hibernate` ORM here, but if we were, the advantage over using `hibernate`'s automatic creation (ddl-auto) are many and will post a note about it in the future.
 
 let's create a `liquibase` basic setup to get some tables created and add some data.
 
@@ -334,8 +334,13 @@ or the json equivalent
 }
 ```
 every `changeset` has a ***set of changes*** to apply to the db at a given time.<br>
-you can see that what I am doing here is to load the different `.sql` files that contain those changes. Those are 100% standard sql files with sql statements.<br>
-`Liquibase` itself supports a syntax to operate on databases, but we win not much using something different than sql.
+you can see that what I am doing here is to load the different `.sql` files that contain those changes. Those are 100% standard sql files with sql statements.
+
+`Liquibase` itself supports a syntax to operate on databases, but there is no upside using something different than sql, and the .sql files will not tie you to `liquibase` nor this `java` project, in case you just want the PostgreSQL knowledge.hahaha
+
+in the end you should have something like this:
+<img style="width: 30%" src="{{ site.baseurl }}/public/images/Selection_012.png">
+
 
 ---
 
