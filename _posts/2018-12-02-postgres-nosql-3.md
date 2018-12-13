@@ -34,7 +34,7 @@ the first thing we are going to do is to setup a project around postgres to use 
 we'll setup a java project to handle some web containers, rest endpoints, jdbc, connection pools, populating databases with test data, etc
 
 you can download all of it from github from the link below
-[postgreSQL no sql repo]()
+[PostgreSQL no sql repo]({{ site.repoUrl }})
 
 #### /the_suspects
 * OS:
@@ -113,12 +113,13 @@ if you downloaded it from the `initializr` web, unzip and import it to your IDE
 once you have the project on your IDE, we're gonna tweak a few things.
 * change the default `tomcat` and use `wildfly` as web container
 * change `logback` for `log4j2`
-* configure PostgreSQL and datasource (hikariDS)
-* minor tweaks to logging and SpringBoot interface
+* configure `PostgreSQL` and datasource (`hikariDS`)
+* minor tweaks to logging and `Spring Boot` interface
 
 `springboot` offers an easy way to perform the above tweaks without much fuzz.
 
 your `pom.xml` should look like this
+###### postgresnosql pom file
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -247,12 +248,12 @@ logging.level.root=info
 
 let's create a `liquibase` basic setup to get some tables created and add some data.
 
-for liquibase to work smoothly under springboot it's changelog file needs to be placed in a particular path -> folder like this<br>
+for `liquibase` to work smoothly under springboot it's changelog file needs to be placed in a particular path -> folder like this<br>
 
 **src -> main -> resources -> db -> changelog**<br>
 
 now let's create a changelog file.<br>
-inside the changelog folder create a file and name it `db.changelog-master.yaml`. Liquibase also supports `xml` and `json` formats if you're not very fond of `yaml` syntax.<br>
+inside the changelog folder create a file and name it `db.changelog-master.yaml`. `Liquibase` also supports `xml` and `json` formats if you're not very fond of `yaml` syntax.<br>
 I will use `yaml` but post here the examples on the other 2 formats so you choose the one that suits you better<br>
 
 This file will have every modification and update we want to perform to the database and will look similar to this
@@ -336,11 +337,82 @@ or the json equivalent
 every `changeset` has a ***set of changes*** to apply to the db at a given time.<br>
 you can see that what I am doing here is to load the different `.sql` files that contain those changes. Those are 100% standard sql files with sql statements.
 
-`Liquibase` itself supports a syntax to operate on databases, but there is no upside using something different than sql, and the .sql files will not tie you to `liquibase` nor this `java` project, in case you just want the PostgreSQL knowledge.hahaha
+`Liquibase` itself supports a syntax to operate on databases, but there is no upside using something different than sql, and the .sql files will not tie you to `liquibase` nor this `java` project, in case you just want the PostgreSQL knowledge.
 
 in the end you should have something like this:
 <img style="width: 30%" src="{{ site.baseurl }}/public/images/Selection_012.png">
 
+we haven't created any data nor put anything into the db, so let do that's just to make sure everything is working just ok.
+
+as stated above, we'll be using standard SQL to feed liquibase. Above you can see 2 .sql files, one to create the tables and the other ones to put seed some data in it.
+
+those are 2 toy .sql examples to test that our setup works fine.
+
+let's then create a table
+
+###### dbCreation.sql
+```sql
+--create the DB
+set search_path to postgres_no_sql;
+
+
+create table if not exists users_sql
+(
+  id         serial8 primary key,
+  first_name varchar(30),
+  last_name  varchar(50),
+  email      varchar(50),
+  address_id integer
+);
+
+create table if not exists users_doc
+(
+  id            serial8 primary key,
+  user_document jsonb
+);
+
+create table if not exists address
+(
+  id            serial primary key,
+  user_id       integer references users_sql (id),
+  street_name   varchar(50),
+  street_number varchar(7),
+  city          integer,
+  pos_code      varchar(10)
+
+)
+```
+
+###### db_first_users_seed.sql
+```sql
+set search_path to postgres_no_sql;
+
+insert into postgres_no_sql.users_doc (user_document) values ('{"id":1,"first_name":"Michel","last_name":"Etchell","email":"metchell0@engadget.com","gender":"Female","ip_address":"37.109.70.52","slogan":"embrace end-to-end experiences"}');
+insert into postgres_no_sql.users_doc (user_document) values ('{"id":2,"first_name":"Caspar","last_name":"Corradi","email":"ccorradi1@nationalgeographic.com","gender":"Male","ip_address":"110.8.108.121","slogan":"grow holistic technologies"}');
+insert into postgres_no_sql.users_doc (user_document) values ('{"id":3,"first_name":"Eyde","last_name":"Dorro","email":"edorro2@illinois.edu","gender":"Female","ip_address":"162.33.32.197","slogan":"transform web-enabled action-items"}');
+insert into postgres_no_sql.users_doc (user_document) values ('{"id":4,"first_name":"Kiley","last_name":"Perelli","email":"kperelli3@g.co","gender":"Male","ip_address":"176.62.18.22","slogan":"transition vertical experiences"}');
+insert into postgres_no_sql.users_doc (user_document) values ('{"id":5,"first_name":"Giuditta","last_name":"Themann","email":"gthemann4@dailymotion.com","gender":"Female","ip_address":"96.231.28.203","slogan":"facilitate seamless portals"}');
+
+[...] --a few more inserts here
+
+```
+those test values were created using ***[mokaroo](https://mockaroo.com/)***
+
+to test all went fine, just run the app
+
+the 1st time it runs it will setup the tables, and insert some data on the `users_doc` table. The other 2 tables are to check that we can create all sorts of tables, as one would expect, just by running `liquibase`.
+
+If you run it again and again it won't redo the db work unless you add something to Liquibase's changelog.<br>
+`Liquibase` will create 2 tables where it stores which changes have already been made. These two tables are ***`databasechangelog`*** and ***`databasechangeloglock`***.<br>
+We can just ignore them
+
+this should be all for setting up a Java SpringBoot project to support our `PostgreSQL` series of notes.
+
+---
+
+reviewing these first 3 notes, we have introduced the `nosql` topic with `posgres`, installed the `database`, setup our `IDEs`, installed `java`, setup a supporting project and checked out a few examples.
+
+**with everything setup, we are now ready to dive into the features and possibilities of using `PostgreSQL` as a noSQL database!**
 
 ---
 
