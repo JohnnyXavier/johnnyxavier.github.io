@@ -34,7 +34,7 @@ the first thing we are going to do is to setup a project around postgres to use 
 we'll setup a java project to handle some web containers, rest endpoints, jdbc, connection pools, populating databases with test data, etc
 
 you can download all of it from github from the link below
-[PostgreSQL no sql repo]({{ site.repoUrl }})
+[PostgreSQL no sql repo]({{ site.repourl }})
 
 #### /the_suspects
 * OS:

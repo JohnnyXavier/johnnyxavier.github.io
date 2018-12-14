@@ -7,7 +7,7 @@ title:            /io_forge
 tagline:          some_notes_about_programming
 description:      some notes about programming
 url:              https://johnnyxavier.github.io
-repoUrl:          https://github.com/JohnnyXavier/postgresnosql
+repourl:          https://github.com/JohnnyXavier/postgresnosql
 baseurl:
                   # the optional subpath of your site, e.g. "/my-jekyll-site/"
                   # This will apply to all pages in your Jekyll site.
