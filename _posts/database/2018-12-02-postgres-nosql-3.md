@@ -9,7 +9,7 @@ extract:    This note is the 3rd on a series on playing around <strong>noSQL</st
 tags:       postgresql postgres sql nosql jsonb spring-jdbc spring-data document-store basics
 ---
 
-## /the_one_on_setting_up_a_supporting_java_project
+# /the_one_on_setting_up_a_supporting_java_project
 on the previous notes I showed a few small examples, which I referred to, as toy examples
 
 those toy examples are good to understand a concept without being overwhelmed by detail and not to loose focus on the subject being explained. But real world examples are nothing like that...
@@ -53,7 +53,7 @@ you can download all of it from github from the link below
 
 ##### /installing_the_os
 if you need help installing the OS on a laptop, these guide below can point you into the right direction as linux and laptops with discrete cards are not the best friends at the moment
-[Ubuntu 18.10 Cosmic Cuttlefish Setup - on Dell 9560]({{ site.baseurl }}{% post_url 2018-11-01-dell-9560-setup-ubuntu1810 %})
+[Ubuntu 18.10 Cosmic Cuttlefish Setup - on Dell 9560]({{ site.baseurl }}{% post_url gnu_linux/2018-11-01-dell-9560-setup-ubuntu1810 %})
 
 installing linux other than in a laptop with a discrete GPU is straightforward so I won't cover that here.
 

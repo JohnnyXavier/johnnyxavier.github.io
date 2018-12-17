@@ -28,6 +28,7 @@ public class NoteAboutIfAndFilter {
                 .filter(steelBar -> steelBar.getCarbonPercent() >= 1)
                 .filter(steelBar -> steelBar.getCarbonPercent() <= 3)
                 .map(steelBar -> stressSteelBar(steelBar))
+//                .map(NoteAboutIfAndFilter::stressSteelBar) the above can be also written with a method reference...
                 .filter(steelBar -> steelBar.getStrength() >= 90)
                 .collect(toList());
 
