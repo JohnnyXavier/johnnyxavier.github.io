@@ -1,13 +1,12 @@
 # coding: utf-8
 
 Gem::Specification.new do |spec|
-  spec.name          = "jekyll-theme-blackdoc"
-  spec.version       = "2.0.1"
-  spec.authors       = ["Karlo Espiritu"]
-  spec.email         = ["karloespiritu@gmail.com"]
+  spec.name          = "jekyll-theme-ioforge"
+  spec.version       = "0.91"
+  spec.authors       = ["Johnny Xavier"]
 
-  spec.summary       = %q{Black Theme for Jekyll}
-  spec.homepage      = "https://github.com/karloespiritu/BlackDoc"
+  spec.summary       = %q{Black Theme for Jekyll based on BlackDoc}
+  spec.homepage      = "https://github.com/johnnyxavier/ioforgetheme"
   spec.license       = "MIT"
 
   spec.metadata["plugin_type"] = "theme"
@@ -23,5 +22,6 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency "jekyll-gist", "~> 1.5"
   spec.add_runtime_dependency "jekyll-paginate", "~> 1.1"
   spec.add_runtime_dependency "jekyll-feed", "~> 0.6"
+  spec.add_runtime_dependency "jekyll-seo-tag", "~> 2.5.0"
   spec.add_development_dependency "bundler", "~> 1.12"
 end

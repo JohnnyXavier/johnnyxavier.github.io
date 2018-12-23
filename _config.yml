@@ -25,9 +25,10 @@ plugins:
   - jekyll-feed
   - jekyll-gist
   - jekyll-paginate
+  - jekyll-seo-tag
 
 # Custom vars
-version:            2.1.0
+version:            0.9
 license:            /pages/license.html
 about:              /pages/about.html
 

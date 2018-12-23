@@ -22,7 +22,7 @@ or sometimes even maybe a bad solution.<br>
 Use the site knowing that there is no guarantee that your neighbour's wig won't catch fire if you implement 
 an algorithm from this site.
 
-As my knowledge, tools, frameworks, versions, etc, evolve, so will the solutions.
+As my knowledge, tools, frameworks, versions, etc, evolve, so will the solutions and the notes.
 
 ---
 

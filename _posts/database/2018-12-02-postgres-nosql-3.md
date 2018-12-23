@@ -21,7 +21,7 @@ being a `jvm` dev mostly, I will build many things with `java` tools.<br>
 as the topic here is `postgres` no Sql, `java` does not matter much and you can build the same as myself in the language of your own preference.<br>
 having said that, if you are also a `jvm` developer you will benefit a lot as many things might solve problems you currently have.
 
-I will use `jdbc`, `spring` and many of the ecosystem's usual suspects. Apart from the setup a `for` is a `for` in every language and translating the examples to `goLang` or `.NET` or any other language for which you have a postgresql driver might be kind of simple if you know your way around your lang (possibly?)
+I will use `jdbc`, `spring` and many of the ecosystem's usual suspects.Translating the examples to `goLang` or `.NET` or any other language for which you have a postgresql driver might be kind of simple if you know your way around your lang (possibly?)
 
 ### /so_postgresql_can_do_json
 alright, so postgres can do json, but what can we do with it?
