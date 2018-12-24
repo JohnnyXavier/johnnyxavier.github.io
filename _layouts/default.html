@@ -4,12 +4,11 @@
 <body>
 <div class="body-frame">
     {% include sidebar.html %}
-
     <div class="content container">
         {{ content }}
     </div>
     {% if site.comments %}
-    <!--<script id="dsq-count-scr" src="//johnnyxavier.disqus.com/count.js" async></script>-->
+    <script id="dsq-count-scr" src="//johnnyxavier.disqus.com/count.js" async></script>
     {% endif %}
 </div>
 </body>
