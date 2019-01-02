@@ -42,7 +42,7 @@ you can download all of it from github from the link below
 * Lang:
     * java 11 (>= J8 is OK)
 * frameworks / libs / etc:
-    * spring boot (2.1.0.RELEASE)
+    * spring boot (2.1.1.RELEASE)
         * hikari
         * log4j2
         * undertow
@@ -91,7 +91,7 @@ $ Java HotSpot(TM) 64-Bit Server VM 18.9 (build 11.0.1+13-LTS, mixed mode)
 let's create a new [spring boot](http://spring.io/boot) project that will allow to put things to practice
 
 the easiest way to do it, is to go to [spring initializr](https://start.spring.io) and create a new project that you can download and use as starting point.<br>
-You can then import it to you IDE, or wherever you feel comfortable working in.
+You can then import it to your IDE, or wherever you feel comfortable working in.
 
 if you have `intelliJ IDEA Ultimate` or `STS` (`Eclipse` based **S**pring **T**ool **S**uite) you can create a new spring boot project directly from the IDE.
 
