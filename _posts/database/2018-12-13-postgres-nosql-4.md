@@ -11,7 +11,7 @@ tags:       postgresql postgres sql nosql jsonb spring-jdbc spring-data document
 
 # /the_one_on_generating_jsons_from_columns
 the first 3 notes helped introduce our subject and setup the db and the pieces to support a working project.<br>
-this note will dive into the json functionality we can get with postgres to help build json data. This will be really useful later on when we switch over to full nosql with `json` and `jsonb` data types
+this note will dive into the json functionality we can get with postgres to help build json data out of columns, queries, and more. This will be really useful later on, when we switch over to full nosql with `json` and `jsonb` data types
 
 ### /differences_between_`json`_and_`jsonb`_data_types
 [postgresql.org -> datatype-json](https://www.postgresql.org/docs/current/datatype-json.html)
@@ -27,21 +27,21 @@ the main difference between both other than the way it is stored internally, are
 * querying fields whether top level, nested, array etc
 
 `json` characteristics:
-    * stores an exact copy of the input
-        * makes it faster to store
-        * ordering and even white spaces are respected
-        * repeated keys are respected (but only last one will be the *"working one"*)
-    * needs reparsing for functions to process the input
-        * makes it a little slower to work with 
-    * no indexing support 
+* stores an exact copy of the input
+    * makes it faster to store
+    * ordering and even white spaces are respected
+    * repeated keys are respected (but only last one will be the ***"working one"*** for querying purposes)
+* needs reparsing for functions to process the input
+    * makes it a little slower to work with 
+* no indexing support 
 
 `jsonb` characteristics:
-    * stores a decomposed binary format of the original input
-        * makes it a bit slower to store due to the preprocessing before insert
-        * makes it significantly faster to work with as it does not need to be reparsed
-    * can be indexed
-    * ordering of fields is not respected, white space is trimmed
-    * repeated keys are not kept, just the last one is kept
+* stores a decomposed binary format of the original input
+    * makes it a bit slower to store due to the preprocessing before insert
+    * makes it significantly faster to work with as it does not need to be reparsed
+* can be indexed
+* ordering of fields is not respected, white space is trimmed
+* repeated keys are not kept, just the last one is kept
     
 these are **`C-R-U-C-I-A-L`** differences to take into consideration when choosing a data type over the other, and they can have some saying in the way we decide our data structures.
 
@@ -66,10 +66,10 @@ we're gonna play in this note with the operations in postgres that allow to crea
 ### /setting_up_a_supporting_project
 as advertised, we're using `java's` ecosystem to support an imaginary project to store, query, and present data.<br>
 
-I find more engaging to use lifelike demos than toy examples, so we're gonna try and build a tiny piece of a real project, with millions of rows and hitting the db as hard as we want to reach to push it to it's limits.
+I find more engaging to use lifelike demos than toy examples, so we're gonna try and build a tiny piece of a real project, with millions of rows and hitting the db as hard as we want to push it to it's limits.
 
 we're seeing lately the rise of phone controlled top up debit cards, that show a lot more info on screen than our own banks do. We can get info broken by purchase type, seller, dates, country, etc. <br>
-we are going to build a web based super charged version of one of those apps that would show the info you can get in vendors like `Revolut` or `Monzo` or a service of the like, using the versatility of postgres to act as pure sql, nosql and hybrid database.
+we are going to build a web based super charged version of one of those apps that would show the info you can get in vendors like `Revolut` or `Monzo` or maybe a bank like `N26` or any service of the like, using the versatility of postgres to act as pure sql, nosql and hybrid database.
 
 #### /the_architecture_we_will_be_exploring
 we're going to explore a small part of one of those top up card services. Mainly the part storing and querying the users and transactions data.
@@ -109,7 +109,7 @@ a few things to notice, this user model will sink very quickly. The main data we
     * age 
     * status
     * address_personal_id
-    * address_work_id
+    * address_ship_to_id
     * last_login
     * created_at
     * modified_at
@@ -142,7 +142,8 @@ a few things to notice, this user model will sink very quickly. The main data we
     * modified_at
     
 now, the model for our user, is far better than the original but still needs some massaging.<br>
-the things to notice here is that we are limiting the amount of addresses a user can have. Well, addresses are not likely to change very often and we won't keep historics on the users addresses table itself, so the limit is not terrible. Regarding the cards user can have, that's another story as our users can choose to add many cards, and at some point cards will expire so limiting the amount of cards won't be the best approach.<br>
+the things to notice here is that we are limiting the amount of addresses a user can have. Well, addresses are not likely to change very often and we won't keep historics on the users addresses table itself, so the limit is not terrible. Regarding the cards a user can have, that's another story as our users can choose to add many cards, and at some point cards will expire so limiting the amount of cards won't be the best approach.
+
 enters an intermediate table that will relate a user to his cards... a single user can have many cards, and maybe a family will share a single card among it's members so we need to add a table that can allow more than one user to relate to more than one card, a many to many table.
 
 * USERS AND CARDS
@@ -153,8 +154,9 @@ enters an intermediate table that will relate a user to his cards... a single us
     * modified_at
 
 can this be refined further?<br>
-**YES!** extensively...<br>
-users can use bank accounts to top up their account for example, but the core of this example is to show postgres no sql more that achieving a perfect user model and we have a fine set of table to start playing with.<br>
+**YES!** extensively...
+
+users can use bank accounts to top up their account for example, but the core of this example is to show postgres no sql more that achieving a perfect user model and we have a fine set of tables to start playing with.<br>
 So we will leave our user, and it's immediate satellite data like this for the time being.
 
 let's give this a SQL spin
@@ -175,7 +177,7 @@ create table if not exists users
   age                 smallint,
   status              varchar(25) check ( status in ('active', 'inactive', 'suspended') ),
   address_personal_id integer,
-  address_work_id     integer,
+  address_ship_to_id  integer,
   last_login          time with time zone,
   created_at          time with time zone,
   modified_at         time with time zone
@@ -189,7 +191,7 @@ create table if not exists banking_card
   id              serial8 primary key,
   type            varchar(20) check (type in ('credit', 'debit')),
   internal        boolean,
-  issuer          varchar(20) check (internal in ('bank', 'another_card')),
+  issuer          varchar(20) check (issuer in ('bank', 'another_card')),
   processor       varchar(20) check (processor in ('visa', 'amex', 'master')),
   number          integer,
   country         varchar(20),
@@ -229,6 +231,19 @@ create table if not exists users_and_cards
   modified_at     time with time zone
 );
 ```
+
+all right!
+
+we do have our users and cards and their satellite data sql.
+
+moving a bit to the code side...
+
+something we need, is for our top up / 2.0 banking card system to be able to onboard and retrieve users.<br>
+Our example might make it look like trivial but banking regulation and fraud protection can make it difficult for those guys to onboard a new client, luckily we're not a bank.
+
+we're going to end up this 4th note by doing a tiny rest service that will give us a CRUD interface to onboard and retrieve users as an admin, nothing fancy for the moment, but a starting point to play with some json functionality.
+
+
 ---
 
 this is all for now on the fourth note on postgres noSql.

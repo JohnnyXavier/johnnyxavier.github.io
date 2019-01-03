@@ -344,7 +344,7 @@ in the end you should have something like this:
 
 we haven't created any data nor put anything into the db, so let do that's just to make sure everything is working just ok.
 
-as stated above, we'll be using standard SQL to feed liquibase. Above you can see 2 .sql files, one to create the tables and the other ones to put seed some data in it.
+as stated above, we'll be using standard SQL to feed liquibase. Above you can see 2 .sql files, one to create the tables and the other ones to seed some data in it.
 
 those are 2 toy .sql examples to test that our setup works fine.
 
@@ -400,10 +400,10 @@ those test values were created using ***[mokaroo](https://mockaroo.com/)***
 
 to test all went fine, just run the app
 
-the 1st time it runs it will setup the tables, and insert some data on the `users_doc` table. The other 2 tables are to check that we can create all sorts of tables, as one would expect, just by running `liquibase`.
+the 1st time it runs it will setup the tables, and insert some data on the `users_doc` table. The other 2 tables, the ones we didn't seed any data into, are to check that we can create all sorts of tables, as one would expect, by running `liquibase`.
 
 If you run it again and again it won't redo the db work unless you add something to Liquibase's changelog.<br>
-`Liquibase` will create 2 tables where it stores which changes have already been made. These two tables are ***`databasechangelog`*** and ***`databasechangeloglock`***.<br>
+`Liquibase` will create 2 tables for internal use, where it stores which changes have already been made. These two tables are ***`databasechangelog`*** and ***`databasechangeloglock`***.<br>
 We can just ignore them
 
 this should be all for setting up a Java SpringBoot project to support our `PostgreSQL` series of notes.
