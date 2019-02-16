@@ -244,7 +244,7 @@ logging.level.liquibase=info
 logging.level.root=info
 ```
 
-`liquibase` handles your db maintenance in an incremental way. We are not using `hibernate` ORM here, but if we were, the advantage over using `hibernate`'s automatic creation (ddl-auto) are many and will post a note about it in the future.
+`liquibase` handles your db maintenance in an incremental way with a few advantages over using `hibernate`'s automatic creation (ddl-auto).
 
 let's create a `liquibase` basic setup to get some tables created and add some data.
 

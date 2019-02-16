@@ -234,14 +234,19 @@ create table if not exists users_and_cards
 
 all right!
 
-we do have our users and cards and their satellite data sql.
+we do have our users and cards and their satellite data sql files.
 
-moving a bit to the code side...
+##### moving a bit to the code side...
 
-something we need, is for our top up / 2.0 banking card system to be able to onboard and retrieve users.<br>
+something we need, is for our top up / 2.0 banking card system, to be able to onboard and retrieve users.<br>
 Our example might make it look like trivial but banking regulation and fraud protection can make it difficult for those guys to onboard a new client, luckily we're not a bank.
 
-we're going to end up this 4th note by doing a tiny rest service that will give us a CRUD interface to onboard and retrieve users as an admin, nothing fancy for the moment, but a starting point to play with some json functionality.
+#### /generating_a_supporting_rest_project
+here we start getting our feet wet with our sql / noSql deal for good.
+
+##### 1st approach: Relational
+we'll create and endpoint that will save our user to the database using Spring Data and present that as a Json via REST call.
+we have already setup a springboot
 
 
 ---
