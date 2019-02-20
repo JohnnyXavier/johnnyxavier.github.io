@@ -2,7 +2,7 @@
 layout: post
 title: Linux screen share over web with multiple monitors
 author: Johnny Xavier
-image: Ubuntu-18-04-LTS-Bionic-Beaver.png
+image: vlc_black_icon.png
 updated: 
 categories: gnu_linux
 extract: This note is about sharing a single screen with a web app on a multiple monitor setup
