@@ -24,7 +24,7 @@ what we can do to circumvent the linux screen sharing problem is to share a scre
 
 ### VLC setup
 you need to have VLC installed.
-on debian based OSs something like this will install it if you don't have it yet
+on Debian based OSs something like this will install it if you don't have it yet
 
 ###### debian based os
 ```bash
@@ -49,11 +49,18 @@ replace the edit options for something like the following:
 * :screen-height=1080
 
 that means that the `top` `left` corner start all to the top and 1920 pixels to the left, in my case, that's the start of my second monitor.<br>
-The `width` and `height` will tell how much you want to capture, in my case you see the full resolution of my right monitor.
+The `width` and `height` will control how much you want to capture, in my case you see the full resolution of my right monitor.
 
-changing those parameters you can choose either monitor in any monitor setup you have.
+changing those parameters you can choose any area in any multiple monitor setup you might have.
 
 you should get something like this
 <img style="width: 50%" src="{{ site.baseurl }}/public/images/vlc_capture_device_setup.png">
 
-hit play and you are done
+hit play and you are done with the VLC part
+
+### Web App
+taking google's hangout / meet as an example, when you want to share a single screen, choose the option to share a single app, and then choose VLC.
+
+do not minimize VLC thou as it might stop the feed.
+
+enjoy!
