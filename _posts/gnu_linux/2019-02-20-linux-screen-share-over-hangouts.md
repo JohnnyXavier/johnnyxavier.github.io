@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Linux screen share over web with multiple monitors
+title: Linux single screen share over the web with multiple monitors
 author: Johnny Xavier
 image: vlc_black_icon.png
 updated: 
