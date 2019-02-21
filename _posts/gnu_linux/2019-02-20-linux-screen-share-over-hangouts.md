@@ -17,16 +17,16 @@ in a windows or OSX setup, you can choose which screen to share, in linux you wi
 
 choosing to share an app window is not bad, but all modals, menus, popups, etc, will not be shared. Still the key to this trick is to share an app.
 
-## Sharing a single screen
+## /Sharing_a_single_screen
 I could not find back the StackOverflow post but I am sure I read over there  this trick.
 
 what we can do to circumvent the linux screen sharing problem is to share a screen capturing app. I chose VLC for this but maybe this will work the same with others
 
-### VLC setup
+### /VLC_setup
 you need to have VLC installed.
 on Debian based OSs something like this will install it if you don't have it yet
 
-###### debian based os
+###### /debian_based_os
 ```bash
 sudo apt install vlc
 ```
@@ -48,7 +48,7 @@ replace the edit options for something like the following:
 * :screen-width=1920
 * :screen-height=1080
 
-that means that the `top` `left` corner start all to the top and 1920 pixels to the left, in my case, that's the start of my second monitor.<br>
+that means that the `top` `left` corner starts **0** pixels **from** the **top** and **1920** pixels **from** the **left**, in my case, that's the start of my second monitor.<br>
 The `width` and `height` will control how much you want to capture, in my case you see the full resolution of my right monitor.
 
 changing those parameters you can choose any area in any multiple monitor setup you might have.
@@ -58,8 +58,8 @@ you should get something like this
 
 hit play and you are done with the VLC part
 
-### Web App
-taking google's hangout / meet as an example, when you want to share a single screen, choose the option to share a single app, and then choose VLC.
+### /Web_App
+taking google's hangout / meet as an example, when you want to share a single screen, choose the option to share a single app, and then choose the VLC app, who should be playing your desktop.
 
 do not minimize VLC thou as it might stop the feed.
 

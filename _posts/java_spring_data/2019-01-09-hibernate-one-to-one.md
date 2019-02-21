@@ -10,10 +10,10 @@ tags: spring data hibernate
 ---
 gitHub Repo for this note: [java-data.git](https://github.com/JohnnyXavier/java-data.git)
 
-### Intro
+### /Intro
 I find myself doing this from time to time, so I'll write a tiny bit about how you can relate 2 tables in a one to one relationship with the `Spring data` stack using `hibernate`.
 
-### Definition of **one to one**
+### /Definition_of_**one_to_one**
 a nice way to understand this relationship is to imagine the relation you have with your passport as seen by your home country.
 
 from your own point of vue, you can have more than one passport.<br>
@@ -27,7 +27,7 @@ so, one person per passport and one passport per person...
 if you have a database of users you might not want to add all their passport info on the user's table<br>
 let's try a simple citizen with a simple passport
 
-### Possible representations
+### /Possible_representations
 with 2 objects tied this way you can have more than one way to relate them.
 
 the `citizen` can include a `passport_id` as field. This `passport_id` field on the `citizen` would be the `passport`'s `id` field.
@@ -37,13 +37,13 @@ you can decide you want the `passport` to drive the relation instead and have a 
 as many object relations, this one too will be described as a parent and a child. The child can also be described as the **target** entity as well.<br>
 I've chosen the citizen to be the one driving the relation which has an implication in the hibernate world. It means there should be a column on the table to store the passport id, this will allow later to retrieve the passport for this citizen and you'll be able to use that passport_id field if you are querying passports and want to know which citizen they correspond to.
 
-### Project
+### /Project
 we're using `java` as dev language<br>
 we're using `Spring Boot Data JPA` which uses hibernate as `ORM`<br>
 we're using in mem `H2` as database
 we're using automatic creation of db tables by the framework to focus on the relationship mapping.
 
-#### creating a project:
+#### /creating_a_project:
 you can go to [start.spring.io](https://start.spring.io) to create a springboot app. From the components available select:
 * jpa
 * jdbc
@@ -153,7 +153,7 @@ public class CitizenOneOne {
     private PassportOneOne passport;
 }
 ```
-#### walking through the code
+#### /walking_through_the_code
 ```java
 @Getter
 @Setter
@@ -223,7 +223,7 @@ public class PassportOneOne {
     private CitizenOneOne citizen;
 }
 ```
-#### walking through the code
+#### /walking_through_the_code
 `@Getter`, `@Setter`,`@Entity`, `Id`, `@GeneratedValue` have been covered for the citizen class already
 
 as you can see from above, the objects have one another in their fields, but if we check the database only the citizen has a field relating to the passport
@@ -233,7 +233,7 @@ this parameter tells hibernate who is driving the relation. In our case it tells
 
 ---
 
-#### accessing the database
+#### /Accessing_the_database
 you can run the project from the command line with 
 ```bash
 mvn spring-boot:run
@@ -254,7 +254,7 @@ you will see something like this when hitting the H2 login url
 once you access you should see something like this
 <img style="width: 60%" src="{{ site.baseurl }}/public/images/H2_console_interface.png">
 
-### On efficiency.
+### /On_efficiency.
 hibernate has a few tweaks that can be made to improve performance on your queries but you can also do a few simple things without much tinkering.<br>
 
 there are a few things to consider:
@@ -267,7 +267,7 @@ ftis is maybe more relevant in the `to many` relationships when maybe you will l
     @JsonManagedReference
     private PassportOneOne passport;
 ```
-#### walking through the code
+#### /Walking_through_the_code
 you just add `fetch = FetchType.LAZY` to the relation annotation and it tells hibernate not to query that field eagerly
 
 this is what you will see on a debugger with a lazy fetchtype in place for our citizen
@@ -286,7 +286,7 @@ this leaves us with the situation in which we have a passport and want to get th
 we would query the passport id from the citizens table for this, but we never indexed that column, so selection can be less performant.
 
 we have a few options:
-#### making the `passport_id` column on the `citizen` table a `foreign key`
+#### /Making_the_`passport_id`_column_on_the_`citizen`_table_a_`foreign key`
 this will automatically index it on some DBs like mySQL -> [13.1.20.6 Using FOREIGN KEY Constraints](https://dev.mysql.com/doc/refman/8.0/en/create-table-foreign-keys.html)
 but you are recommended to do it yourself on postgreSQL for example -> [5.3.5. Foreign Keys](https://www.postgresql.org/docs/current/ddl-constraints.html#DDL-CONSTRAINTS-FK)
 
@@ -296,11 +296,11 @@ think of it as `existing` data from a `foreign` table.column<br>
 on our example, if we choose to use `citizen.passport_id` as foreign key, every `passport_id` we assign must exist on the passport table. If we try to save a citizen with a passport_id that does not exists on the passport table, the DB will complain.<br>
 Hibernate will take care of that for us when saving the entity but we need to be aware of that constrain if we do it directly on the db
 
-#### simply indexing the `passport_id` column on the `citizen` table
+#### /Simply_indexing_the_`passport_id`_column_on_the_`citizen`_table
 we get the efficiency of an indexed column without the constrains of the foreign key.<br>
 this is what we have done already on the code above.
 
-#### sharing the primary key
+#### /Sharing_the_primary_key
 sharing the primary key means 2 things<br>
 from a db perspective, you create you primary key on the parent and use that same one on the child as it's primary key.<br>
 from a hibernate perspective it means that you dont need to generate a passport id on it's own, and now, you just share one index if you annotate your classes correctly.
@@ -365,7 +365,7 @@ public class PassportOneOneMapsId {
     private CitizenOneOneMapsId citizen;
 }
 ```
-#### walking through the code
+#### /Walking_through_the_code
 the `citizen` class has 2 differences
 * it's no longer generating his own Id
 * has a `@MapsId` annotation means that this field now serves as both PK and FK
@@ -387,8 +387,8 @@ the id is generated on the passport table and shared with the citizen table on i
 we could invert the relation and have the passport inherit the id from the citizen but we will be in the same pickle as here on the other side of the coin.
 
 
-#### which one to choose.
-per Vlad Mihalcea's blog (absolutely **great** insights on hibernate), the `@MapsId` is the recommended one to one recipe in a hibernate ecosystem. check it here [The best way to map a @OneToOne relationship with JPA and Hibernate](https://vladmihalcea.com/the-best-way-to-map-a-onetoone-relationship-with-jpa-and-hibernate)<br>
+#### /Which_one_to_choose.
+per **Vlad Mihalcea**'s blog (absolutely **great** insights on hibernate), the `@MapsId` is the recommended one to one recipe in a hibernate ecosystem. check it here [The best way to map a @OneToOne relationship with JPA and Hibernate](https://vladmihalcea.com/the-best-way-to-map-a-onetoone-relationship-with-jpa-and-hibernate)<br>
 
 there is no silver bullet that will be a best fit for all scenarios.
 
