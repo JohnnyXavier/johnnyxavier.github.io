@@ -244,7 +244,7 @@ what we need to do is to add a `DataSource`
 <img style="width: 35%" src="{{ site.baseurl }}/public/images/Menu_003.png">
 
 * you will see the `datasource` popup where you have to input your DB's settings
-    * it is hosted on out own computer so `localhost` for the host
+    * it is hosted on our own computer, so `localhost` for the host
     * `playground` is our db name
     * user/password are the ones you created before
     * driver is downloaded by the IDE

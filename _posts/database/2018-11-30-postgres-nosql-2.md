@@ -92,7 +92,7 @@ this is a very simple an classical approach for this simple example.
 to get all data about our book `id = 1` we need to check 3 tables and relate the data appropriately.<br>
 why would they call this databases ***`RELATIONAL`*** databases right?
 
-we will need to tell the db to `join` tables and to tell the db that what you actually want is not the borrower `id` (*`lent_to`*) but to go and fetch into the borrowers table your actual friend's data related to that `id` and again the same for your friend's address `id`.
+we will need to tell the db to `join` tables and that what you actually want is not the borrower `id` (*`lent_to`*) but to go and fetch into the borrowers table your actual friend's data related to that `id` and again the same for your friend's address `id`.
 
 let's see another way to approach this. How about storing everything as document on a single field on a single table?
 
@@ -133,7 +133,7 @@ adding columns and normalizing a toy database as the one above when it grows and
 
 enters [MongoDB](https://www.mongodb.com/)... this db, a document store, could handle the above json in a way that each field has a meaning and could be queried as if it was a column from the traditional approach. Others, as [Amazon's DynamoDB](https://aws.amazon.com/dynamodb/) work similarly, but for now the one to beat is still mongo.
 
-the above json is a single field with meaning and queryable in mongo. Mongo offers a flexibility that the traditional schema could not. If you do additions or modifications to the json you store, mongo cannot care less. It will keep working fine, and now maintenance and breaking changes are reduced considerably.
+the above json is a single field with meaning and queryable in mongo. Mongo offers a flexibility that the traditional schema can not. If you do additions or modifications to the json you store, mongo cannot care less. It will keep working fine, and now maintenance and breaking changes are reduced considerably.
 
 the key word here is -***reduced***- as maintenance effort will not disappear. If you drive any approach to the limit or you choose the wrong tool for the given job, they will all offer the poorest performance possible.<br>
 
@@ -226,7 +226,7 @@ select * from postgres_no_sql.temp where json_document ->> 'country' = 'france';
   7 | {"name": "laura", "last_name": "tedesco", "country": "france", "nationality": "italian"}
 
 ```
-exactly what you would expected!
+exactly what you would have expected!
 
 so... this is postgresql right? **right!**
 and this is sql right? *mmm kinda...*

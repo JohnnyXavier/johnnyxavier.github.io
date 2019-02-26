@@ -42,12 +42,14 @@ you can download all of it from github from the link below
 * Lang:
     * java 11 (>= J8 is OK)
 * frameworks / libs / etc:
-    * spring boot (2.1.1.RELEASE)
+    * spring boot (2.1.3.RELEASE)
         * hikari
         * log4j2
         * undertow
         * liquibase
         * jackson
+        * JPA
+        * JDBC
 * database:
     * PostgreSQL 11
 
@@ -97,12 +99,13 @@ if you have `intelliJ IDEA Ultimate` or `STS` (`Eclipse` based **S**pring **T**o
 
 using one of the tools of your choice, select the following components from the `spring boot initializr`
 
-* springboot: 2.1.1.RELEASE (spring boot project that will handle our below dependencies and build)
+* springboot: 2.1.3.RELEASE (spring boot project that will handle our below dependencies and build)
 * general:
     * lombok (utility to avoid the ceremony of getters setters and the like)
 * SQL:
     * postgreSQL (the database driver)
-    * JDBC (spring jdbc project to handle connections et als)
+    * JDBC (spring jdbc module to handle DB connections et als)
+    * JPA (spring JPA module to handle connections et als)
     * Liquibase (database maintenance)
 * Web:
     * web (spring project that provides infrastructure for rest, mappings et als)
@@ -139,7 +142,7 @@ your `pom.xml` should look like this
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.1.1.RELEASE</version>
+        <version>2.1.3.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
@@ -407,6 +410,26 @@ If you run it again and again it won't redo the db work unless you add something
 We can just ignore them
 
 this should be all for setting up a Java SpringBoot project to support our `PostgreSQL` series of notes.
+
+##### /Note_on_using_spring-data_/_hibernate
+regarding database tables creation with hibernate:
+
+there is an option that will allow hibernate ORM to scan our entities and generate tables out of them.
+It has a few modes, to create, to create and drop, to update, etc.
+
+The good and bad things leaving the db creation to hibernate are a many BUT you should avoid leaving the DB handling to hibernate unless it's a test or toy database or demo or POC.
+
+What can, and eventually `WILL` happen, is that you'll update an entity fields and that will propagate automatically to the DB.<br>
+if those entities are used elsewhere something might, and eventually will break.<br>
+if those entities are part of a "commons" or "shared" or an often used module something might and eventually will break.
+
+On small codebases it is not likely to happen but as you grow, it will.
+
+Of course this won't prevent you breaking things, but it will prevent avoidable mistakes.
+
+one can also argue that a few tweak, indexes, sequences, triggers etc are better handled directly with SQL
+
+to save me some future trouble I found better to control the DB with proper plain SQL.
 
 ---
 
