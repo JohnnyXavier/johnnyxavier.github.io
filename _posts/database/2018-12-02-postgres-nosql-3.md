@@ -419,15 +419,15 @@ It has a few modes, to create, to create and drop, to update, etc.
 
 The good and bad things leaving the db creation to hibernate are a many BUT you should avoid leaving the DB handling to hibernate unless it's a test or toy database or demo or POC.
 
-What can, and eventually `WILL` happen, is that you'll update an entity fields and that will propagate automatically to the DB.<br>
+What can, and eventually `WILL` happen, is that you'll update some  entity fields and that will propagate automatically to the DB.<br>
 if those entities are used elsewhere something might, and eventually will break.<br>
 if those entities are part of a "commons" or "shared" or an often used module something might and eventually will break.
 
-On small codebases it is not likely to happen but as you grow, it will.
+on a small codebase it is not likely to happen but as you grow, it will.
 
-Of course this won't prevent you breaking things, but it will prevent avoidable mistakes.
+of course this won't prevent you breaking things, but it will prevent avoidable mistakes.
 
-one can also argue that a few tweak, indexes, sequences, triggers etc are better handled directly with SQL
+one can also argue that a few tweaks, indexes, sequences, triggers etc are better handled directly with SQL and we also keep jpa annotations to a minimum
 
 to save me some future trouble I found better to control the DB with proper plain SQL.
 

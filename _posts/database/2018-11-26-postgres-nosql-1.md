@@ -27,7 +27,7 @@ in a single place to be able to go back quickly to the very disperse documentati
 these series of notes will go from installing `postgres` on `Linux` (`Ubuntu 18.10 Cosmic Cuttlefish`) to creating 
 doc columns on `postgres` to doing some jolly operations over `jsonb` columns and testing some indexes.
 
-I will use `linux` as OS, `java` ecosystem as supporting framework, and of course, `PostgreSQL` as databasse.
+I will use `linux` as OS, `java` ecosystem as supporting framework, and of course, `PostgreSQL` as database.
 
 let's get this started!
 
