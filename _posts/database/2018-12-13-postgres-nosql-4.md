@@ -66,15 +66,17 @@ we're gonna play in this note with the operations in postgres that allow to crea
 ### /setting_up_a_supporting_project
 as advertised, we're using `java's` ecosystem to support an imaginary project to store, query, and present data.<br>
 
-I find more engaging to use lifelike demos than toy examples, so we're gonna try and build a tiny piece of a real project, with millions of rows and hitting the db as hard as we want to push it to it's limits.
+when working with extensive subjects I find more engaging to use lifelike demos than toy examples, so we're gonna try and build a tiny piece of a real project, with millions of rows and hitting the db as hard as we want to push it to it's limits.
 
-we're seeing lately the rise of phone controlled top up debit cards, that show a lot more info on screen than our own banks do. We can get info broken by purchase type, seller, dates, country, etc. <br>
+we're seeing lately the rise of phone controlled top up debit cards, that show a lot more info on screen (and have way more features) than our own banks do. We can get info broken by purchase type, seller, dates, country, etc. <br>
 we are going to build a web based super charged version of one of those apps that would show the info you can get in vendors like `Revolut` or `Monzo` or maybe a bank like `N26` or any service of the like, using the versatility of postgres to act as pure sql, nosql and hybrid database.
 
 #### /the_architecture_we_will_be_exploring
-we're going to explore a small part of one of those top up card services. Mainly the part storing and querying the users and transactions data.
+we're going to explore a small part of one of those top up card services. Mainly the part storing and querying the users and transactions data. We're going to build some rest endpoints to be able to retrieve and update that data and a web interface that, I must confess, might err on the simple side as I am mainly a backEnd developer
 
 here we go!
+
+---
 
 #### /starting_relational
 this type of apps provide a service to a `user`.<br>
@@ -96,7 +98,8 @@ let's try a first attempt of modeling our user, with the basic data we need to c
     * joining_date
     * last_login
     
-now... this is pseudocode for a DB table
+now... this is some pseudocode for a DB table
+
 a few things to notice, this user model will sink very quickly. The main data we need is there, but it's difficult to access. Storing all the data from a credit card into a single field makes no sense... limiting a user to just have 2 cards makes no sense either.
 
 1st refinement
@@ -141,8 +144,8 @@ a few things to notice, this user model will sink very quickly. The main data we
     * created_at
     * modified_at
     
-now, the model for our user, is far better than the original but still needs some massaging.<br>
-the things to notice here is that we are limiting the amount of addresses a user can have. Well, addresses are not likely to change very often and we won't keep historics on the users addresses table itself, so the limit is not terrible. Regarding the cards a user can have, that's another story as our users can choose to add many cards, and at some point cards will expire so limiting the amount of cards won't be the best approach.
+now, the model for our user, is better than the original but still needs some massaging.<br>
+the things to notice here, is that we are limiting the amount of addresses a user can have. Well, addresses are not likely to change very often and we won't keep historics on the users addresses table itself, so the limit is not terrible. Regarding the cards a user can have, that's another story as our users can choose to add many cards, and at some point cards will expire so limiting the amount of cards won't be the best approach.
 
 enters an intermediate table that will relate a user to his cards... a single user can have many cards, and maybe a family will share a single card among it's members so we need to add a table that can allow more than one user to relate to more than one card, a many to many table.
 
@@ -236,19 +239,32 @@ all right!
 
 we do have our users and cards and their satellite data sql files.
 
-##### moving a bit to the code side...
+**NOTE:**
+something we need, is for our *top up / 2.0 banking card system*, to be able to onboard and retrieve users.
 
-something we need, is for our top up / 2.0 banking card system, to be able to onboard and retrieve users.<br>
-Our example might make it look like trivial but banking regulation and fraud protection can make it difficult for those guys to onboard a new client, luckily we're not a bank.
+Our example might make it look like trivial but banking regulations and fraud protection can make it difficult for those guys to onboard a new client, luckily we're not a bank and we can skip all those regulatory validations.
 
-#### /generating_a_supporting_rest_project
-here we start getting our feet wet with our sql / noSql deal for good.
+##### /first_steps_into_documents
+with our project and tables setup, we can dive into some postgres functionality as a no sql document db.
 
-##### 1st approach: Relational
-we'll create and endpoint that will save our user to the database using Spring Data and present that as a Json via REST call.
-we have already setup a springboot
+to explore the features we will use toy amount of data then move to more realistic amount of records.
+
+##### /loading_some_data
+let's create toy db seed files that will contain small amounts of data to test out a few features and check how can we make a json out of the columns.
+I will prepend the word `toy` in front of files to indicate this data is likely to disappear or be discarded in the final app
+
+###### toy_user_seed.sql
+
+###### toy_address_seed.sql
+
+###### toy_banking_card_seed.sql
+
+###### toy_users_and_cards_seed.sql
 
 
 ---
 
 this is all for now on the fourth note on postgres noSql.
+
+-------------------- dependencies on relations inside docs.
+example can a doc guarantee that the user ID id is among known users?? Mongo / Postgresql foreign keys?

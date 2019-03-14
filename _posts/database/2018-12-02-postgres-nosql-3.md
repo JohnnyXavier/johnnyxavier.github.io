@@ -54,7 +54,7 @@ you can download all of it from github from the link below
     * PostgreSQL 11
 
 ##### /installing_the_os
-if you need help installing the OS on a laptop, these guide below can point you into the right direction as linux and laptops with discrete cards are not the best friends at the moment
+if you need help installing the OS on a laptop, this guide below can point you into the right direction as linux and laptops with discrete cards are not the best friends at the moment
 [Ubuntu 18.10 Cosmic Cuttlefish Setup - on Dell 9560]({{ site.baseurl }}{% post_url gnu_linux/2018-11-01-dell-9560-setup-ubuntu1810 %})
 
 installing linux other than in a laptop with a discrete GPU is straightforward so I won't cover that here.
@@ -74,19 +74,24 @@ deb http://ppa.launchpad.net/linuxuprising/java/ubuntu cosmic main
 # to install it you'll need to agree to Oracle's license
 sudo apt install oracle-java11-installer
 
-#confirm you have the jdk installed correctly
+# confirm you have the jdk installed correctly
 javac -version
 
-# for oracle's jdk should get you
+# for oracle's jdk and OpenJdk should get you something similar to
 $ javac 11.0.1
 
 # and the runtime
 java -version
 
-# for Oracle's jdk should display
+# for Oracle's jdk should display something similar to
 $ java version "11.0.1" 2018-10-16 LTS
 $ Java(TM) SE Runtime Environment 18.9 (build 11.0.1+13-LTS)
 $ Java HotSpot(TM) 64-Bit Server VM 18.9 (build 11.0.1+13-LTS, mixed mode)
+
+# for Openjdk should display something similar to
+$ openjdk version "11.0.1" 2018-10-16
+$ OpenJDK Runtime Environment (build 11.0.1+13-Ubuntu-3ubuntu3.18.10.1)
+$ OpenJDK 64-Bit Server VM (build 11.0.1+13-Ubuntu-3ubuntu3.18.10.1, mixed mode, sharing)
 ```
 
 ##### /creating_a_new_spring_boot_project
