@@ -256,7 +256,7 @@ logging.level.root=info
 
 let's create a `liquibase` basic setup to get some tables created and add some data.
 
-for `liquibase` to work smoothly under springboot it's changelog file needs to be placed in a particular path -> folder like this<br>
+for `liquibase` to work smoothly under springboot it's changelog file needs to be placed in a particular path  like this:<br>
 
 **src -> main -> resources -> db -> changelog**<br>
 
@@ -350,9 +350,9 @@ you can see that what I am doing here is to load the different `.sql` files that
 in the end you should have something like this:
 <img style="width: 30%" src="{{ site.baseurl }}/public/images/Selection_012.png">
 
-we haven't created any data nor put anything into the db, so let do that's just to make sure everything is working just ok.
+we haven't created any data nor put anything into the db, so let do that just to make sure everything is working just ok.
 
-as stated above, we'll be using standard SQL to feed liquibase. Above you can see 2 .sql files, one to create the tables and the other ones to seed some data in it.
+below you can see 2 .sql files, one to create the tables and the other one to seed some data in it.
 
 those are 2 toy .sql examples to test that our setup works fine.
 

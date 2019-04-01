@@ -72,7 +72,7 @@ we're seeing lately the rise of phone controlled top up debit cards, that show a
 we are going to build a web based super charged version of one of those apps that would show the info you can get in vendors like `Revolut` or `Monzo` or maybe a bank like `N26` or any service of the like, using the versatility of postgres to act as pure sql, nosql and hybrid database.
 
 #### /the_architecture_we_will_be_exploring
-we're going to explore a small part of one of those top up card services. Mainly the part storing and querying the users and transactions data. We're going to build some rest endpoints to be able to retrieve and update that data and a web interface that, I must confess, might err on the simple side as I am mainly a backEnd developer
+we're going to explore a small part of one of those top up card services. Mainly the part storing and querying the users and transactions data. We're going to build some rest endpoints to be able to retrieve and update that data and a web interface that, I must confess, might err on the simple side as I am a backEnd developer
 
 here we go!
 
