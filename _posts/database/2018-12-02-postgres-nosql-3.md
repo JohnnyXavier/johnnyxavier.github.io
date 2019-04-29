@@ -34,6 +34,7 @@ the first thing we are going to do is to setup a project around postgres to use 
 we'll setup a java project to handle some web containers, rest endpoints, jdbc, connection pools, populating databases with test data, etc
 
 you can download all of it from github from the link below
+
 [PostgreSQL no sql repo]({{ site.repourl }})
 
 #### /the_suspects
@@ -434,7 +435,7 @@ of course this won't prevent you breaking things, but it will prevent avoidable 
 
 one can also argue that a few tweaks, indexes, sequences, triggers etc are better handled directly with SQL and we also keep jpa annotations to a minimum
 
-to save me some future trouble I found better to control the DB with proper plain SQL.
+to save me some future trouble I found better to control the DB with plain SQL.
 
 ---
 
