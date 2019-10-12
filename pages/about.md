@@ -28,4 +28,4 @@ As my knowledge, tools, frameworks, versions, etc, evolve, so will the solutions
 
 ## About this jekyll theme
 this site is hosted on github and uses jekyll templating<br>
-the theme currently in use is a modified version of `BlackDoc` by: [**Karlo Espiritu**](https://github.com/karloespiritu).
+the theme currently in use is a modified version of [`BlackDoc`](https://github.com/karloespiritu/BlackDoc) by: [**Karlo Espiritu**](https://github.com/karloespiritu).
