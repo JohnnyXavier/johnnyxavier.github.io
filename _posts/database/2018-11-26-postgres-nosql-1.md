@@ -24,7 +24,7 @@ relatively unexploited yet.
 it was hard to gather info about all the topics I needed to create a working solution, so I am putting what I found 
 in a single place to be able to go back quickly to the very disperse documentation about this subject and expand on it if possible.
 
-these series of notes will go from installing `postgres` on `Linux` (`Ubuntu 18.10 Cosmic Cuttlefish`) to creating 
+these series of notes will go from installing `postgres` on `Linux` (`Ubuntu 19.10 Eoan Ermine`) to creating 
 doc columns on `postgres` to doing some jolly operations over `jsonb` columns and testing some indexes.
 
 I will use `linux` as OS, `java` ecosystem as supporting framework, and of course, `PostgreSQL` as database.
@@ -36,9 +36,9 @@ let's get this started!
 ## /Installing_postgres_on_Ubuntu
 let's install the DB to get our feet wet.
 
-* Ubuntu version: 18.10 *Cosmic CuttleFish*
-    * Linux Kernel: 4.18.0-11-generic
-* postgres version: 11
+* Ubuntu version: 19.10 *Eoan Ermine*
+    * Linux Kernel: 5.3.0-23-generic
+* postgres version: 12.1 (Ubuntu 12.1-1.pgdg19.10+1)
 
 This is my current setup and yours may differ, the minimum requirement thou, is `postgres` <strong>10</strong>.<br>
 You can install `postgres` over many OSs but the instructions here apply for `Debian` based OSs.
@@ -56,8 +56,8 @@ there or keep reading here.
 nano /etc/apt/sources.list.d/pgdg.list # use vi vim emacs etc as you fancy
 
 # once inside your editor, add this line.
-# this works just fine on ubuntu cosmic
-deb http://apt.postgres.org/pub/repos/apt/ bionic-pgdg main
+# for the time being postgres offers only 64 bit repo
+deb [arch=amd64] http://apt.postgresql.org/pub/repos/apt/ eoan-pgdg main
 
 # save and close the text editor
 
@@ -67,38 +67,47 @@ wget --quiet -O - https://www.postgres.org/media/keys/ACCC4CF8.asc | sudo apt-ke
 # update you packages list
 sudo apt update
 
-# install the meta package and a few db extensions
+# install the meta package with the latest version and a few db extensions
 sudo apt install postgres postgres-contrib
 ```
 
 ### /configuring_postgres_the_basics
 we will cover here how to access `postgres` from the console and from an IDE.
 
-I personally use `IntelliJ IDEA` and sometimes `DataGrip` both from `jetbrains`, but I will cover an `Eclipse` based 
+I personally use `IntelliJ IDEA` / `DataGrip` both from `jetbrains`, but I will cover an `Eclipse` based 
 option called `dBeaver` as it is free and runs everywhere too. I will just cover basic setup as SQL commands are the 
 same regardless which IDE you use.
 
 ##### on how to access postgres from the terminal
-there are other ways that this one but I find this one very convenient.<br>
+there are other ways than this one but I find this one very convenient.<br>
 during installation the db creates a user, the **postgres** user, and we will use it to get into the db CLI
 ###### Bash
 ```bash
+# switch to the postgres user (-u) using his shell and settings (-i)
 sudo -iu postgres
 
-#you should land into postgres users's shell
-#let's call the cli command
+# you should land into postgres users's shell
+# let's call postgresql cli command
 psql
 
 # you should get this prompt from psql with a similar version
-$ psql (11.1 (Ubuntu 11.1-1.pgdg18.04+1))
+$ psql (12.1 (Ubuntu 12.1-1.pgdg19.10+1))
 $ Type "help" for help.
 
 $ postgres=#
 
 # "help" should be your best friend here as postgres is loaded with features and it is easy to get lost
-# similar to "help" is to type "\?", so lets see what they show
 # I will omit the "$ postgres=#" prompt from now
+help
 
+# help just display this small help menu,
+You are using psql, the command-line interface to PostgreSQL.
+Type:  \copyright for distribution terms
+       \h for help with SQL commands
+       \? for help with psql commands
+       \g or terminate with semicolon to execute query
+
+# let's check \h
 \h
 # \h will show help for different SQL commands and output something like this
 Available help:
@@ -110,6 +119,7 @@ Available help:
   ALTER DEFAULT PRIVILEGES         COMMIT PREPARED                  DELETE                           END
 [...]
 
+# let's check \?
 \?
 # \? will show help for different psql cli commands and output something like this
 General
@@ -144,10 +154,13 @@ Informational
 ```
 
 so this is what you get after installing the database. It will also setup postgres as a service.<br>
-this note focuses more on the database as developer tool than from a dba devops perspective, so I will skip a few settings to go to the core of our topic.
 
+---
+`this note focuses more on the database as developer tool than from a dba devops perspective, so I will skip a few settings to go to the core of our topic.`
+
+---
 ##### on how to configure postgres with a new user and creating our playground database and schemas
-having said that, we will need to do go through a few setup steps to access postgres from outside the CLI. Back to bash
+having said that, we will need to go through a few setup steps to access postgres from outside the CLI. Back to bash
 ###### bash
 ```bash
 # let's create a database and a user other than the main db and the root user so we can break a few things, but not 
@@ -156,7 +169,7 @@ having said that, we will need to do go through a few setup steps to access post
 postgres=#
 
 # let's create a user.
-CREATE USER john PASSWORD`john`;
+CREATE USER john PASSWORD `john`;
 
 # let's create a new database.
 CREATE DATABASE playground;
@@ -173,7 +186,7 @@ CREATE SCHEMA postgres_no_sql;
 GRANT ALL ON ALL TABLES IN SCHEMA postgres_no_sql TO john;
 GRANT ALL ON ALL FUNCTIONS IN SCHEMA postgres_no_sql TO john;
 
-# let' s create a schema in which our no_sql tables will live
+# let' s create a schema in which our sql tables will live
 # and give access to our user
 CREATE SCHEMA postgres_sql;
 GRANT ALL ON ALL TABLES IN SCHEMA postgres_sql TO john;
@@ -187,7 +200,6 @@ list your databases and schemas you should see this
 ###### bash
 ```bash
 # list all databases with "\l"
-playground=#
 \l
 
 # you should see
@@ -205,22 +217,20 @@ playground=#
 (4 rows)
 
 # list all schemas in playground with "\dn"
-playground=# \dn
+\dn
 
 # you should see
       List of schemas
       Name       |  Owner   
 -----------------+----------
- postgres_no_sql | john
+ postgres_no_sql | postgres
  postgres_sql    | postgres
  public          | postgres
 (3 rows)
 
 # we are done here so let's exit the postgres cli
 # exit or quit or \q will get us out
-
-playground=#
-exit
+ \q
 
 #we may want to exit the postgres user's shell too
 postgres@your_computer:~$ exit
