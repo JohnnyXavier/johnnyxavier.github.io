@@ -57,7 +57,7 @@ id  | first_name| last_name
 2   | mike      | johnson
 ```
 
-thi is far from the end right? Where is actually that book? Alright let's add your friend's address. As we did before it is handy to have the addresses on a different table and reference the address with an `id`.
+this is far from the end right? Where is actually that book? Alright let's add your friend's address. As we did before it is handy to have the addresses on a different table and reference the address with an `id`.
 we will have now 3 tables like this:
 * `book: ( id, author, title, ISBN, lent_to)`
 * `borrower: ( id, first_name, last_name, address)`
@@ -104,11 +104,9 @@ defining the book, the borrower and the address will be exactly the same but wil
     "author": "tolkien",
     "title": "the hobbit",
     "lent_to": {
-        "id": 2,
         "first_name": "mike",
         "last_name": "johnson",
         "address": {
-         "id": 1,
          "street_name": "rose road",
          "street_number": "123",
          "postal_code": "QA23RR"        
@@ -123,7 +121,7 @@ when we get the book we want by asking for it's `id` or `title` we get the entir
 dandy!
 
 ##### some incredibly short and abbreviated evolutionary pill
-traditionally, databases will store data in columns, each column representing a field such as name, age, birthday, price, etc, and text such as articles, biographies, comments, etc were stored in "text fields", ranging from a few chars to big blobs.
+traditionally, databases will store data in columns, each column representing a field such as name, age, birthday, price, etc, and text such as articles, biographies, comments, etc were stored in some sort of "text / numerical fields", ranging from a few chars to big blobs.
 
 that meant that as searching is performed on a column basis, querying the blobs of text was not as efficient as querying another field.<br>
 the text will be just that, text.<br>

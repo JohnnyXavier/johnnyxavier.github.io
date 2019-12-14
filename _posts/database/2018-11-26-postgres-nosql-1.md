@@ -241,10 +241,10 @@ operate on those schemas
 ### /configuring_postgres_the_IDEs
 with the above we installed the database and configured it to our needs. Now let's leave the CLI and configure an IDE to access the dbs and schemas and start getting into the dandy stuff.
  
-***note that this is completely optional and you can keep using the CLI, or jump into `emacs` or `vi`or any appropriate tool you love***
+***note that this is completely optional and you can keep using the CLI, or jump into `emacs` or `vi`or any tool you love***
 
 #### configuring Jetbrains family of apps
-although having a cost `intelliJ` is widely used and chances are it's your IDE too
+although having a cost `intelliJ Ultimate` is widely used and chances are it's your IDE too
 
 what we need to do is to add a `DataSource`
 * go to `view -> tool windows -> database` or you can find the tab usually to the right edge of the app
