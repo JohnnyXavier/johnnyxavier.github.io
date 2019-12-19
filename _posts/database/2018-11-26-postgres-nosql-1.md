@@ -45,24 +45,29 @@ You can install `postgres` over many OSs but the instructions here apply for `De
 
 ### /Getting_and_installing_postgres
 head to `postgres` website download page.<br>
-[https://www.postgres.org/download/linux/ubuntu/](https://www.postgres.org/download/linux/ubuntu/)
+[https://www.postgresql.org/download/linux/ubuntu/](https://www.postgresql.org/download/linux/ubuntu/)
 
 there you will see the  different `Ubuntu` versions the Database is available for. You can follow instructions 
-there or keep reading here.
+there for the ready to go OSs versions or keep reading here for latest Ubuntu 19.10 instructions taken from [https://wiki.postgresql.org/wiki/Apt](https://wiki.postgresql.org/wiki/Apt)
 
 ###### Bash
 ```bash
+# be sure you have all required packages on you distro for postgresql to install correctly
+sudo apt install curl ca-certificates gnupg
+
+# add the repo key
+# be sure to check the postgresql wiki linked above for any change on keys
+wget --quiet -O - https://www.postgres.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+
 # add the postgres repo to you repo list
-nano /etc/apt/sources.list.d/pgdg.list # use vi vim emacs etc as you fancy
+sudo vim /etc/apt/sources.list.d/pgdg.list # use vi vim emacs etc as you fancy
 
 # once inside your editor, add this line.
-# for the time being postgres offers only 64 bit repo
+# for the time being postgres offers only 64 bit repo for Ubuntu 19.10 eoan
 deb [arch=amd64] http://apt.postgresql.org/pub/repos/apt/ eoan-pgdg main
 
 # save and close the text editor
-
-# add the repo key
-wget --quiet -O - https://www.postgres.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+:wq
 
 # update you packages list
 sudo apt update
@@ -74,16 +79,15 @@ sudo apt install postgres postgres-contrib
 ### /configuring_postgres_the_basics
 we will cover here how to access `postgres` from the console and from an IDE.
 
-I personally use `IntelliJ IDEA` / `DataGrip` both from `jetbrains`, but I will cover an `Eclipse` based 
-option called `dBeaver` as it is free and runs everywhere too. I will just cover basic setup as SQL commands are the 
-same regardless which IDE you use.
+I personally use [IntelliJ IDEA](https://www.jetbrains.com/idea/) / [DataGrip](https://www.jetbrains.com/datagrip/) both from **[jetbrains](https://www.jetbrains.com/)**, but I will also cover an **[Eclipse](https://www.eclipse.org/eclipseide/)** based option called [dBeaver](https://dbeaver.io/) as it is free and runs everywhere too.<br>
+I will just cover basic setup as SQL commands are the same regardless which IDE you use.
 
 ##### on how to access postgres from the terminal
 there are other ways than this one but I find this one very convenient.<br>
 during installation the db creates a user, the **postgres** user, and we will use it to get into the db CLI
 ###### Bash
 ```bash
-# switch to the postgres user (-u) using his shell and settings (-i)
+# switch to the postgres user (-u) using its shell and settings (-i)
 sudo -iu postgres
 
 # you should land into postgres users's shell
@@ -156,7 +160,7 @@ Informational
 so this is what you get after installing the database. It will also setup postgres as a service.<br>
 
 ---
-`this note focuses more on the database as developer tool than from a dba devops perspective, so I will skip a few settings to go to the core of our topic.`
+`this note focuses more on the database as a developer tool than from a dba devops perspective, so I will avoid getting into detailed settings to go to the core of our topic.`
 
 ---
 ##### on how to configure postgres with a new user and creating our playground database and schemas
@@ -206,15 +210,20 @@ list your databases and schemas you should see this
                                   List of databases
     Name    |  Owner   | Encoding |   Collate   |    Ctype    |   Access privileges   
 ------------+----------+----------+-------------+-------------+-----------------------
- playground | postgres | UTF8     | en_GB.UTF-8 | en_GB.UTF-8 | =Tc/postgres         +
+ playground | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | =Tc/postgres         +
             |          |          |             |             | postgres=CTc/postgres+
             |          |          |             |             | john=CTc/postgres
- postgres   | postgres | UTF8     | en_GB.UTF-8 | en_GB.UTF-8 | 
- template0  | postgres | UTF8     | en_GB.UTF-8 | en_GB.UTF-8 | =c/postgres          +
+ postgres   | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | 
+ template0  | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | =c/postgres          +
             |          |          |             |             | postgres=CTc/postgres
- template1  | postgres | UTF8     | en_GB.UTF-8 | en_GB.UTF-8 | =c/postgres          +
+ template1  | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | =c/postgres          +
             |          |          |             |             | postgres=CTc/postgres
 (4 rows)
+
+# it may be the case that the collate and ctype of your database are different, maybe en_GB or es_ES or another language
+# it is completely fine
+# if you are curious how many and which collations your postgresql installation supports you can execute the following query:
+# select * from pg_collation; 
 
 # list all schemas in playground with "\dn"
 \dn
@@ -232,11 +241,10 @@ list your databases and schemas you should see this
 # exit or quit or \q will get us out
 \q
 
-#we may want to exit the postgres user's shell too
+# we may want to exit the postgres user's shell too
 postgres@your_computer:~$ exit
 ```
-this setup will allow the created user `john` to connect to `playground` database with the chosen password and to 
-operate on those schemas
+this setup will allow the created user `john` to connect to `playground` database with the chosen password and to operate on those schemas.
 
 ### /configuring_postgres_the_IDEs
 with the above we installed the database and configured it to our needs. Now let's leave the CLI and configure an IDE to access the dbs and schemas and start getting into the dandy stuff.
@@ -244,7 +252,8 @@ with the above we installed the database and configured it to our needs. Now let
 ***note that this is completely optional and you can keep using the CLI, or jump into `emacs` or `vi`or any tool you love***
 
 #### configuring Jetbrains family of apps
-although having a cost `intelliJ Ultimate` is widely used and chances are it's your IDE too
+although having a cost, `intelliJ Ultimate` is widely used and chances are it's your IDE too.<br>
+the version I use for this tutorial is the `2019.3` one
 
 what we need to do is to add a `DataSource`
 * go to `view -> tool windows -> database` or you can find the tab usually to the right edge of the app
@@ -257,7 +266,7 @@ what we need to do is to add a `DataSource`
     * it is hosted on our own computer, so `localhost` for the host
     * `playground` is our db name
     * user/password are the ones you created before
-    * driver is downloaded by the IDE
+    * driver is downloaded by the IDE for you
 
 you should get a screen similar to this one
 <img style="width: 70%" src="{{ site.baseurl }}/public/images/DataSourcesAndDrivers_004.png">
@@ -289,5 +298,8 @@ finally on your main IDE layout your new database connection should show like th
 <img style="width: 30%" src="{{ site.baseurl }}/public/images/Selection_010.png">
 
 ---
+
+that's it!<br>
+you have should have postgresql running on you computer and configured for these series!
 
 this is all for now on the first note on postgres noSql.
