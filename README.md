@@ -1,4 +1,4 @@
-**/io_forge** uses a modified version of
+**/bare_metal_code** uses a modified version of
 ## BlackDoc
 
 ---
