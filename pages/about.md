@@ -9,7 +9,7 @@ title: /About
   My name is John Xavier, a self taught tech enthousiast writting some notes about programming
 </p>
 
-## About io_forge
+## About bare_metal_code
 I started writing these notes:
 
 * To track some info that was hard to come by over the net
