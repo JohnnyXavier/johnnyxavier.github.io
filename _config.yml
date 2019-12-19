@@ -3,7 +3,7 @@ markdown:         kramdown
 highlighter:      rouge
 
 # Setup
-title:            /io_forge
+title:            /bare_metal_code
 tagline:          some_notes_about_programming
 description:      some notes about programming
 url:              https://johnnyxavier.github.io

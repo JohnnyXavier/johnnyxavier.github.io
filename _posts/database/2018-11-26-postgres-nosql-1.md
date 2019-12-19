@@ -166,7 +166,7 @@ having said that, we will need to go through a few setup steps to access postgre
 # let's create a database and a user other than the main db and the root user so we can break a few things, but not 
 # everything.
 # back to psql
-postgres=#
+$ postgres=#
 
 # let's create a user.
 CREATE USER john PASSWORD `john`;
@@ -230,7 +230,7 @@ list your databases and schemas you should see this
 
 # we are done here so let's exit the postgres cli
 # exit or quit or \q will get us out
- \q
+\q
 
 #we may want to exit the postgres user's shell too
 postgres@your_computer:~$ exit
