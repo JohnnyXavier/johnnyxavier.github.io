@@ -13,7 +13,7 @@ tags:       postgresql postgres sql nosql jsonb spring-jdbc spring-data document
 the first 3 notes helped introduce our subject and setup the db and the pieces to support a working project.<br>
 this note will dive into the json functionality we can get with postgres to help build json data out of columns, queries, and more. This will be really useful later on, when we switch over to full nosql with `json` and `jsonb` data types
 
-### /differences_between_`json`_and_`jsonb`_data_types
+### /differences_between_`json_`and`_jsonb`_data_types
 [postgresql.org -> datatype-json](https://www.postgresql.org/docs/current/datatype-json.html)
 
 postgres supports `json` and `jsonb` data types to store and query `json` data.<br>

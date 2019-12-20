@@ -17,7 +17,7 @@ those toy examples are good to understand a concept without being overwhelmed by
 Reality is messy, drags many versions and many years and generations of developers and changing in management, and good ideas poorly implemented and also, sadly, bad ideas incredibly well implemented...<br>
 the next examples will start with toy DBs that I might not publish per their simplicity, but we will play in our playground schemas like big fellas with DBs with millions of rows...
 
-being a `jvm` dev mostly, I will build many things with `java` tools.<br>
+being a `jvm` dev mostly, I build many things with `java` tools.<br>
 as the topic here is `postgres` no Sql, `java` does not matter much and you can build the same as myself in the language of your own preference.<br>
 having said that, if you are also a `jvm` developer you will benefit a lot as many things might solve problems you currently have.
 
@@ -39,11 +39,11 @@ you can download all of it from github from the link below
 
 #### /the_suspects
 * OS:
-    * GNU / Linux -> Ubuntu 18.10 ***-Cosmic Cuttlefish-***
+    * GNU / Linux -> Ubuntu 19.10 ***-Eoan Ermine-***
 * Lang:
-    * java 11 (>= J8 is OK)
+    * java 13 (>= J8 is OK)
 * frameworks / libs / etc:
-    * spring boot (2.1.3.RELEASE)
+    * spring boot (2.2.2.RELEASE)
         * hikari
         * log4j2
         * undertow
@@ -52,11 +52,13 @@ you can download all of it from github from the link below
         * JPA
         * JDBC
 * database:
-    * PostgreSQL 11
+    * PostgreSQL 12.1
 
 ##### /installing_the_os
 if you need help installing the OS on a laptop, this guide below can point you into the right direction as linux and laptops with discrete cards are not the best friends at the moment
 [Ubuntu 18.10 Cosmic Cuttlefish Setup - on Dell 9560]({{ site.baseurl }}{% post_url gnu_linux/2018-11-01-dell-9560-setup-ubuntu1810 %})
+
+interestingly, installing `Ubuntu 19.10 Eoan Ermine` was straightforward without any low level tweak needed.
 
 installing linux other than in a laptop with a discrete GPU is straightforward so I won't cover that here.
 
@@ -65,34 +67,22 @@ you can install `openjdk` or `Oracle's jdk`<br>
 `Ubuntu` has the `openjdk` packages already on it's own repos, `Oracle` ones need to be added.
 
 ```bash
-# for the java openjdk 11
-sudo apt install openjdk-11-jdk
+# for the java openjdk 13
+sudo apt install openjdk-13-jdk
 
-# for oracle's java jdk 11
-# add linux uprising launchpad repo
-deb http://ppa.launchpad.net/linuxuprising/java/ubuntu cosmic main
-
-# to install it you'll need to agree to Oracle's license
-sudo apt install oracle-java11-installer
-
-# confirm you have the jdk installed correctly
+# confirm you have the Openjdk installed correctly
 javac -version
 
-# for oracle's jdk and OpenJdk should get you something similar to
-$ javac 11.0.1
+# you should get you something similar to
+$ javac 13
 
 # and the runtime
 java -version
 
-# for Oracle's jdk should display something similar to
-$ java version "11.0.1" 2018-10-16 LTS
-$ Java(TM) SE Runtime Environment 18.9 (build 11.0.1+13-LTS)
-$ Java HotSpot(TM) 64-Bit Server VM 18.9 (build 11.0.1+13-LTS, mixed mode)
-
-# for Openjdk should display something similar to
-$ openjdk version "11.0.1" 2018-10-16
-$ OpenJDK Runtime Environment (build 11.0.1+13-Ubuntu-3ubuntu3.18.10.1)
-$ OpenJDK 64-Bit Server VM (build 11.0.1+13-Ubuntu-3ubuntu3.18.10.1, mixed mode, sharing)
+# for the Openjdk should display something similar to
+$ openjdk version "13" 2019-09-17
+$ OpenJDK Runtime Environment (build 13+33-Ubuntu-1)
+$ OpenJDK 64-Bit Server VM (build 13+33-Ubuntu-1, mixed mode)
 ```
 
 ##### /creating_a_new_spring_boot_project
@@ -105,13 +95,13 @@ if you have `intelliJ IDEA Ultimate` or `STS` (`Eclipse` based **S**pring **T**o
 
 using one of the tools of your choice, select the following components from the `spring boot initializr`
 
-* springboot: 2.1.3.RELEASE (spring boot project that will handle our below dependencies and build)
+* springboot: 2.2.2.RELEASE (spring boot project that will handle our below dependencies and build)
 * general:
     * lombok (utility to avoid the ceremony of getters setters and the like)
 * SQL:
     * postgreSQL (the database driver)
     * JDBC (spring jdbc module to handle DB connections et als)
-    * JPA (spring JPA module to handle connections et als)
+    * JPA (spring JPA module to handle DB connections et als)
     * Liquibase (database maintenance)
 * Web:
     * web (spring project that provides infrastructure for rest, mappings et als)
@@ -148,14 +138,14 @@ your `pom.xml` should look like this
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.1.3.RELEASE</version>
+        <version>2.2.2.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <java.version>11</java.version>
+        <java.version>13</java.version>
     </properties>
 
     <dependencies>
@@ -257,7 +247,7 @@ logging.level.root=info
 
 let's create a `liquibase` basic setup to get some tables created and add some data.
 
-for `liquibase` to work smoothly under springboot it's changelog file needs to be placed in a particular path  like this:<br>
+for `liquibase` to work smoothly under springboot it's changelog file needs to be placed in a particular path like this:<br>
 
 **src -> main -> resources -> db -> changelog**<br>
 
@@ -353,7 +343,7 @@ in the end you should have something like this:
 
 we haven't created any data nor put anything into the db, so let do that just to make sure everything is working just ok.
 
-below you can see 2 .sql files, one to create the tables and the other one to seed some data in it.
+below you can see 2 **.sql** files, one to create the tables and the other one to seed some data in it.
 
 those are 2 toy .sql examples to test that our setup works fine.
 
@@ -411,9 +401,9 @@ to test all went fine, just run the app
 
 the 1st time it runs it will setup the tables, and insert some data on the `users_doc` table. The other 2 tables, the ones we didn't seed any data into, are to check that we can create all sorts of tables, as one would expect, by running `liquibase`.
 
-If you run it again and again it won't redo the db work unless you add something to Liquibase's changelog.<br>
+if you run it again and again it won't redo the db work unless you add something to Liquibase's changelog.<br>
 `Liquibase` will create 2 tables for internal use, where it stores which changes have already been made. These two tables are ***`databasechangelog`*** and ***`databasechangeloglock`***.<br>
-We can just ignore them
+we can just ignore them
 
 this should be all for setting up a Java SpringBoot project to support our `PostgreSQL` series of notes.
 
@@ -423,7 +413,7 @@ regarding database tables creation with hibernate:
 there is an option that will allow hibernate ORM to scan our entities and generate tables out of them.
 It has a few modes, to create, to create and drop, to update, etc.
 
-The good and bad things leaving the db creation to hibernate are a many BUT you should avoid leaving the DB handling to hibernate unless it's a test or toy database or demo or POC.
+The good and bad things leaving the db creation to hibernate are many... BUT, you should avoid leaving the DB handling to hibernate unless it's a test or toy database or demo or POC.
 
 What can, and eventually `WILL` happen, is that you'll update some  entity fields and that will propagate automatically to the DB.<br>
 if those entities are used elsewhere something might, and eventually will break.<br>

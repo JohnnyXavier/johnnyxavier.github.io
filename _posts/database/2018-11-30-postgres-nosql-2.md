@@ -10,7 +10,7 @@ tags:       postgresql postgres sql nosql jsonb spring-jdbc spring-data document
 ---
 
 # /the_one_with_the_general_intro
-the first note on the postgresSQL noSql series was about installing and doing some basic setup for us to get going.<br>
+the first note on the postgreSQL noSql series was about installing and doing some basic setup for us to get going.<br>
 this note will serve as a general intro to no sql and we'll be diving a little bit into postgres jsonB, but just a little, so we can see the differences in approaching a solution either with traditional tables and columns and a new document based focus.
 
 ## /to column or not to column
@@ -32,7 +32,7 @@ id  | author    | title     | ISBN    | lent_to
 ----+-----------+-----------+---------+------
 1   | tolkien   | the hobbit| someISBN| mike
 ```
-the `lent_to` field will have the name of you friend
+the `lent_to` field will have the name of your friend
 and then you realize you want to capture the name and last name of your friend...<br>
 easy, let's make another definition... the people you lent those books too...
 * `book: ( id, author, title, ISBN, lent_to)`
