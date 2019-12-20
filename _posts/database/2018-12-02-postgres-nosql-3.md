@@ -184,6 +184,41 @@ your `pom.xml` should look like this
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-undertow</artifactId>
+            <exclusions>
+                <exclusion>
+                    <artifactId>xnio-api</artifactId>
+                    <groupId>org.jboss.xnio</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>xnio-nio</artifactId>
+                    <groupId>org.jboss.xnio</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <artifactId>xnio-api</artifactId>
+            <exclusions>
+                <exclusion>
+                    <artifactId>jboss-threads</artifactId>
+                    <groupId>org.jboss.threads</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>wildfly-common</artifactId>
+                    <groupId>org.wildfly.common</groupId>
+                </exclusion>
+            </exclusions>
+            <groupId>org.jboss.xnio</groupId>
+            <version>3.7.3.Final</version>
+        </dependency>
+        <dependency>
+            <artifactId>xnio-nio</artifactId>
+            <groupId>org.jboss.xnio</groupId>
+            <version>3.7.3.Final</version>
+        </dependency>
+        <dependency>
+            <artifactId>jboss-threads</artifactId>
+            <version>3.0.0.Final</version>
+            <groupId>org.jboss.threads</groupId>
         </dependency>
         <dependency>
             <groupId>org.liquibase</groupId>
@@ -211,8 +246,12 @@ your `pom.xml` should look like this
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+        <!--adding libs that were removed since java 8 / 9 -->
+        <dependency>
+            <groupId>javax.xml.bind</groupId>
+            <artifactId>jaxb-api</artifactId>
+        </dependency>
     </dependencies>
-
     <build>
         <plugins>
             <plugin>
@@ -221,7 +260,6 @@ your `pom.xml` should look like this
             </plugin>
         </plugins>
     </build>
-
 </project>
 ```
 

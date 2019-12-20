@@ -186,13 +186,17 @@ GRANT ALL ON DATABASE playground TO john;
 
 # let' s create a schema in which our no_sql tables will live
 # and give access to our user
+# we need to give access to the schema itself and all its tables and functions
 CREATE SCHEMA postgres_no_sql;
+GRANT ALL ON SCHEMA postgres_no_sql TO john;
 GRANT ALL ON ALL TABLES IN SCHEMA postgres_no_sql TO john;
 GRANT ALL ON ALL FUNCTIONS IN SCHEMA postgres_no_sql TO john;
 
 # let' s create a schema in which our sql tables will live
 # and give access to our user
+# we need to give access to the schema itself and all its tables and functions
 CREATE SCHEMA postgres_sql;
+GRANT ALL ON SCHEMA postgres_sql TO john;
 GRANT ALL ON ALL TABLES IN SCHEMA postgres_sql TO john;
 GRANT ALL ON ALL FUNCTIONS IN SCHEMA postgres_sql TO john;
 ```
