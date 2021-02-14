@@ -1,0 +1,62 @@
+# main links
+main:
+  - title: "/java"
+    url: /java/
+  - title: "/asm"
+    url: /asm/
+  - title: "/gnu_linux"
+    url: /gnu_linux/
+  - title: "/about"
+    url: /about/
+
+# sidebar navigation for java
+sidebar-java:
+  - title: "setup_(in_linux)"
+    children:
+      - title: "installing_open_jdk"
+        url: /language-java-installing-openjdk/
+      - title: "installing_graal_vm"
+        url: /language-java-installing-graalvm/
+      - title: "configuring_multiple_versions"
+        url: /language-configuring-multiple-jdks/
+  - title: "basics"
+    children:
+      - title: "evolution_of_for_loop"
+        url: /language-java-evolution-of-for/
+#      - title: "while_loop"
+#        url: /child-page-a2/
+  - title: "intermediate"
+    children:
+      - title: "filtering with if and with streams"
+        url: /language-java-streams-filtering-a-collection/
+#     - title: "collections"
+#       url: /child-page-b2/
+#     - title: "date_and_time"
+#       url: /child-page-b3/
+#     - title: "generics"
+#       url: /child-page-b4/
+  - title: "Advanced"
+    children:
+#      - title: "reflection"
+#        url: /child-page-c1/
+#      - title: "threads"
+#        url: /child-page-c2/
+#      - title: "thread_pools"
+#        url: /child-page-c3/
+
+# sidebar navigation for gnu_linux
+sidebar-gnu_linux:
+  - title: "installation"
+    children:
+      - title: "ubuntu-18.04_on_dell_9560"
+        url: /gnu-linux-dell-9560-setup-ubuntu1804/
+      - title: "ubuntu-18.10_on_dell_9560"
+        url: /gnu-linux-dell-9560-setup-ubuntu1810/
+  - title: "files_n_filesystem"
+    children:
+      - title: "readelf-mem_info"
+        url: /gnu-linux-readelf/
+  - title: "tips_n_tricks"
+    children:
+      - title: "screen_sharing_over_hangouts"
+        url: /gnu-linux-screen-share-over-hangouts/

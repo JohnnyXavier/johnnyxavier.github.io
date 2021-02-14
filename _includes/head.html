@@ -1,60 +1,39 @@
-<head>
-    {% if site.googleAnalytics %}
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130252004-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
-        gtag('config', 'UA-130252004-1');
-    </script>
-    {% endif %}
+<meta charset="utf-8">
 
-    <link href="http://gmpg.org/xfn/11" rel="profile">
-    <meta content="IE=edge" http-equiv="X-UA-Compatible">
-    <meta content="text/html; charset=utf-8" http-equiv="content-type">
-    <meta content="{{site.description}}" name="description">
-    <meta content="Johnny Xavier" name="author">
-    <meta content="yes" name="mobile-web-app-capable">
-    <meta content="yes" name="apple-mobile-web-app-capable">
-    <meta content="{{site.title}}" name="apple-mobile-web-app-title">
-    <meta content="{{site.title}}" name="application-name">
-    <meta content="{{site.title}}" name="msapplication-tooltip">
-    <meta content="{{site.url}}" name="msapplication-starturl">
-    <meta content="{{site.url}}/public/favicon.jpg" name="msapplication-TileImage">
-    <meta content="website" property="og:type">
-    <meta content="{{site.url}}" property="og:url">
-    <meta content="{{site.title}}" property="og:site_name">
-    <meta content="{{site.title}}" property="og:title">
-    <meta content="{{site.title}} - {{site.description}}" property="og:description">
-    <meta content="{{site.url}}/public/favicon.jpg" property="og:image">
-    <meta content="summary" name="twitter:card">
-    <meta content="{{site.title}}" name="twitter:title">
-    <meta content="{{site.description}}" name="twitter:description">
-    <meta content="{{site.url}}/public/favicon.jpg" name="twitter:image">
+{% include seo.html %}
 
-    <!-- Enable responsiveness on mobile devices-->
-    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1" name="viewport">
+{% unless site.atom_feed.hide %}
+  <link href="{% if site.atom_feed.path %}{{ site.atom_feed.path }}{% else %}{{ '/feed.xml' | relative_url }}{% endif %}" type="application/atom+xml" rel="alternate" title="{{ site.title }} Feed">
+{% endunless %}
 
-    <title>
-        {% if page.title == "Home" %}
-        {{ site.title }}/{{ site.tagline }}
-        {% else %}
-        {{ page.title }}@{{ site.title }}
-        {% endif %}
-    </title>
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- CSS -->
-    <link href="{{ site.baseurl }}/public/css/syntaxHighlight.css" rel="stylesheet">
-    <link href="{{ site.baseurl }}/public/css/blackdoc.css" rel="stylesheet">
-    <link href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface" rel="stylesheet">
-    <link href="http://fonts.googleapis.com/css?family=EB+Garamond" rel="stylesheet">
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
 
-    <!-- Icons -->
-    <link href="{{ site.baseurl }}/public/favicon.ico" rel="shortcut icon">
+<!-- For all browsers -->
+<link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
 
-    <!-- RSS -->
-    <link href="/atom.xml" rel="alternate" title="RSS" type="application/rss+xml">
-</head>
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+{% if site.head_scripts %}
+  {% for script in site.head_scripts %}
+    <script src="{{ script | relative_url }}"></script>
+  {% endfor %}
+{% endif %}

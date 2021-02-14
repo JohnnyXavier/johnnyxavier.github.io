@@ -1,76 +1,28 @@
 ---
-layout: default
-title: Home
+layout: splash
+title: /bare_metal_code
+excerpt: some notes about programming
+header:
+  overlay_image: /assets/images/unsplash-image-1.jpg
+  caption: "Photo credit: [**Unsplash**](https://unsplash.com)"
 ---
-
-<h1 class="post-title">About bare_metal_code</h1>
-<h2>Some notes about programming</h2>
+<h1><strong>About bare_metal_code</strong></h1>
+<div class="align-right">Some notes about programming</div>
+<br>
+<hr>
 <p>I started writing these notes:</p>
 
 <ul>
-    <li>To track some info that was hard to come by over the net</li>
-    <li>To practice a few topics by trying to explain them</li>
-    <li>To share a few findings I found when trying to figure out some strange problems</li>
+  <li>To track some info that was hard to come by over the net</li>
+  <li>To practice a few topics by trying to explain them</li>
+  <li>To share a few findings I found when trying to figure out some strange problems</li>
 </ul>
 
-<p>Feel free to share, use and modify any or all pieces of code or procedures you find here.<br/>
-    Mind that not a single solution proposed here is a definite solution, or the best solution
-    or sometimes even may be a bad solution.<br/>
-    Use the site knowing that there is no guarantee that your neighbour’s wig won’t catch fire if you follow
-    a note from here.</p>
+<p>Mind that not a single solution proposed here is a definite solution, or the best solution
+  or sometimes even may be a bad solution.<br/>
+  Use the site knowing that there is no guarantee that your neighbour’s wig won’t catch fire if you follow
+  a note from here.</p>
 
 <p>As my knowledge, tools, frameworks, versions, etc, evolve, so will the solutions.</p>
 
-<hr>
-
-<div class="latest">
-    <h2>Latest notes on <strong>{{site.title}}</strong></h2>
-    {% for post in paginator.posts%}
-    <a href="{{post.url}}">
-        <div class="card">
-            <div class="card-category">{{ post.categories | join: " " | upcase }}</div>
-            <div class="card-title">{{ post.title }}</div>
-            <div class="card-body">
-                <div class="card-img">
-                    <div class="centerer"></div>
-                    <img src="{{ site.baseurl }}/public/images/{{ post.image }}">
-                </div>
-                <div class="card-container">
-                    <div class="card-extract">{{ post.extract}}</div>
-                    <div class="card-author">by {{ post.author}}</div>
-                    <div class="card-date">{{ post.date | date_to_string }}</div>
-                </div>
-            </div>
-        </div>
-    </a>
-    {% endfor %}
-</div>
-
-<hr class="latest">
-
-{% for category  in site.categories%}
-{% capture category_name %}{{ category | first }}{% endcapture %}
-<div class="latest">
-    <h2>Latest notes on <strong>/{{ category_name }}</strong></h2>
-    {% for post in site.categories[category_name] limit:4%}
-    <a href="{{post.url}}">
-        <div class="card">
-            <div class="card-title">{{ post.title }}</div>
-            <div class="card-body">
-                <div class="card-img">
-                    <div class="centerer"></div>
-                    <img src="{{ site.baseurl }}/public/images/{{ post.image }}">
-                </div>
-                <div class="card-container">
-                    <div class="card-extract">{{ post.extract}}</div>
-                    <div class="card-author">by {{ post.author}}</div>
-                    <div class="card-date">{{ post.date | date_to_string }}</div>
-                </div>
-            </div>
-        </div>
-    </a>
-    {% endfor %}
-</div>
-
-<hr class="latest">
-{% endfor%}
+<p>As my knowledge, tools, frameworks, versions, etc, evolve, so will the solutions.</p>
