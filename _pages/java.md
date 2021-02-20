@@ -1,6 +1,6 @@
 ---
 title: /java
-permalink: /java.html
+permalink: /java
 excerpt: This is a collection of notes about a few things Java.
 header:
   overlay_image: /assets/images/coffee-anastasia-zhenina-BotFjK3UuAo-unsplash.jpg
