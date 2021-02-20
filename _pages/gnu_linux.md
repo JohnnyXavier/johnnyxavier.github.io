@@ -1,5 +1,6 @@
 ---
 title: /gnu_linux
+permalink: /gnu_linux.html
 excerpt: This is a collection of notes about a few things GNU_Linux.
 header:
   overlay_image: /assets/images/gnu_linux_splash.png
@@ -7,7 +8,6 @@ header:
 sidebar:
   title: "/Gnu_Linux"
   nav: sidebar-gnu_linux
-permalink: /gnu_linux.html
 ---
 <h1>Some_notes_about_GNU_linux</h1>
 <hr>

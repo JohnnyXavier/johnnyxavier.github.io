@@ -13,14 +13,14 @@ open a terminal like:
 * KDE's Konsole
 * GNOME's Terminal
 
-```bash
+```shell
 # for the java openjdk 14 you need to run
 you@host:~$ sudo apt install openjdk-14-jdk
 ```
 
 wait for the installation to complete...
 
-```bash
+```shell
 # confirm that you have the Openjdk java runtime installed correctly by running the java command 
 # and checking you get a similar result as below
 user@hostname:~$ java -version

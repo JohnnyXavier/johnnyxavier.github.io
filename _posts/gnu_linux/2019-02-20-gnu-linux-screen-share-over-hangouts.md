@@ -23,7 +23,7 @@ you need to have VLC installed.
 on Debian based OSs something like this will install it if you don't have it yet
 
 #### /debian_based_os
-```bash
+```shell
 sudo apt install vlc
 ```
 
@@ -38,7 +38,7 @@ choose `desktop` as `capture mode` and select `show more options`
 replace the edit options for something like the following:
 
 #### vlc desktop capture options
-```bash
+```shell
 :screen-fps=20.000000 :live-caching=300 :screen-top=0 :screen-left=1920 :screen-width=1920 :screen-height=1080
 ```
 

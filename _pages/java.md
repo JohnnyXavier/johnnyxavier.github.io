@@ -1,5 +1,6 @@
 ---
 title: /java
+permalink: /java.html
 excerpt: This is a collection of notes about a few things Java.
 header:
   overlay_image: /assets/images/coffee-anastasia-zhenina-BotFjK3UuAo-unsplash.jpg
@@ -7,7 +8,6 @@ header:
 sidebar:
   title: "/The_Java_language"
   nav: sidebar-java
-permalink: /java.html
 ---
 <h1>Some notes about Java</h1>
 

@@ -6,7 +6,7 @@ sidebar:
   nav: sidebar-java
 ---
 ### introduction
-[graalVM](https://www.graalvm.org) is deemed to be a high performance runtime for java (and a few other languages)
+[GraalVM](https://www.graalvm.org) is deemed to be a high performance runtime for java (and a few other languages)
 
 although there is a claim of faster speeds on *hotspot mode*, GraalVM caught my attention mainly because of the ***native-image*** feature.<br>
 with ***native-image*** we could achieve extremely fast cold starts, and very low memory footprint.<br>

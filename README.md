@@ -92,7 +92,7 @@ This allows for easier installation and updating as you don't have to manage any
 
 2. Fetch and update bundled gems by running the following [Bundler](http://bundler.io/) command:
 
-   ```bash
+   ```shell
    bundle
    ```
 
@@ -123,7 +123,7 @@ To install:
 
 3. Fetch and update bundled gems by running the following [Bundler](http://bundler.io/) command:
 
-   ```bash
+   ```shell
    bundle
    ```
 

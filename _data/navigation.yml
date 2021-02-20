@@ -2,8 +2,8 @@
 main:
   - title: "/java"
     url: /java/
-  - title: "/asm"
-    url: /asm/
+#  - title: "/asm"
+#    url: /asm/
   - title: "/gnu_linux"
     url: /gnu_linux/
   - title: "/about"
@@ -17,8 +17,8 @@ sidebar-java:
         url: /language-java-installing-openjdk/
       - title: "installing_graal_vm"
         url: /language-java-installing-graalvm/
-      - title: "configuring_multiple_versions"
-        url: /language-configuring-multiple-jdks/
+      - title: "configuring_multiple_jdks"
+        url: /language-java-configure-multiple-jdks/
   - title: "basics"
     children:
       - title: "evolution_of_for_loop"
@@ -53,9 +53,9 @@ sidebar-gnu_linux:
       - title: "ubuntu-18.10_on_dell_9560"
         url: /gnu-linux-dell-9560-setup-ubuntu1810/
   - title: "files_n_filesystem"
-    children:
-      - title: "readelf-mem_info"
-        url: /gnu-linux-readelf/
+#    children:
+#      - title: "readelf-mem_info"
+#        url: /gnu-linux-readelf/
   - title: "tips_n_tricks"
     children:
       - title: "screen_sharing_over_hangouts"

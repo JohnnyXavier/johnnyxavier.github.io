@@ -18,10 +18,10 @@ from the `man` entry for `readelf`:
 > This program performs a similar function to objdump but it goes into more detail and it exists
 > independently of the BFD library, so if there is a bug in BFD then readelf will not be affected.
 
+## elf definition
 and regarding the meaning of ELF... it stands for **E**xecutable and **L**inkable **F**ormat<br>
 check this excerpt from wikipedia about the [Executable and Linkable Format](https://en.wikipedia.org/wiki/Executable_and_Linkable_Format) files
 
-## elf definition
 > In computing, the Executable and Linkable Format (ELF, formerly named Extensible Linking Format), is a common standard file format for executable files, object code, shared libraries, and core dumps.
 > 
 > First published in the specification for the application binary interface (ABI) of the Unix operating system version named System V Release 4 (SVR4),[2] and later in the Tool Interface Standard,[1] it was quickly accepted among different vendors of Unix systems.

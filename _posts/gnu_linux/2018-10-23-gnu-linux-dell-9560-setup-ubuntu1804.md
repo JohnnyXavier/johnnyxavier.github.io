@@ -54,7 +54,7 @@ after installing and rebooting you will be presented with `GRUB` choose the `saf
 * * add graphics ppa, install nvidia drivers but select intel graphics chip:
 
 #### Adding graphic drivers
-```bash
+```shell
 sudo add-apt-repository ppa:graphics-drivers/ppa
 sudo apt update
 sudo apt install nvidia-driver-410 #this driver will in time be different as they update it
@@ -69,7 +69,7 @@ do not reboot
 passing a few kernel mods solves this.
 
 #### Tweaking GRUB for graphics
-```bash
+```shell
 sudo nano /etc/default/grub
 # locate the entry below and add:
 # nvidia-drm.modeset=1 nouveau.modeset=0 mem_sleep_default=deep nouveau.runpm=0
@@ -80,7 +80,7 @@ GRUB_CMDLINE_LINUX_DEFAULT="quiet splash nvidia-drm.modeset=1 nouveau.modeset=0 
 as you are editing `grub` you can also tune a few other options.
 
 #### Tweaking GRUB - other options
-```bash
+```shell
 GRUB_TIMEOUT=10 # this will give you more time into the grub screen (time is in secs)
 
 # with the 4K panel the default resolution is 4k. editing text in that res is mission impossible
@@ -100,7 +100,7 @@ The **big noticeable** difference in power consumption and temperature drop was 
 I leave the usual suspects for power management here
 
 #### Powertop
-```bash
+```shell
 sudo apt install tlp tlp-rdw powertop
 sudo tlp start
 sudo powertop --auto-tune
@@ -113,7 +113,7 @@ last but not least:
 * Kernel update:
 
 #### Ukuu for kernel updates
-```bash
+```shell
 uname -r 
 -> 4.15.0-36-generic
 # running  uname -r will display your current kernel version
