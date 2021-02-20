@@ -1,6 +1,6 @@
 ---
 title: "/About_bare_metal_code"
-permalink: /about
+permalink: /about/
 excerpt: "some notes about programming"
 header:
   overlay_image: /assets/images/gnu_linux_splash.png

@@ -1,6 +1,6 @@
 ---
 title: /gnu_linux
-permalink: /gnu_linux
+permalink: /gnu_linux/
 excerpt: This is a collection of notes about a few things GNU_Linux.
 header:
   overlay_image: /assets/images/gnu_linux_splash.png
