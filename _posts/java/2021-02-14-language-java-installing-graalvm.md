@@ -90,7 +90,7 @@ export PATH=$PATH:/home/YOUR_USER_HERE/bin/jvm/graalvm/lib/installer/bin
 # Add graal native-image to path
 export PATH=$PATH:/home/YOUR_USER_HERE/bin/jvm/graalvm/lib/svm/bin
 
-# save thw changes by pressing the escape key and then :q and enter
+# save the changes by pressing the escape key and then :q and enter
 # now that you are back ot the prompt execute the command below so the change take effect without needing
 # to close and reopen the terminal
 user@hostname:~$ source .bashrc
