@@ -56,7 +56,11 @@ sidebar-gnu_linux:
 #    children:
 #      - title: "readelf-mem_info"
 #        url: /gnu-linux-readelf/
-  - title: "tips_n_tricks"
+  - title: "system_tips_n_tricks"
+    children:
+      - title: "binaries_and_update-alternatives"
+        url: /gnu-linux-update-alternatives/
+  - title: "desktop_tips_n_tricks"
     children:
       - title: "screen_sharing_over_hangouts"
         url: /gnu-linux-screen-share-over-hangouts/
