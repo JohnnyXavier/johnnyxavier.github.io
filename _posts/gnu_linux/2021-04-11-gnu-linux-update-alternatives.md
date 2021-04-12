@@ -1,6 +1,6 @@
 ---
 title: using `update-alternatives` to manage multiple versions of an executable
-excerpt: This note is about using `update-alternatives` tool to obtain fine-grained information about an ELF file
+excerpt: This note is about using `update-alternatives` command to switch between version of a binary or to select a related command among many options.
 sidebar:
   title: "/Gnu_Linux"
   nav: sidebar-gnu_linux
