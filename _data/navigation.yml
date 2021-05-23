@@ -2,8 +2,8 @@
 main:
   - title: "/java"
     url: /java/
-#  - title: "/asm"
-#    url: /asm/
+  - title: "/c++"
+    url: /cpp/
   - title: "/gnu_linux"
     url: /gnu_linux/
   - title: "/about"
@@ -64,3 +64,14 @@ sidebar-gnu_linux:
     children:
       - title: "screen_sharing_over_hangouts"
         url: /gnu-linux-screen-share-over-hangouts/
+
+# sidebar navigation for gnu_linux
+sidebar-c++:
+  - title: "c++20_modules"
+    children:
+      - title: "modules_with_gnu_g++"
+        url: /cpp-cpp20-modules-gpp/
+#      - title: "modules_with_clang"
+#        url: /cpp-cpp20-modules-clang/
+#      - title: "modules_with_g++_and_make"
+#        url: /gnu-linux-dell-9560-setup-ubuntu1810/

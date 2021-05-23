@@ -13,10 +13,11 @@ sidebar:
 
 <hr>
 
-this notes show some examples on my particular setup, which is:
+this notes show some examples on my particular setup, which can be:
 * ubuntu linux (usually latest version)
+* OpenSuSE: Tumbleweed (rolling distro)
 * java running on openJDK
 
 ---
 
-there are a few sections on how to install different java VMs, they all assume a debian based Linux distro as operating system, ubuntu ones in particular.
+there are a few sections on how to install different java VMs, they all assume a GNU\Linux as operating system, ubuntu or OpenSuse ones in particular.
