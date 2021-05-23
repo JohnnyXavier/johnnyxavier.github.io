@@ -253,7 +253,7 @@ after some `cout` to get our bearings into the console print, we use all the fun
 * internal (to the class) print person function
 * external (to the class) print person function
 
-### the_g++_command_to_compile_the_example
+### g++_compilation_command
 we have 4 files:
 * main.cpp (main)
 * person_module.cpp (module)
