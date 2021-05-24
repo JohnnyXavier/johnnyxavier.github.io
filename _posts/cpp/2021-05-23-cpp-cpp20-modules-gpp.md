@@ -239,10 +239,11 @@ int main(void)
   cout << "------ printing person details with EXTERNAL to class function\n\n";
 
   print_person_external(person);
+  cout << "-----\n";
+  print_person_external(person2);
 
   return 0;
 }
-
 ```
 
 this is a ceremonial `main.cpp` to illustrate the c++20 modules feature, note how we do not `#include` a module, but we `import` it.
