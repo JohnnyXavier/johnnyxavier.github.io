@@ -64,7 +64,7 @@ you can tell g++ that this or that extension is a file of a given type, check th
 
 ### system headers and modules.
 the short story is that they don't play very well out of the box. <br>
-thou the standard is out, and the compilers start supporting more and more feature, you need for the moment at least, a previous step to compiling you program, which is, compiling the  system libs themselves into modules, so tu used them with the new modules' syntax.
+thou the standard is out, and the compilers are starting to support more and more features, you need -for the moment at least-, a previous step to compiling you program, which is compiling the system headers themselves into modules, so tu use them with the new modules' syntax.
 
 to achieve this, say you want to use `<iostream>` as a module `import` instead of as a library `#include`,
 you need this step previous to compilation.
