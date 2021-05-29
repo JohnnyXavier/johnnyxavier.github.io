@@ -56,11 +56,43 @@ treating as linker script
 /usr/lib64/gcc/x86_64-suse-linux/11/../../../../x86_64-suse-linux/bin/ld:person_module.cppm:1: syntax error
 collect2: error: ld returned 1 exit status
 ```
+naming modules cna be a source of confusion on gnu g++ as a few books using Clang or MS compilers add extensions such as `.cppm`.<br>
+a note about **not** supporting new file suffixes, can be found here on the [g++ online docs](https://gcc.gnu.org/onlinedocs/gcc/C_002b_002b-Modules.html#DOCF2)
+> ***No new source file suffixes are required or supported. If you wish to use a non-standard suffix (See Overall Options), you also need to provide a -x c++ option too.2***
+
+you can tell g++ that this or that extension is a file of a given type, check the above link for a hint, (use `-x` to explicitly specify the language), but given the extra options just to use `.cppm` instead of `.cpp`, I am just sticking with `.cpp`.
+
+### system headers and modules.
+the short story is that they don't play very well out of the box. <br>
+thou the standard is out, and the compilers start supporting more and more feature, you need for the moment at least, a previous step to compiling you program, which is, compiling the  system libs themselves into modules, so tu used them with the new modules' syntax.
+
+to achieve this, say you want to use `<iostream>` as a module `import` instead of as a library `#include`,
+you need this step previous to compilation.
+
+```shell
+user@hostname:~$ g++-11 -std=c++20 -fmodules-ts  -c -x c++-system-header iostream
+```
+
+what the above is doing is telling `g++-11` that:
+* `-std=c++20`: you want to use c++20 standard 
+* `-fmodules-ts`: you are using the **f**eature **modules** **t**echnical **s**pecification
+* `-c`: you don't want to run the linker, just **c**ompile
+* `-x c++-system-header iostream`: specifies explicitly what the next files are, a c++ system header iostream in this case
+
+
+that step will place the iostream header, now a module, inside the **`gcm.cache`** folder local to where u ran the command. If u navigate the folder until finding the iostream module, **iostream.gcm**, you will see that it respects the include path of the original header, `gcm.cache/usr/include/c++/11/`
+
+if you don't care for this first step, just don't precompile the system headers into modules and keep using `#include <iostream>`.
+
+on the next examples, where u see `import <iostream>;` just replace it with `#include <iostream` as usual c++.
+
+all this will become easier when using compilation tools such as `make`, as the step can be included in a makefile, and we forget about them 
 
 ### the_person_module
 ```c++
 module;
-#include <iostream>
+import <iostream>;
+
 export module data_type;
 
 // by exporting the namespace we export everything under it, or else we need to export
@@ -116,8 +148,8 @@ person_module.cpp:7:1: error: ‘export’ may only occur after a module interfa
 ### the_person_class_implementation
 ```c++
 module;
+import <iostream>;
 
-#include <iostream>
 module data_type;
 
 namespace data_type
@@ -191,8 +223,8 @@ In file included from /usr/include/c++/11/bits/exception_ptr.h:40,
 ### the_person_function_implementation
 ```c++
 module;
+import <iostream>;
 
-#include <iostream>
 module data_type;
 
 namespace data_type
@@ -213,8 +245,8 @@ I just did this on a different file to get my head around bigger projects and ho
 ### the_main
 ```c++
 import data_type;
+import <iostream>;
 
-#include <iostream>
 using namespace data_type;
 using namespace std;
 
