@@ -63,7 +63,8 @@ a note about **not** supporting new file suffixes, can be found here on the [g++
 you can tell g++ that this or that extension is a file of a given type, check the above link for a hint, (use `-x` to explicitly specify the language), but given the extra options just to use `.cppm` instead of `.cpp`, I am just sticking with `.cpp`.
 
 ### system headers and modules.
-the short story is that they don't play very well out of the box. <br>
+the short story is that they don't play very well out of the box.
+
 thou the standard is out, and the compilers are starting to support more and more features, you need -for the moment at least-, a previous step to compiling you program, which is compiling the system headers themselves into modules, so tu use them with the new modules' syntax.
 
 to achieve this, say you want to use `<iostream>` as a module `import` instead of as a library `#include`,
