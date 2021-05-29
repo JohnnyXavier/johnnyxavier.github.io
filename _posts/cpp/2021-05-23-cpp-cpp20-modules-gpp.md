@@ -296,6 +296,10 @@ we have 4 files:
 
 to compile this you need to call g++ v11 indicating that you want to use c++20, and the modules features like this.
 ```shell
+# remember this step to compile the headers into modules if you haven't done it before
+user@hostname:~$ g++-11 -std=c++20 -fmodules-ts  -c -x c++-system-header iostream
+
+# now the command to compile the program itself...
 user@hostname:~$ g++-11 -std=c++20 -fmodules-ts -o person person_module.cpp person.cpp person_func.cpp main.cpp
 ```
 the shell will not respond with anything, indicating everything went ok. To execute this little demo just hit `./person` on your console to run it.
