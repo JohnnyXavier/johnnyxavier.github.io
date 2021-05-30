@@ -69,7 +69,7 @@ to achieve this, say you want to use `<iostream>` as a module `import` instead o
 you need this step previous to compilation.
 
 ```shell
-user@hostname:~$ g++-11 -std=c++20 -fmodules-ts  -c -x c++-system-header iostream
+user@hostname:~$ g++-11 -std=c++20 -fmodules-ts -c -x c++-system-header iostream
 ```
 
 what the above is doing is telling `g++-11` that:
