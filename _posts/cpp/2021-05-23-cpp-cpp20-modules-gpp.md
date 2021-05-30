@@ -41,8 +41,6 @@ to demonstrate simple, yet multi_file **_"hello modules"_** intro program featur
 * create a module implementation file for the class defined on the previous module file 
 * create a module implementation file for the method defined on the previous module file
 
-the base headers we are going to keep importing them as `#include` given the extra compilation steps required, which will be covered when using `make` tools
-
 The example will be a simple Person class with a function that operates on a Person.
 
 ### file_extensions_matter
