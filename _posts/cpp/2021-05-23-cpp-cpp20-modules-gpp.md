@@ -54,16 +54,18 @@ treating as linker script
 /usr/lib64/gcc/x86_64-suse-linux/11/../../../../x86_64-suse-linux/bin/ld:person_module.cppm:1: syntax error
 collect2: error: ld returned 1 exit status
 ```
-naming modules cna be a source of confusion on gnu g++ as a few books using Clang or MS compilers add extensions such as `.cppm`.<br>
+naming modules can be a source of confusion on gnu g++ as a few books using Clang or MS compilers add extensions such as `.cppm`.<br>
 a note about **not** supporting new file suffixes, can be found here on the [g++ online docs](https://gcc.gnu.org/onlinedocs/gcc/C_002b_002b-Modules.html#DOCF2)
 > ***No new source file suffixes are required or supported. If you wish to use a non-standard suffix (See Overall Options), you also need to provide a -x c++ option too.2***
 
-you can tell g++ that this or that extension is a file of a given type, check the above link for a hint, (use `-x` to explicitly specify the language), but given the extra options just to use `.cppm` instead of `.cpp`, I am just sticking with `.cpp`.
+you can tell g++ that this or that extension is a file of a given type, check the above link for a hint, (use `-x` to explicitly specify the language).
+
+given the extra options just to use `.cppm` instead of `.cpp`, I am just sticking with `.cpp`.
 
 ### system headers and modules.
 the short story is that they don't play very well out of the box.
 
-thou the standard is out, and the compilers are starting to support more and more features, you need -for the moment at least-, a previous step to compiling you program, which is compiling the system headers themselves into modules, so tu use them with the new modules' syntax.
+thou the standard is out, and the compilers are supporting more and more features, you need -for the moment at least-, a previous step to compiling you program, which is compiling the system headers themselves into modules, so to use them with the new modules' syntax.
 
 to achieve this, say you want to use `<iostream>` as a module `import` instead of as a library `#include`,
 you need this step previous to compilation.
@@ -76,7 +78,7 @@ what the above is doing is telling `g++-11` that:
 * `-std=c++20`: you want to use c++20 standard 
 * `-fmodules-ts`: you are using the **f**eature **modules** **t**echnical **s**pecification
 * `-c`: you don't want to run the linker, just **c**ompile
-* `-x c++-system-header iostream`: specifies explicitly what the next files are, a c++ system header iostream in this case
+* `-x c++-system-header iostream`: specifies explicitly what the next files are, the c++ system header `iostream` in this case
 
 
 that step will place the iostream header, now a module, inside the **`gcm.cache`** folder local to where u ran the command. If u navigate the folder until finding the iostream module, **iostream.gcm**, you will see that it respects the include path of the original header, `gcm.cache/usr/include/c++/11/`
@@ -126,7 +128,7 @@ we have to declare at the top of the file the **`module`** keyword and after the
 
 we also need to tell the compiler what do we want to export, by prepending a declaration with `export`. In this case we are declaring that we want to export a namespace, and by doing that everything in that namespace is exported (the class `Person` and also the function `print_person_external`)
 
-I we would have placed the function outside the namespace it would not have been exported. If it is the case you want something outside the namespace and still exported as part of the module, just prepend the declaration with `export` and it will also be exported.
+If we had placed the function outside the namespace, it would not have been exported. If it is the case you want something outside the namespace and still exported as part of the module, just prepend the declaration with `export` and it will also be exported.
 
 #### **the order is important...**<br>
 if you place the `#include <iostream>` above the `module;` and try to compile the example, you will get the following error:
