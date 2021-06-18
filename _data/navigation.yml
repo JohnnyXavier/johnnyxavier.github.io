@@ -64,7 +64,7 @@ sidebar-gnu_linux:
     children:
       - title: "screen_sharing_over_hangouts"
         url: /gnu-linux-screen-share-over-hangouts/
-      - title: "settings_user_avatar_manjaro_kde"
+      - title: "manjaro_kde_user_avatar"
         url: /gnu-linux-manjaro-kde-user-avatar/
 
 # sidebar navigation for gnu_linux
