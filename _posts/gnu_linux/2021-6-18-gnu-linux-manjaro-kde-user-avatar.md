@@ -2,8 +2,8 @@
 title: Setting user icon / avatar in manjaro KDE
 excerpt: This note is about how to set user icon / avatar in manjaro kde when default gui procedure fails
 sidebar:
-title: "/Gnu_Linux"
-nav: sidebar-gnu_linux
+    title: "/Gnu_Linux"
+    nav: sidebar-gnu_linux
 ---
 
 a problem I just had when installing [Manjaro linux](https://manjaro.org/) ([KDE](https://kde.org/) edition) was that I could not change my user's avatar image. No matter what I did it kept defaulting to blank
