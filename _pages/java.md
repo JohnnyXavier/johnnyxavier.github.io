@@ -14,10 +14,11 @@ sidebar:
 <hr>
 
 this notes show some examples on my particular setup, which can be:
-* ubuntu linux (usually latest version)
-* OpenSuSE: Tumbleweed (rolling distro)
-* java running on openJDK
+* [Manjaro linux - kde variant](https://manjaro.org/)
+* [OpenSuSE linux - tumbleweed](https://www.opensuse.org/)
+* [KUbuntu linux](https://kubuntu.org/)
+* java running on [openJDK](https://openjdk.java.net/)
 
 ---
 
-there are a few sections on how to install different java VMs, they all assume a GNU\Linux as operating system, ubuntu or OpenSuse ones in particular.
+there are a few sections on how to install different java VMs, they all assume a GNU\Linux as operating system, Ubuntu / OpenSuse / Manjaro one's in particular.

@@ -9,7 +9,7 @@ This note is almost the same as **installing ubuntu 18.04** with the difference 
 
 I reproduce here the previous note with the corresponding updates
 
-The actual OS installation is very straightforward so I will skip it and focus on the tweaks needed to actually make the OS work.
+The actual OS installation is very straightforward, so I will skip it and focus on the tweaks needed to actually make the OS work.
 > sources:
 >
 > [Dell_XPS_15_9560 archlinux wiki](https://wiki.archlinux.org/index.php/Dell_XPS_15_9560)<br>
