@@ -47,26 +47,26 @@ public Optional<T> filter( Predicate<? super T> predicate )
 
 that looks **NOT** functional at all... but... it *powers* functional programming in java.
 
-when we use the filtering within an `Optional` we ***delegate*** the implementation to the `Optional` code. We care more about the functionality than the implementation. The way it is built, and the possibility of chaining multiple filtering calls, enhances readability by a lot and puts our intention in front of our implementation.
+when we use the filtering within an `Optional` we ***delegate*** the implementation to the `Optional` code. We care more about the functionality than the implementation. The way it is built, and the possibility of chaining multiple filtering calls, enhances readability by a lot and **puts our intention in front of our implementation**.
 
 **Note**: this does **not** mean you can get away with a bad implementation for the sake of a programming style...
 
 maybe my extra twist in understanding is incorrect, but it allowed me to think the following.
 
-How about a functional app where the different steps we have to do, are delegated to internal implementations. Instead of `if` then `else`, how about we make our application behave like the java Optional where we can pipeline different actions that are very clear to read, and we delegate the implementation to them.  
+How about a functional app where the different steps we have to do, are delegated to internal implementations. Instead of `if` then `else`, how about we make our application behave like the java `Optional` where we can pipeline different actions that are very clear to read, and we delegate the implementation to them.  
 
 ## Setting the scene
 ### From Java framework to Project reactor.
-`Optional`, `Streams`, `Function`, etc, they are all bundled in the core of Java. They are very powerful per se but then... [reactor](https://projectreactor.io/)!
+`Optional`, `Streams`, `Function`, etc, they are all bundled in the core of Java. They are very powerful per se, but then... [reactor](https://projectreactor.io/)!
 
-[project reactor](https://projectreactor.io/) introduces reactive streams to build no blocking, low latency java apps.
+[project reactor](https://projectreactor.io/) introduces reactive streams to build non-blocking, low latency java apps.
 
 the reactor tech is at the core of the app we are going to build so let's make a tiny sample of how we can use it.
 
 a small reactive pipeline similar to what we know with java.
 
 ```java
-Mono.just("this is a string")
+Mono.just( "this is a string" )
     .map( String::toUpperCase )
     .doOnNext( System.out::println )
     .subscribe();
@@ -74,12 +74,12 @@ Mono.just("this is a string")
 
 the above is very similar to what we know already on the java libs with a few things worth explaining
 
-1. Mono: it is a reactive-streams publisher that at the end of it's processing returns (emits) a single item
-2. map: same thing as in java, transforms the input by applying a function
-3. doOnNext: this is what will happen when the pipeline returns successfully
-4. subscribe: think of this as a "let's do it" command, without subscribing nothing happens
+1. **Mono**: it is a reactive-streams publisher that at the end of it's processing returns (emits) a single item
+2. **map**: same thing as in java, transforms the input by applying a function
+3. **doOnNext**: this is what will happen when the pipeline returns successfully
+4. **subscribe**: think of this as a *"wait for it..."* command, without subscribing nothing happens
 
-so on the toy example above, we create a reactive stream out of a string, we convert it to upper case, next we print the result to console and... let's do it!
+so on the toy example above, we create a reactive stream out of a string, we convert it to upper case, next we print the result to console, and we subscribe to it.
 
 ### Reactive streams and functional programming meet strategy pattern 
 we talked about delegation of implementation and what better to delegate than the strategy pattern...
@@ -98,22 +98,22 @@ so... if we add all the above together our academic project has for the moment:
 before moving into the last ingredient let's make a small example of this 4 elements above
 
 ```java
-return Mono.just(DemoDomainObject)
+return Mono.just( DemoDomainObject )
            .flatMap( dbService::get )
-           .flatMap( brokerService::putAsync)
-           .flatMap( resultService::returnSlice);
+           .flatMap( brokerService::putAsync )
+           .flatMap( resultService::returnSlice );
 ```
 
 so, on the above, we start a reactive stream with a demo object, we then pass it to the dbService, and then to the broker service, and then to the result service....
 
 each step transformed the object and passed the baton on to the next.
 
-let's make an easy to understand strategy context to finish this section.
+let's make an easy-to-understand strategy context to finish this section.
 
-so, you have to get what is required from the db? then which repo to use...? you could, call the proper repo on the individual input handler, or you can also not care at all and call the same method for any input and let your strategy decide...
+so, you have to get what is required from the db? then which repo to use...? you could call the proper repo on the individual input handler, or you can also not care at all and call the same method for any input and let your strategy decide... Let's implement the latter!
 
 if the demo object had for example a type field... we can match that type to a repository...<br>
-let try this with a map
+lets try this with a map
 
 ```java
 Map<String, DbStrategy> mapOfStrategies = Map.ofEntries(
@@ -122,10 +122,10 @@ Map<String, DbStrategy> mapOfStrategies = Map.ofEntries(
 
 DbStrategy dbStrategy = mapOfStrategies.get( demoDomainObject.getType() );
 
-dbStrategy.get()
+dbStrategy.findOne()
 ```
 
-we have there 2 strategies that will be put into a map. In runtime when we get a demo object, the proper one will be selected based on the type, and then we execute the `get()` method of that strategy.
+we have there 2 strategies that will be put into a map. In runtime when we get a demo object, the proper one will be selected based on the type, and then we execute the `findOne()` method of that strategy.
 
 the above is very naive but illustrates the following:
 
@@ -134,18 +134,23 @@ we created a reactive-stream pipeline of actions... which delegates operations t
 as stated in the intro: **programing by delegation**.
 
 ### last piece of the puzzle: In Memory Data Grid
-say we perform all that with real services, we will want to put a cache in front of the first step, so in case we already have the responded to a request, we just skip the heavy lifting of going to our back-end and we reply immediately with in memory data.
+say we perform all that with real services, we will want to put a cache in front of the first step, so in case we already have responded to a request, we just skip the heavy lifting of going to our back-end and we reply immediately with in memory data.
 
 I chose hazelcast as the cache for a myriad of reasons, but one very attractive is that it can handle our local and server caches and also it can work embedded on spring boot apps, so it is an ideal fit for academic apps, and of course production apps.
 
 ## into implementation
 ### repos and runner
-* you are required to have `java 16` but anything from`java 11` included should be ok
+* you are required to have `java 16` but anything from`java 11` and above should be ok
 * all the code for this project can be found [here in github](https://github.com/JohnnyXavier/functional-reactive)
 * to run it just clone it, and hit run on your ide preferably on debug mode, so you can breakpoint the code, and examine what is happening
     * configure your ide to run with `local` as active profile
 * or you can also manually run it like this: `mvn spring-boot:run -Dspring-boot.run.profiles=local`
 * everything is properly commented / documented on the repo, examples here might not have all javadocs nor comments for brevity 
+* you can, if you want, run it many times just changing the server ports, and you will be able to see a hazelcast cluster form on your local machine, with each instance of the app connecting to the other instances of the cache cluster!!
+    * instance 1: mvn spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081 -Dmanagement.server.port=18081"
+    * instance 1: mvn spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8082 -Dmanagement.server.port=18082"
+    * instance x: [...]"-Dserver.port=xxxx -Dmanagement.server.port=xxxxx"
+
 
 the `local` profile is configured to output all debug logs, so you can follow step by step what is going on
 
