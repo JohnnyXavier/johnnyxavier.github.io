@@ -43,6 +43,15 @@ sidebar-java:
 #        url: /child-page-c2/
 #      - title: "thread_pools"
 #        url: /child-page-c3/
+  - title: "Pro / Academic"
+    children:
+      - title: "reactive functional pipelines"
+        url: /language-java-reactive-functional-pipelines/
+#      - title: "threads"
+#        url: /child-page-c2/
+#      - title: "thread_pools"
+#        url: /child-page-c3/
+
 
 # sidebar navigation for gnu_linux
 sidebar-gnu_linux:
