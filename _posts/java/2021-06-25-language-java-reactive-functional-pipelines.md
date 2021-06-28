@@ -637,7 +637,7 @@ this first call runs all the pipeline as nothing is cached, it has to go to the 
 the second call, will hit the cache and mark the message to skip the rest of the pipeline! pure performance!
 
 <figure>
-    <a href="/assets/images/functional-reactive-posts-all-.png"><img src="/assets/images/functional-reactive-posts-all-.png"></a>
+    <a href="/assets/images/functional-reactive-posts-all.png"><img src="/assets/images/functional-reactive-posts-all.png"></a>
   	<figcaption>Calls to get all posts - Cache miss and cache hit</figcaption>
 </figure>
 
