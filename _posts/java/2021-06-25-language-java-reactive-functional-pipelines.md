@@ -656,9 +656,9 @@ In this particular case, the readability and extensibility of the project were g
 Impossible to describe that scenario better than the immense [Venkat S](https://agiledeveloper.com/aboutus.html) in another of his [mind bending videos](https://www.youtube.com/watch?v=e4MT_OguDKg).
 
 I hope that you run this project yourself, and improve it with your own ideas. A few worth considering to play with:
-* have a strategy run a series of other strategies. Very useful for validations as the many input might have a fixed things to validate. How could we run all of them, or a few of them depending on the data type?
+* have a strategy run a series of other strategies. Very useful for validations as many inputs might have a common validation. How could we run all of them, or a few of them depending on the data type?
 * how easy would it be to transform this pipeline in say, 3 or 4 microservices.
-* what more could we do with hazelcast? nearcaches? prepopulation of near caches?
+* what more could we do with hazelcast? near-caches? pre-population of near-caches?
 * how to implement in-engine feature flags controlled by configuration?
 
 **hope you enjoyed!**
