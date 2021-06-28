@@ -287,7 +287,7 @@ it contains the methods you see called from the pipeline engine.
 
 the service as all services extend the targetStrategy with the correct strategy type.
 
-it is then in charge of exposing methods to the pipeline to call, in this case `put()` and `get()` and determines what will be processed, and what will be the fallback for the service. This service give a great deal of flexibility to skip steps if desired or probably implement an in-house feature-flag configurable by external markers.
+it is then in charge of exposing methods to the pipeline to call, in this case `put()` and `get()` and determines what will be processed, and what will be the fallback for the service. This service gives a great deal of flexibility to skip steps if desired, or allows to implement an in-house feature-flag configurable by external markers.
 
 ```java
 @Service
@@ -334,10 +334,10 @@ public abstract class CacheServiceStrategy extends BaseStrategy
 ```
 as you can see we have a contract here...
 
-* put: how do we put things in the cache
-* get: how do we get things in the cache
-* getMapName: the cache's map name to store things into
-* getTTL(): the time to live of a given data type. We can individually configure time to live per map
+* **put**: how do we put things in the cache
+* **get**: how do we get things in the cache
+* **getMapName**: the cache's map name to store things into
+* **getTTL()**: the time to live of a given data type. We can individually configure time to live per map
 
 #### the target strategy (generic context)
 let's check the context code:
@@ -396,7 +396,7 @@ as you can see there are a few java + spring tricks.
 * **first trick:** autowiring all related strategies.
     * a service extending this class will tell it which Strategy type it is extending... because of that, when the service bean comes into play, its own list of strategies is autowired with the correct types. Spring auto-magic!
 * **second trick:** use of `@PostConstruct`.
-    * this allows for our map to be properly initialized as it we were doing it on a constructor.
+    * this allows for our map to be properly populated and ready to use.
   
 this class is the actual strategy selector and executor for each service. We call the `applyStrategy()` method from any service with a `strategyId` among its arguments. If we find the `strategyId` we execute the implementation code, or else we have a fallback action if the `strategyId` is not recognized.
 
@@ -427,7 +427,7 @@ let's check the IMDG strategy code:
 
 this one actually has the hazelcast code to put and get records from the cache. This strategy will be extended by anyone who wants to use hazelcast as a cache.
 
-say tomorrow it's [redis](https://redis.io/), or [apache geode](https://geode.apache.org/)... no problem make the geode strategy.
+say tomorrow it's [redis](https://redis.io/), or [apache geode](https://geode.apache.org/)... no problem, just implement the geode strategy.
 
 so you want to mix redis and [memcached](https://www.memcached.org/) and hazelcast? still no problem... implement redis and memcached and have the strategies to extend the one u want and u can use them all together, and they will get auto selected according to the data-type or other criteria you can think of.
 
@@ -435,7 +435,7 @@ it will just work... That simple!
 
 as you can see on the code below this one is a bit more complex. We have a few safeguards for null keys or disconnected clusters, but bar that it is an async put to the cache and a sync get from the cache.
 
-the fact to putting a record into the cache is async, allows for a fire and forget functionality. If someone requested date we don't want them waiting because our cache is a lagging or there are connectivity problems.
+the fact that putting a record into the cache is async, allows for a fire and forget functionality. If someone requested data we don't want them waiting because our cache is lagging or there are connectivity problems.
 
 ```java
 @Service
@@ -516,9 +516,9 @@ public abstract class IMDGCacheServiceStrategy extends CacheServiceStrategy
 #### the All Posts strategy
 let's check the all posts strategy code:
 
-this strategy is the one chosen (strategy design pattern...) when there is a request for all posts. It identifies itself with its own strategy, tell the cache what is his map name and what is the time to live for its entries and extends hazelcastStrategy and that's it.
+this strategy is the one chosen (strategy design pattern...) when there is a request for all posts. It identifies itself with its own `strategyId`, tells the cache what its map name is, what the ttl for its entries is, and extends hazelcastStrategy... and that's it.
 
-If you want to swap the cache in the future, then just have this strategy extend the cache of you choosing.
+If you want to swap the cache in the future, then just have this strategy extend the cache of your choosing, and you are good to go.
 
 ```java
 @Service
@@ -628,16 +628,16 @@ you will notice there are a few things not covered such as:
 * [yaml configuration](https://github.com/JohnnyXavier/functional-reactive/tree/master/src/main/resources) files, particularly the main [application.yaml](https://github.com/JohnnyXavier/functional-reactive/blob/master/src/main/resources/application.yaml) one
 * [webservice](https://github.com/JohnnyXavier/functional-reactive/tree/master/src/main/java/com/baremetalcode/functionalreactive/webservice) (controllers)
 
-there is not much to comment on those files, except maybe take a look at the configuration ones, as most variables if not all of them, have been externalized. That approach provides the app for incredible flexibility and confidence.
+there is not much to comment on those files, except maybe take a look at the configuration ones, as most variables if not all of them, have been externalized. That approach provides the app for incredible flexibility.
 
 ## final thoughts and conclusion
-**fun fact:** there is no single `if` or `else` or `switch` or `while` or `for` in the around 2K lines of code. None that we can see that is... remember that we delegated the implementation to spring and reactor...
+**fun fact:** there is not a single `if` or `else` or `switch` or `while` or `for` in the around 2K lines of code. None that we can see that is... remember that we delegated the implementation to spring and reactor...
 
 when this application runs, it will do so on a functional, reactive, non-blocking stack.
 
-when run on my computer, the first call to a all posts can take around 70 to 100ms, while the second one takes between 2ms and 7ms
+when run on my computer, the first call to all posts can take around 70 to 300ms, while the second one takes between 2ms and 8ms
 
-this first call runs all the pipeline as nothing is cached, it has to go to the web get the date from the service, come back, put the payload on the cache, and finally respond.
+this first call runs all the pipeline as nothing is yet cached. The engine has to go to the web to get the data from the rest service, come back, put the payload on the cache, and finally respond. There is a high network tax that we pay on the first run getting data from the external rest APIs
 
 the second call, will hit the cache and mark the message to skip the rest of the pipeline! pure performance!
 
@@ -655,6 +655,12 @@ In this particular case, the readability and extensibility of the project were g
 **A warning on patterns**: if not used properly, they can cause more problems that what they solve.<br>
 Impossible to describe that scenario better than the immense [Venkat S](https://agiledeveloper.com/aboutus.html) in another of his [mind bending videos](https://www.youtube.com/watch?v=e4MT_OguDKg).
 
-hope you enjoyed!
+I hope that you run this project yourself, and improve it with your own ideas. A few worth considering to play with:
+* have a strategy run a series of other strategies. Very useful for validations as the many input might have a fixed things to validate. How could we run all of them, or a few of them depending on the data type?
+* how easy would it be to transform this pipeline in say, 3 or 4 microservices.
+* what more could we do with hazelcast? nearcaches? prepopulation of near caches?
+* how to implement in-engine feature flags controlled by configuration?
+
+**hope you enjoyed!**
 
 Johnny
