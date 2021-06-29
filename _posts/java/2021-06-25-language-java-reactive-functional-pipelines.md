@@ -168,6 +168,43 @@ you can, if you want and you run on `java 9` or above, add the following jvm opt
 ```
 nothing will break if you don't
 
+once u have one or more instances of the app running, simple start hit
+* **to get all posts**: _localhost:8081/posts_
+* **to get a single post**: _localhost:8081/posts/1_
+* **to get all comments for a post**: _localhost:8081/posts/1/comments_
+
+### BONUS: running hazelcast management center
+
+if you want to see how the cache entries come and go, you can run the docker image for the hazelcast management center like this:
+
+`sudo docker run --rm -p 9080:8080 hazelcast/management-center:latest`
+
+then point your browser at localhost:9080 to access the management center and configure it with the cluster name: `bare-metal-cluster` and with your `ip:port` for hazelcast that will show up when you run the app, if you have more than one instance configure them all.
+
+at first the management center will be almost empty but, as you hit the app endpoints you will see how the maps get created, and how the entries will appear and get evicted as their TTL hits.
+
+this is how the management center will look like with 2 instances, and the 3 maps already created:
+
+dashboard:
+<figure>
+    <a href="/assets/images/hazelcast-main.png"><img src="/assets/images/hazelcast-main.png"></a>
+  	<figcaption>hazelcast main dashboard with 2 instance running</figcaption>
+</figure>
+
+map metrics:
+<figure>
+    <a href="/assets/images/hazelcast-map-stats.png"><img src="/assets/images/hazelcast-map-stats.png"></a>
+  	<figcaption>hazelcast post-by-id-map with a few entries loaded</figcaption>
+</figure>
+
+map metrics with near caches on a single member cluster:
+<figure>
+    <a href="/assets/images/hazelcast-map-near-cache.png"><img src="/assets/images/hazelcast-map-near-cache.png"></a>
+  	<figcaption>hazelcast post-by-id-map with a few entries loaded and some already hitting the near cache</figcaption>
+</figure>
+
+
+
 ### the MAIN idea to explore functional reactive programming
 so to explore everything laid out in the introductory part, this is what we are going to build.
 
@@ -668,7 +705,7 @@ there is not much to comment on those files, except maybe take a look at the con
 
 when this application runs, it will do so on a functional, reactive, non-blocking stack.
 
-when run on my computer, the first call to all posts can take around 70 to 300ms, while the second one takes between 2ms and 8ms
+when ran on my computer, the first call to all posts can take around 70 to 300ms, while the second one takes between 2ms and 8ms
 
 this first call runs all the pipeline as nothing is yet cached. The engine has to go to the web to get the data from the rest service, come back, put the payload on the cache, and finally respond. There is a high network tax that we pay on the first run getting data from the external rest APIs
 
