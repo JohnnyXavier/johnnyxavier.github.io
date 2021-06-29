@@ -27,7 +27,7 @@ sidebar-java:
 #        url: /child-page-a2/
   - title: "intermediate"
     children:
-      - title: "filtering with if and with streams"
+      - title: "filtering_with_if_and_with_streams"
         url: /language-java-streams-filtering-a-collection/
 #     - title: "collections"
 #       url: /child-page-b2/
@@ -45,7 +45,7 @@ sidebar-java:
 #        url: /child-page-c3/
   - title: "Pro / Academic"
     children:
-      - title: "reactive functional pipelines"
+      - title: "reactive_functional_pipelines"
         url: /language-java-reactive-functional-pipelines/
 #      - title: "threads"
 #        url: /child-page-c2/

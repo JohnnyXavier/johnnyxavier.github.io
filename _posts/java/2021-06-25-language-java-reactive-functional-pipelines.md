@@ -134,7 +134,7 @@ we created a reactive-stream pipeline of actions... which delegates operations t
 as stated in the intro: **programing by delegation**.
 
 ### last piece of the puzzle: In Memory Data Grid
-say we perform all that with real services, we will want to put a cache in front of the first step, so in case we already have responded to a request, we just skip the heavy lifting of going to our back-end and we reply immediately with in memory data.
+say we perform all that with real services, we will want to put a cache in front of the first step, so in case we have already responded to a request, we just skip the heavy lifting of going to our back-end and we reply immediately with in memory data.
 
 I chose hazelcast as the cache for a myriad of reasons, but one very attractive is that it can handle our local and server caches and also it can work embedded on spring boot apps, so it is an ideal fit for academic apps, and of course production apps.
 
@@ -146,7 +146,7 @@ I chose hazelcast as the cache for a myriad of reasons, but one very attractive 
     * configure your ide to run with `local` as active profile
 * or you can also manually run it like this: `mvn spring-boot:run -Dspring-boot.run.profiles=local`
 * everything is properly commented / documented on the repo, examples here might not have all javadocs nor comments for brevity 
-* you can, if you want, run it many times just changing the server ports, and you will be able to see a hazelcast cluster form on your local machine, with each instance of the app connecting to the other instances of the cache cluster!!
+* you can, if you want, run many instances of the app by only changing the server ports, and you will be able to see a hazelcast cluster form on your local machine, with each instance of the app connecting to the other instances of the cache cluster!!
     * instance 1: mvn spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081 -Dmanagement.server.port=18081"
     * instance 1: mvn spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8082 -Dmanagement.server.port=18082"
     * instance x: [...]"-Dserver.port=xxxx -Dmanagement.server.port=xxxxx"
@@ -182,7 +182,40 @@ we will build a proper engine that will:
 
 all that in a functional reactive non-blocking strategic manner
 
-## the Core of the Engine
+## the entry point of the system
+this system takes its input from a netty reactive webservice. We have 2 controllers one for comments and another one for posts that are completely standard.
+
+the only thing to check out is how little code there is on the routes, just some building of headers and passing them with the serverResponse to the main engine.
+
+let's see the code for the comment's one as it is the smallest.
+
+```java
+@RestController
+@RequestMapping( produces = "application/json" )
+@RequiredArgsConstructor
+@Log4j2
+public class CommentsController
+{
+    private final PipelineEngine engine;
+    private final AppConfig config;
+
+    @GetMapping( path = "/posts/{postId}/comments" )
+    public Mono<String> getAllCommentsForPostById( final ServerHttpResponse serverHttpResponse, @PathVariable( "postId" ) final String postId )
+    {
+        log.debug( "received request for all comments for postId: {}", postId );
+
+        final HttpHeaders httpHeaders = new HttpHeaders();
+        httpHeaders.set( config.getHeaders().getStrategyHeader(), config.getStrategies().getCommentsByPostId() );
+        httpHeaders.set( config.getHeaders().getPostIdHeader(), postId );
+
+        return engine.processMessage( httpHeaders, serverHttpResponse );
+    }
+}
+```
+
+very standard and very simple, no logic is applied here, just building headers and passing the baton to the engine.
+
+## the core of the Engine
 the core will be no more than a Mono pipeline of mappings going through all the services we want to execute.
 
 let's take a look
@@ -264,7 +297,7 @@ let's examine what will happen when we get a request to get all the post from th
 
 each one of te steps can be skipped if the message is properly marked, and as you can see, we don't actually know how things are being done... but we do know WHAT is being done...<br>
 it is very easy to figure out what our engine is about, and if for example tomorrow you don't want to have cache anymore... you can comment the cache line, that's it, all the code behind it is gone, almost like a built in naive feature flag.<br>
-Of course, with minimum effort each service could be configured via externalized configuration, to always be skipped transforming it into a powerful on engine feature flag!
+Of course, with minimum effort each service could be configured via externalized configuration, to always be skipped transforming it into a powerful on-engine feature flag!
 
 now, let's see how a common service work.
 
@@ -285,7 +318,7 @@ let's check the service code:
 
 it contains the methods you see called from the pipeline engine.
 
-the service as all services extend the targetStrategy with the correct strategy type.
+the cache service, as all other services, extend the targetStrategy with the targeted strategy type.
 
 it is then in charge of exposing methods to the pipeline to call, in this case `put()` and `get()` and determines what will be processed, and what will be the fallback for the service. This service gives a great deal of flexibility to skip steps if desired, or allows to implement an in-house feature-flag configurable by external markers.
 
@@ -335,9 +368,9 @@ public abstract class CacheServiceStrategy extends BaseStrategy
 as you can see we have a contract here...
 
 * **put**: how do we put things in the cache
-* **get**: how do we get things in the cache
+* **get**: how do we get things from the cache
 * **getMapName**: the cache's map name to store things into
-* **getTTL()**: the time to live of a given data type. We can individually configure time to live per map
+* **getTTL()**: the time to live of a given data type. We can individually configure a record's TTL per map!
 
 #### the target strategy (generic context)
 let's check the context code:
@@ -433,7 +466,7 @@ so you want to mix redis and [memcached](https://www.memcached.org/) and hazelca
 
 it will just work... That simple!
 
-as you can see on the code below this one is a bit more complex. We have a few safeguards for null keys or disconnected clusters, but bar that it is an async put to the cache and a sync get from the cache.
+as you can see on the code below, this one is a bit more complex. We have a few safeguards for null keys or disconnected clusters, but bar that it is an async put to the cache and a sync get from the cache.
 
 the fact that putting a record into the cache is async, allows for a fire and forget functionality. If someone requested data we don't want them waiting because our cache is lagging or there are connectivity problems.
 
@@ -660,6 +693,7 @@ I hope that you run this project yourself, and improve it with your own ideas. A
 * how easy would it be to transform this pipeline in say, 3 or 4 microservices.
 * what more could we do with hazelcast? near-caches? pre-population of near-caches?
 * how to implement in-engine feature flags controlled by configuration?
+* can you add another entry point? say a broker? an event of some sort?
 
 **hope you enjoyed!**
 
