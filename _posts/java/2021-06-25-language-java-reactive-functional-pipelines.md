@@ -696,7 +696,6 @@ public class VendorWebclient
 you will notice there are a few things not covered such as:
 * [objectified configuration](https://github.com/JohnnyXavier/functional-reactive/tree/master/src/main/java/com/baremetalcode/functionalreactive/configuration) files
 * [yaml configuration](https://github.com/JohnnyXavier/functional-reactive/tree/master/src/main/resources) files, particularly the main [application.yaml](https://github.com/JohnnyXavier/functional-reactive/blob/master/src/main/resources/application.yaml) one
-* [webservice](https://github.com/JohnnyXavier/functional-reactive/tree/master/src/main/java/com/baremetalcode/functionalreactive/webservice) (controllers)
 
 there is not much to comment on those files, except maybe take a look at the configuration ones, as most variables if not all of them, have been externalized. That approach provides the app for incredible flexibility.
 
