@@ -209,7 +209,7 @@ map metrics with near caches on a single member cluster:
 so to explore everything laid out in the introductory part, this is what we are going to build.
 
 we will build a proper engine that will:
-* accept requests to different rest endpoints
+* accept requests from different rest endpoints
 * validates the input
 * responds from cache
 * if cache misses, gets data from a [real web service](https://jsonplaceholder.typicode.com/):
