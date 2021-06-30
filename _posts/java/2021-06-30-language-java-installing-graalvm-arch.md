@@ -47,7 +47,7 @@ user@hostname:~/Downloads$ tar -xvzf graalvm-ce-java16-linux-amd64-21.xxx.xxx.xx
 If you run into a problem, you may need to make the file readable first, like this `chmod +r graalvm-ce-java16-linux-amd64-21.xxx.xxx.xxx.tar.gz`
 
 #### local configuration
-given than arch has its own way of selecting between multiple java installations, we're going to match the arch way.<br>
+given that arch has its own way of selecting between multiple java installations, we're going to match their own way.<br>
 there is a script called `archlinux-java`, that looks for java installations in a particular directory, and allows us to set the one we want.
 
 if I run the script now I will get the following:
