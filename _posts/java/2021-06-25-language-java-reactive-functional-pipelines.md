@@ -697,7 +697,7 @@ you will notice there are a few things not covered such as:
 * [objectified configuration](https://github.com/JohnnyXavier/functional-reactive/tree/master/src/main/java/com/baremetalcode/functionalreactive/configuration) files
 * [yaml configuration](https://github.com/JohnnyXavier/functional-reactive/tree/master/src/main/resources) files, particularly the main [application.yaml](https://github.com/JohnnyXavier/functional-reactive/blob/master/src/main/resources/application.yaml) one
 
-there is not much to comment on those files, except maybe take a look at the configuration ones, as most variables if not all of them, have been externalized. That approach provides the app for incredible flexibility.
+there is not much to comment on those files, except maybe take a look at the configuration ones, as most variables if not all of them, have been externalized. That approach provides the app with incredible flexibility.
 
 ## final thoughts and conclusion
 **fun fact:** there is not a single `if` or `else` or `switch` or `while` or `for` in the around 2K lines of code. None that we can see that is... remember that we delegated the implementation to spring and reactor...
