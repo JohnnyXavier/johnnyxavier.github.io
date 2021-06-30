@@ -6,7 +6,7 @@ header:
   overlay_image: /assets/images/coffee-anastasia-zhenina-BotFjK3UuAo-unsplash.jpg
   caption: "Photo credit: [**Anastasia Zhenina - Unsplash**](https://unsplash.com/@disguise_truth)"
 sidebar:
-  title: "/The_Java_language"
+  title: "/The_Java_Lang"
   nav: sidebar-java
 ---
 <h1>Some notes about Java</h1>

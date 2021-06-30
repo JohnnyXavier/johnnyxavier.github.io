@@ -15,9 +15,11 @@ sidebar-java:
     children:
       - title: "installing_open_jdk"
         url: /language-java-installing-openjdk/
-      - title: "installing_graal_vm"
-        url: /language-java-installing-graalvm/
-      - title: "configuring_multiple_jdks"
+      - title: "installing_graal_vm_general"
+        url: /language-java-installing-graalvm-no-arch/
+      - title: "installing_graal_vm_arch"
+        url: /language-java-installing-graalvm-arch/
+      - title: "multiple_jdks"
         url: /language-java-configure-multiple-jdks/
   - title: "basics"
     children:
@@ -27,7 +29,7 @@ sidebar-java:
 #        url: /child-page-a2/
   - title: "intermediate"
     children:
-      - title: "filtering_with_if_and_with_streams"
+      - title: "filtering_with_if_/_streams"
         url: /language-java-streams-filtering-a-collection/
 #     - title: "collections"
 #       url: /child-page-b2/

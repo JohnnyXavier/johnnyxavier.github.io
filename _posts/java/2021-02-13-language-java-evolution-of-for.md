@@ -2,7 +2,7 @@
 title: Evolution of the for loop in java
 excerpt: This note is about the different possibilities to write a for loop in java across time and different versions
 sidebar:
-  title: "/The_Java_language"
+  title: "/The_Java_Lang"
   nav: sidebar-java
 ---
 

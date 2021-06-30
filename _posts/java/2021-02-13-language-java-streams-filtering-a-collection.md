@@ -2,7 +2,7 @@
 title: filtering with ***if*** and with ***streams***
 excerpt: This note is about showing how to filter the elements of a **List** with J8 **streams** and J8 **filters** next to the classic conditional **if**
 sidebar:
-  title: "/The_Java_language"
+  title: "/The_Java_Lang"
   nav: sidebar-java
 ---
  

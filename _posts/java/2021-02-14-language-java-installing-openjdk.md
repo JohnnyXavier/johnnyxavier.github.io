@@ -2,7 +2,7 @@
 title: installing openJDK
 excerpt: This note is about showing how to install **openJDK** on a linux box
 sidebar:
-  title: "/The_Java_language"
+  title: "/The_Java_Lang"
   nav: sidebar-java
 toc: false
 ---

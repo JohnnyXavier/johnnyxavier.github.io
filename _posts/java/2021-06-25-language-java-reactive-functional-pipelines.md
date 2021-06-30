@@ -2,7 +2,7 @@
 title: reactive functional pipelines
 excerpt: This note is about creating multipurpose engines using Spring reactive stack and full functional programming style (as far as Java can go...) 
 sidebar:
-  title: "/The_Java_Language"
+  title: "/The_Java_Lang"
   nav: sidebar-java
   toc: true
 ---

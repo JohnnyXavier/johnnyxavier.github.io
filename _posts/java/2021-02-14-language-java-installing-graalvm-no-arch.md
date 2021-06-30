@@ -1,11 +1,17 @@
 ---
-title: installing GraalVM
-excerpt: This note is about showing how to install **GraalVM** on a linux box
+title: installing GraalVM on non arch-linux distros
+excerpt: This note is about showing how to install **GraalVM** on a non arch-linux box
 sidebar:
-  title: "/The_Java_language"
+  title: "/The_Java_Lang"
   nav: sidebar-java
 ---
 ### introduction
+this post covers installing [GraalVM](https://www.graalvm.org) on Linux distros that support `update-alternatives` command (i.e., [Debian](https://www.debian.org/) family, [Red-Hat](https://www.redhat.com/) family, [SuSE](https://www.suse.com/) family).
+
+for [ArchLinux](https://archlinux.org/) based distros, check the [installing-graalvm-arch post](/language-java-installing-graalvm-arch)
+
+---
+
 [GraalVM](https://www.graalvm.org) is deemed to be a high performance runtime for java (and a few other languages)
 
 although there is a claim of faster speeds on *hotspot mode*, GraalVM caught my attention mainly because of the ***native-image*** feature.<br>
@@ -18,9 +24,9 @@ both features combined, make java an interesting player in the **serverless micr
 we first need to download GraalVM. Their downloads page is here [graalvm downloads](https://www.graalvm.org/downloads/) <br>
 the page lists the latest versions and has some download links from github. Check the downloads page to get the latest updates
 
-to download the *(currently)* latest version **(v.21)**, go to this github url: [graal-github-vm-21.0.0.2-tag](https://github.com/graalvm/graalvm-ce-builds/releases/tag/vm-21.0.0.2)
+to download the latest *(at the time of this post)* version **(v.21.1)**, go to this github url: [graal-github-vm-21.1.0](https://github.com/graalvm/graalvm-ce-builds/releases/tag/vm-21.1.0)
 
-let's choose the J11 amd64 link which will download the **graalvm-ce-java11-linux-amd64-21.xxx.xxx.xxx.tar.gz**. If you have another system or architecture, choose yours instead of amd64.
+let's choose the J11 amd64 (or 16 if you feel experimental) link which will download the **graalvm-ce-java11-linux-amd64-21.xxx.xxx.xxx.tar.gz**. If you have another system or architecture, choose yours instead of amd64.
 
 
 ### installation
