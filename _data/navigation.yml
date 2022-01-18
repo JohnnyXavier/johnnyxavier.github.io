@@ -6,6 +6,8 @@ main:
     url: /cpp/
   - title: "/gnu_linux"
     url: /gnu_linux/
+  - title: "/arch_design"
+    url: /arch_design/
   - title: "/about"
     url: /about/
 
@@ -78,7 +80,7 @@ sidebar-gnu_linux:
       - title: "manjaro_kde_user_avatar"
         url: /gnu-linux-manjaro-kde-user-avatar/
 
-# sidebar navigation for gnu_linux
+# sidebar navigation for c++
 sidebar-c++:
   - title: "c++20_modules"
     children:
@@ -88,3 +90,15 @@ sidebar-c++:
 #        url: /cpp-cpp20-modules-clang/
 #      - title: "modules_with_g++_and_make"
 #        url: /gnu-linux-dell-9560-setup-ubuntu1810/
+
+# sidebar navigation for arch_design
+sidebar-arch_design:
+  - title: "Serverless Simple"
+    children:
+      - title: "AWS REST service with Java native"
+        url: /arch-design-aws-serverless-java-simple/
+  - title: "Serverless Advanced"
+    children:
+      - title: "AWS brokered service with Java native"
+        url: /arch-design-aws-serverless-java-advanced/
+  - title: "CI / CD"
