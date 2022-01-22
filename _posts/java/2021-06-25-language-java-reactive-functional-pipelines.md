@@ -148,7 +148,7 @@ I chose hazelcast as the cache for a myriad of reasons, but one very attractive 
 * everything is properly commented / documented on the repo, examples here might not have all javadocs nor comments for brevity 
 * you can, if you want, run many instances of the app by only changing the server ports, and you will be able to see a hazelcast cluster form on your local machine, with each instance of the app connecting to the other instances of the cache cluster!!
     * instance 1: mvn spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8081 -Dmanagement.server.port=18081"
-    * instance 1: mvn spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8082 -Dmanagement.server.port=18082"
+    * instance 2: mvn spring-boot:run -Dspring-boot.run.jvmArguments="-Dserver.port=8082 -Dmanagement.server.port=18082"
     * instance x: [...]"-Dserver.port=xxxx -Dmanagement.server.port=xxxxx"
 
 
