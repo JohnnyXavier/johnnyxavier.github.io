@@ -168,7 +168,7 @@ you can, if you want and you run on `java 9` or above, add the following jvm opt
 ```
 nothing will break if you don't
 
-once u have one or more instances of the app running, simple start hit
+once u have one or more instances of the app running, simply hit
 * **to get all posts**: _localhost:8081/posts_
 * **to get a single post**: _localhost:8081/posts/1_
 * **to get all comments for a post**: _localhost:8081/posts/1/comments_
