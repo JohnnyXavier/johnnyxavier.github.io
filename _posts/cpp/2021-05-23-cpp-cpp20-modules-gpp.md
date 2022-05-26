@@ -11,7 +11,7 @@ this page will describe the gnu\g++ way of developing with modules with c++20.
 ## Intro
 while reading books on latest C++, I found I could not compile any of the examples straight away, making a bit difficult to follow and practice as I read along.
 
-many of the resources I tried on the net or paper to compile and expand on the examples where not complete or very simple, rendering the examples on the books hard to follow.
+many of the resources I tried on the net or paper to compile and expand on the examples were not complete or very simple, rendering the examples on the books hard to follow.
 
 here I leave an example of my own which is simple enough but can scale to more elaborated ones as I break implementation of module components into many files.<br>
 For the time being, all module definitions still remain on a single file. 
