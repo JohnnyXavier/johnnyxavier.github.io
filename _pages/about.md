@@ -7,7 +7,7 @@ header:
   caption: "ScreenCapture: htop"
 author_profile: true
 ---
-### bare_metal_code
+# bare_metal_code
 is a collection of notes on topics I found interesting, random, or that helped me while I was studying a particular subject.
 
 they range from small snippets to bigger projects, all in the spirit of practicing some tech.
@@ -17,9 +17,10 @@ it all started during commuting to work on the northern line in London's Tube ch
 I hope you find these pages useful and don't be shy to drop a line over github if you find a mistake, have a suggestion or want me to write a note on a particular topic.
 
 cheers!
+
 ---
 
-## Credits
+### Credits
 I am using ***Minimal Mistakes*** jekill template, here the credits to it's creator
 
 ### Jekill Theme:

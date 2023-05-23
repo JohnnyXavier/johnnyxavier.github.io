@@ -9,8 +9,8 @@ sidebar:
   title: "/Arch_Design"
   nav: sidebar-arch_design
 ---
-<h1>Some_notes_about_systems_architecture_design</h1>
-<hr>
+# Some_notes_about_systems_architecture_design
+---
 This is a collection of notes about a few things around system's architecture design
 
 I will be collecting here some ideas about experimental and traditional systems designs.<br>

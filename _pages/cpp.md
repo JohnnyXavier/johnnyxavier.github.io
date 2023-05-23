@@ -9,9 +9,8 @@ sidebar:
   title: "/The_C++_language"
   nav: sidebar-c++
 ---
-<h1>Some notes about C++</h1>
-
-<hr>
+# Some notes about C++
+---
 
 this notes show some examples on my particular setup, which can be:
 * [Manjaro linux - kde variant](https://manjaro.org/)

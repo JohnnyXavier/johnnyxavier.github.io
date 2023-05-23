@@ -1,5 +1,7 @@
 # main links
 main:
+  - title: "/BMC_Anvil"
+    url: /bmc_anvil/
   - title: "/java"
     url: /java/
   - title: "/c++"
@@ -10,6 +12,17 @@ main:
     url: /arch_design/
   - title: "/about"
     url: /about/
+
+# sidebar navigation for bmc anvil
+sidebar-bmc_anvil:
+  - title: "etiquette"
+    children:
+      - title: "Disclaimer / Purpose"
+        url: /bmc-anvil-intro-disclaimer/
+      - title: "Faq"
+        url: /bmc-anvil-intro-faq/
+      - title: "Software licenses"
+        url: /bmc-anvil-intro-licenses/
 
 # sidebar navigation for java
 sidebar-java:

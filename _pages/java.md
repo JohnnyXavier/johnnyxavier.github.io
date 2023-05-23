@@ -9,9 +9,9 @@ sidebar:
   title: "/The_Java_Lang"
   nav: sidebar-java
 ---
-<h1>Some notes about Java</h1>
+# Some notes about Java
 
-<hr>
+---
 
 this notes show some examples on my particular setup, which can be:
 * [Manjaro linux - kde variant](https://manjaro.org/)

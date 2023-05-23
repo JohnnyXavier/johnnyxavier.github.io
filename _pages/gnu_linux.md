@@ -9,8 +9,8 @@ sidebar:
   title: "/Gnu_Linux"
   nav: sidebar-gnu_linux
 ---
-<h1>Some_notes_about_GNU_linux</h1>
-<hr>
+# Some_notes_about_GNU_linux
+---
 This is a collection of notes about a few things GNU\linux
 
 I will be collecting here some guides on installation troubleshooting and problem resolution Most of this was found scattered over the net and put together here for reference.
