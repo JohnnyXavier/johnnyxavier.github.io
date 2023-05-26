@@ -44,6 +44,11 @@ search                   : true # true, false (default)
 search_full_content      : true # true, false (default)
 search_provider          : lunr # lunr (default), algolia, google
 
+# showcase
+showcase:
+  name                   : "BMC_Anvil"
+  url                    : #"URL"
+  quarkus-version        : 3.0.3.FINAL
 # Analytics
 analytics:
   provider               : false # false (default), "google", "google-universal", "google-gtag", "custom"

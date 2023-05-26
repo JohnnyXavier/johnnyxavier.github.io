@@ -8,7 +8,7 @@ sidebar:
 
 ### License for the Back-End Code
 
-The back-en code that power this application is OSS, and it's licensed at the moment under Apache License 2.0
+The back-en code that powers this application is OSS, and it's licensed at the moment under Apache License 2.0
 
 ---
 

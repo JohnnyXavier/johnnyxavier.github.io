@@ -19,7 +19,7 @@ this could solve the one too many times of our codebase going wild when an appli
 the most common example of the above is the video club store one. We start with an app that handles requests and looks for data on one end plus adds data on another. A client wants to rent a video on one end, and we add movies and actors and directors 
 to our backing database on the other. The video club can be a suppliers service, an employees roster, a goods stock system... we've all been there.
 
-this all started when trying to build a lightweight cloud service, backpressure and responsive ready a while ago, let's check the first part of the solution! (the second part, quarkus + graal + native images is coming soon)
+this all started when trying to build a lightweight cloud service, backpressure and responsive ready a while ago, let's check the first part of the solution! (the second part, Quarkus + graal + native images is coming soon)
 
 ### What I understand as Functional
 from [wikipedia functional programming entry]()

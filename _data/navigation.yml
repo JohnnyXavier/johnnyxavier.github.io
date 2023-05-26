@@ -15,6 +15,65 @@ main:
 
 # sidebar navigation for bmc anvil
 sidebar-bmc_anvil:
+  - title: "technology"
+    children:
+      - title: "Introduction"
+        url: /bmc-anvil-tech-intro/
+      - title: "Language"
+        url: /bmc-anvil-tech-language/
+      - title: "Quarkus"
+        url: /bmc-anvil-tech-quarkus/
+      - title: "Reactive"
+        url: /bmc-anvil-tech-reactive/
+      - title: "Caching"
+        url: /bmc-anvil-tech-caching/
+      - title: "Auth"
+        url: /bmc-anvil-tech-auth/
+  - title: "articles - starter"
+    children:
+      - title: "Introduction"
+        url: /bmc-anvil-starter-intro/
+      - title: "OOP"
+        url: /bmc-anvil-upcoming/
+      - title: "Reactive Programming"
+        url: /bmc-anvil-upcoming/
+      - title: "Configuration"
+        url: /bmc-anvil-upcoming/
+      - title: "Rest"
+        url: /bmc-anvil-upcoming/
+  - title: "articles - medium"
+    children:
+      - title: "hbn simple entities"
+        url: /bmc-anvil-upcoming/
+      - title: "hbn simple mappings"
+        url: /bmc-anvil-upcoming/
+      - title: "hbn complex mappings"
+        url: /bmc-anvil-upcoming/
+      - title: "hbn projections"
+        url: /bmc-anvil-upcoming/
+      - title: "hbn reactive chains"
+        url: /bmc-anvil-upcoming/
+      - title: "hbn named queries"
+        url: /bmc-anvil-upcoming/
+      - title: "hbn native queries"
+        url: /bmc-anvil-upcoming/
+  - title: "articles - hard"
+    children:
+      - title: "Code reusability"
+        url: /bmc-anvil-upcoming/
+      - title: "Java reflection"
+        url: /bmc-anvil-upcoming/
+      - title: "Algorithms: Greenhopper"
+        url: /bmc-anvil-upcoming/
+  - title: "articles - architecture"
+    children:
+      - title: "Architecture considerations"
+        url: /bmc-anvil-upcoming/
+      - title: "Approach to BE / FE"
+        url: /bmc-anvil-upcoming/
+      - title: "Approach to caching"
+        url: /bmc-anvil-upcoming/
+
   - title: "etiquette"
     children:
       - title: "Disclaimer / Purpose"
@@ -40,26 +99,26 @@ sidebar-java:
     children:
       - title: "evolution_of_for_loop"
         url: /language-java-evolution-of-for/
-#      - title: "while_loop"
-#        url: /child-page-a2/
+  #      - title: "while_loop"
+  #        url: /child-page-a2/
   - title: "intermediate"
     children:
       - title: "filtering_with_if_/_streams"
         url: /language-java-streams-filtering-a-collection/
-#     - title: "collections"
-#       url: /child-page-b2/
-#     - title: "date_and_time"
-#       url: /child-page-b3/
-#     - title: "generics"
-#       url: /child-page-b4/
+  #     - title: "collections"
+  #       url: /child-page-b2/
+  #     - title: "date_and_time"
+  #       url: /child-page-b3/
+  #     - title: "generics"
+  #       url: /child-page-b4/
   - title: "Advanced"
     children:
-#      - title: "reflection"
-#        url: /child-page-c1/
-#      - title: "threads"
-#        url: /child-page-c2/
-#      - title: "thread_pools"
-#        url: /child-page-c3/
+  #      - title: "reflection"
+  #        url: /child-page-c1/
+  #      - title: "threads"
+  #        url: /child-page-c2/
+  #      - title: "thread_pools"
+  #        url: /child-page-c3/
   - title: "Pro / Academic"
     children:
       - title: "reactive_functional_pipelines"
@@ -79,9 +138,9 @@ sidebar-gnu_linux:
       - title: "ubuntu-18.10_on_dell_9560"
         url: /gnu-linux-dell-9560-setup-ubuntu1810/
   - title: "files_n_filesystem"
-#    children:
-#      - title: "readelf-mem_info"
-#        url: /gnu-linux-readelf/
+  #    children:
+  #      - title: "readelf-mem_info"
+  #        url: /gnu-linux-readelf/
   - title: "system_tips_n_tricks"
     children:
       - title: "binaries_and_update-alternatives"
