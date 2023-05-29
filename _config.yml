@@ -49,6 +49,8 @@ showcase:
   name                   : "BMC_Anvil"
   url                    : #"URL"
   quarkus-version        : 3.0.3.FINAL
+  java-version           : 20
+  postgres-version       : 15.3
 # Analytics
 analytics:
   provider               : false # false (default), "google", "google-universal", "google-gtag", "custom"

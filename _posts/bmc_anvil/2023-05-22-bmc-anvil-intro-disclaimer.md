@@ -17,12 +17,12 @@ The above usually entails one or many forms of evaluation depending the on hirin
 
 Popular forms of technical evaluation include:
 
-* <code>General Language and Frameworks knowledge</code>
-* <code>Specific CS questions and challenges</code>
-* <code>Live coding</code>
-* <code>Challenges on coding websites</code>
-* <code>In person coding challenges</code>
-* <code>More elaborated @Home coding challenges</code>
+* General Language and Frameworks knowledge
+* Specific CS questions and challenges
+* Live coding
+* Challenges on coding websites
+* In person coding challenges
+* More elaborated @Home coding challenges
 
 With that in mind I started building some small architectures and software samples to kickstart the
 conversations and be able to show my trade. <br />A code and architecture portfolio of sorts...
@@ -85,12 +85,15 @@ I'll review here features in place and missing ones
 Currently, the application core can:
 
 * CRUD users, accounts, projects, boards, cards
-* Supports kanban, sprints and service-desk boards
+* Supports kanban, (and shortly sprints and service-desk boards)
+* Cards support comments, multiple assignees, watchers, dates, tasks, labels, status, types...
+* An amazing front-end / ui thanks to the bootstrap-react template by ThemeWagon
+
+Currently, the application is about to implement:
+
 * Displays statistics at various levels
 * Schedules users on projects
 * Has operative warnings and checks on excess of work
-* Cards support comments, multiple assignees, watchers, dates, tasks, labels, status, types...
-* An amazing front-end / ui thanks to the bootstrap-react template by ThemeWagon
 
 Currently, the application is missing:
 
@@ -105,7 +108,7 @@ Currently, the application is missing:
     * **Hazelcast**: this is the one I have the most experience with and, it is not only blazing fast, it has so many good features on its
       own
       grid
-    * **Infinispan**: as I am using probably a full(ish) red-hat stack (or sponsored) I might as well... Stats are very good too but will
+    * **Infinispan**: as I am using probably a full(ish) red-hat stack (or JBOSS's) I might as well... Stats are very good too but will
       need
       to investigate the rest of the grid's features
 
@@ -135,4 +138,4 @@ tell me which features you would like to see implemented!
 For the time being, enjoy the app, and consider it my presentation card as a back-end developer / architect.
 See you soon!
 
-**[Johnny X](https://www.linkedin.com/in/johnnyvera)**
+**[Johnny X](https://www.linkedin.com/in/johnnyvera)** at LinkedIn.

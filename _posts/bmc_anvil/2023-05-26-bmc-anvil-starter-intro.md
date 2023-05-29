@@ -6,7 +6,7 @@ sidebar:
   nav: sidebar-bmc_anvil
 ---
 
-## Why the articles and the application
+## why the articles and the application
 
 stated in many places already, I will just recap:
 
@@ -81,11 +81,11 @@ for example:
 
 * I chose a few services to go full orm, others to add named queries, others to use native queries...
 * I chose to use an annotation here, but call on `Mutiny SessionFactory` there...
-* I chose to add/remove many to many records fully manually here and via orm entities there...
+* I chose to add/remove "many to many records" fully manually here and via orm entities there...
 
-it is the only way to showcase those different approaches.
+it is the only way to showcase those different approaches by using a single application for it.
 
-I tried to use the different approaches where they better fit, or to group them on a given service, but as that this is a showcase as much as a
+I tried to use the different approaches where they better fit, or to group them on a given service, but as this is a showcase as much as a
 teaching app, there may be features that seem unlikely to be used on a same class here and there.<br>
 when it is the case it will be accordingly flagged.
 

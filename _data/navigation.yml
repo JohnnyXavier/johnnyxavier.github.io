@@ -29,6 +29,8 @@ sidebar-bmc_anvil:
         url: /bmc-anvil-tech-caching/
       - title: "Auth"
         url: /bmc-anvil-tech-auth/
+      - title: "Testing"
+        url: /bmc-anvil-tech-testing/
   - title: "articles - starter"
     children:
       - title: "Introduction"

@@ -8,7 +8,7 @@ sidebar:
 
 ### License for the Back-End Code
 
-The back-en code that powers this application is OSS, and it's licensed at the moment under Apache License 2.0
+the back-en code that powers this application is OSS, and it's licensed at the moment under Apache License 2.0
 
 ---
 
@@ -24,7 +24,7 @@ See the License for the specific language governing permissions and limitations 
 
 ---
 
-You can get a copy of the license by scrolling down this page or on any of the following links:<br>
+you can get a copy of the license by scrolling down this page or on any of the following links:<br>
 **APACHE LICENSE, VERSION 2.0**
 
 * [apache.org site](https://apache.org/licenses/LICENSE-2.0.txt)
@@ -36,17 +36,17 @@ You can get a copy of the license by scrolling down this page or on any of the f
 
 ### License for the Front-End Code
 
-The front-end code that powers this application is NOT OSS.
+the front-end code that powers this application is NOT OSS.
 
 I have purchased and do hold the appropriate license to use it, but cannot (to my knowledge) share the source code unless I upgrade my
 current license.
 
-If you like what you see, and want to use this system as is before I upgrade my current license, you can get your own license for this
+if you like what you see, and want to use this system as is before I upgrade my current license, you can get your own license for this
 amazing bootstrap-react template from the team that created it from the link below:
 
 [Falcon React](https://themes.getbootstrap.com/product/falcon-admin-dashboard-webapp-template-react/)
 
-Mind that all the changes necessary to run the application do not come with the template are my own modifications to it.
+mind that all the changes necessary to run the application do not come with the template are my own modifications to it.
 
 ---
 
