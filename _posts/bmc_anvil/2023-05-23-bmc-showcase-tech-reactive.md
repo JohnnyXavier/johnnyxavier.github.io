@@ -3,7 +3,7 @@ title: BMC Anvil's Reactive Tech
 excerpt: This note is about Reactive Stack used on the application
 sidebar:
   title: "/BMC_Anvil"
-  nav: sidebar-bmc_anvil
+  nav: sidebar-bmc_showcase
 ---
 
 ## Reactive Technology used by the application

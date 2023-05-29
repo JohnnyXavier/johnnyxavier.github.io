@@ -3,7 +3,7 @@ title: BMC Anvil's Licenses
 excerpt: This note is about the software licenses
 sidebar:
   title: "/BMC_Anvil"
-  nav: sidebar-bmc_anvil
+  nav: sidebar-bmc_showcase
 ---
 
 ### License for the Back-End Code

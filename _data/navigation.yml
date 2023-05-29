@@ -1,7 +1,7 @@
 # main links
 main:
-  - title: "/BMC_Anvil"
-    url: /bmc_anvil/
+  - title: "/BMC_anvil"
+    url: /bmc_showcase/
   - title: "/java"
     url: /java/
   - title: "/c++"
@@ -13,77 +13,77 @@ main:
   - title: "/about"
     url: /about/
 
-# sidebar navigation for bmc anvil
-sidebar-bmc_anvil:
+# sidebar navigation for bmc showcase
+sidebar-bmc_showcase:
   - title: "technology"
     children:
       - title: "Introduction"
-        url: /bmc-anvil-tech-intro/
+        url: /bmc-showcase-tech-intro/
       - title: "Language"
-        url: /bmc-anvil-tech-language/
+        url: /bmc-showcase-tech-language/
       - title: "Quarkus"
-        url: /bmc-anvil-tech-quarkus/
+        url: /bmc-showcase-tech-quarkus/
       - title: "Reactive"
-        url: /bmc-anvil-tech-reactive/
+        url: /bmc-showcase-tech-reactive/
       - title: "Caching"
-        url: /bmc-anvil-tech-caching/
+        url: /bmc-showcase-tech-caching/
       - title: "Auth"
-        url: /bmc-anvil-tech-auth/
+        url: /bmc-showcase-tech-auth/
       - title: "Testing"
-        url: /bmc-anvil-tech-testing/
+        url: /bmc-showcase-tech-testing/
   - title: "articles - starter"
     children:
       - title: "Introduction"
-        url: /bmc-anvil-starter-intro/
+        url: /bmc-showcase-starter-intro/
       - title: "OOP"
-        url: /bmc-anvil-upcoming/
+        url: /bmc-showcase-upcoming/
       - title: "Reactive Programming"
-        url: /bmc-anvil-upcoming/
+        url: /bmc-showcase-upcoming/
       - title: "Configuration"
-        url: /bmc-anvil-upcoming/
+        url: /bmc-showcase-upcoming/
       - title: "Rest"
-        url: /bmc-anvil-upcoming/
+        url: /bmc-showcase-upcoming/
   - title: "articles - medium"
     children:
       - title: "hbn simple entities"
-        url: /bmc-anvil-upcoming/
+        url: /bmc-showcase-upcoming/
       - title: "hbn simple mappings"
-        url: /bmc-anvil-upcoming/
+        url: /bmc-showcase-upcoming/
       - title: "hbn complex mappings"
-        url: /bmc-anvil-upcoming/
+        url: /bmc-showcase-upcoming/
       - title: "hbn projections"
-        url: /bmc-anvil-upcoming/
+        url: /bmc-showcase-upcoming/
       - title: "hbn reactive chains"
-        url: /bmc-anvil-upcoming/
+        url: /bmc-showcase-upcoming/
       - title: "hbn named queries"
-        url: /bmc-anvil-upcoming/
+        url: /bmc-showcase-upcoming/
       - title: "hbn native queries"
-        url: /bmc-anvil-upcoming/
+        url: /bmc-showcase-upcoming/
   - title: "articles - hard"
     children:
       - title: "Code reusability"
-        url: /bmc-anvil-upcoming/
+        url: /bmc-showcase-upcoming/
       - title: "Java reflection"
-        url: /bmc-anvil-upcoming/
+        url: /bmc-showcase-upcoming/
       - title: "Algorithms: Greenhopper"
-        url: /bmc-anvil-upcoming/
+        url: /bmc-showcase-upcoming/
   - title: "articles - architecture"
     children:
       - title: "Architecture considerations"
-        url: /bmc-anvil-upcoming/
+        url: /bmc-showcase-upcoming/
       - title: "Approach to BE / FE"
-        url: /bmc-anvil-upcoming/
+        url: /bmc-showcase-upcoming/
       - title: "Approach to caching"
-        url: /bmc-anvil-upcoming/
+        url: /bmc-showcase-upcoming/
 
   - title: "etiquette"
     children:
       - title: "Disclaimer / Purpose"
-        url: /bmc-anvil-intro-disclaimer/
+        url: /bmc-showcase-intro-disclaimer/
       - title: "Faq"
-        url: /bmc-anvil-intro-faq/
+        url: /bmc-showcase-intro-faq/
       - title: "Software licenses"
-        url: /bmc-anvil-intro-licenses/
+        url: /bmc-showcase-intro-licenses/
 
 # sidebar navigation for java
 sidebar-java:

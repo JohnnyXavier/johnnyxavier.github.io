@@ -1,13 +1,13 @@
 ---
 title: /bmc_anvil
-permalink: /bmc_anvil/
+permalink: /bmc_showcase/
 excerpt: BMC Anvil is a showcase app to demonstrate technologies and skills
 header:
   overlay_image: /assets/images/hannah-gibbs-BINLgyrG_fI-unsplash.jpg
   caption: "Photo credit: **[Hannah Gibbs](https://unsplash.com/@hannahmgibbs?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)** on [unsplash](https://unsplash.com/s/photos/forge?license=free&utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)"
 sidebar:
   title: "/BMC_Anvil"
-  nav: sidebar-bmc_anvil
+  nav: sidebar-bmc_showcase
 ---
 
 # Some_notes_about_{{ site.showcase.name }}
@@ -51,6 +51,6 @@ welcome to **{{ site.showcase.name }}**!
 
 ---
 
-Dig into the [disclaimer](/bmc-anvil-intro-disclaimer) or into the [tech introduction](/bmc-anvil-tech-intro) note for a little more history
+Dig into the [disclaimer](/bmc-showcase-intro-disclaimer) or into the [tech introduction](/bmc-showcase-tech-intro) note for a little more history
 about the app.
 

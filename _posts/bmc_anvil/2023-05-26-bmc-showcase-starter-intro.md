@@ -3,7 +3,7 @@ title: Introduction
 excerpt: This note is about what to expect of the Application and the accompanying articles
 sidebar:
   title: "/BMC_Anvil"
-  nav: sidebar-bmc_anvil
+  nav: sidebar-bmc_showcase
 ---
 
 ## why the articles and the application
@@ -52,7 +52,7 @@ this is a real application that can be continued by yourself and used it to you 
 ## as a guide / teaching app
 
 this whole application, the notes and any fragment of the back en code, **- and the back end code only -**, can be used in your own
-applications and as snippets anywhere you like, it's [currently released under apache](2023-05-23-bmc-anvil-intro-licenses) and even if I
+applications and as snippets anywhere you like, it's [currently released under apache](2023-05-23-bmc-showcase-intro-licenses) and even if I
 choose another license in the future it will most likely be another OSS kind of license.
 
 ## a note on perfection and coherence on the app

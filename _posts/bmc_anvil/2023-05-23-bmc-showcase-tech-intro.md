@@ -3,7 +3,7 @@ title: BMC Anvil's Introduction
 excerpt: This note is an introduction to BMC Anvil application
 sidebar:
   title: "/BMC_Anvil"
-  nav: sidebar-bmc_anvil
+  nav: sidebar-bmc_showcase
 ---
 
 ## A general intro to {{ site.showcase.name }}'s Tech Stack
@@ -90,7 +90,7 @@ I could keep investigating but at some point I needed to start a showcase app.
 because of the above, I decided not to go for benchmarking multiple languages, but to focus instead on a single more rounded app built with
 a language in which I have more experience.
 
-as stated on the [disclaimer](/bmc-anvil-intro-disclaimer), the purpose of this application and accompanying notes is a way of making easier
+as stated on the [disclaimer](/bmc-showcase-intro-disclaimer), the purpose of this application and accompanying notes is a way of making easier
 for tech recruiters and tech teams wanting to hire personnel, to check on my skills through various notes and a bigger app than a standard
 "coding challenge".
 

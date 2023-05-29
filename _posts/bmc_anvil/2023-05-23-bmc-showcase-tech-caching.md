@@ -3,7 +3,7 @@ title: BMC Anvil's Caching Tech
 excerpt: This note is about Caching strategies for the application
 sidebar:
   title: "/BMC_Anvil"
-  nav: sidebar-bmc_anvil
+  nav: sidebar-bmc_showcase
 ---
 
 ## Caching Technologies present and upcoming

@@ -3,7 +3,7 @@ title: BMC Anvil's testing
 excerpt: This note is about testing strategies for the application
 sidebar:
   title: "/BMC_Anvil"
-  nav: sidebar-bmc_anvil
+  nav: sidebar-bmc_showcase
 ---
 
 ## Testing Strategies

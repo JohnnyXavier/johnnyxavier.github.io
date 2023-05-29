@@ -3,7 +3,7 @@ title: BMC Anvil's Quarkus Stack
 excerpt: This note is about Quarkus frameworks and ecosystem used on the application
 sidebar:
   title: "/BMC_Anvil"
-  nav: sidebar-bmc_anvil
+  nav: sidebar-bmc_showcase
 ---
 
 I went through an intro with some numbers and charts, then some reasons to pick a java ecosystem. Good performance was a reason...

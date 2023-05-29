@@ -3,7 +3,7 @@ title: BMC Anvil's Implementation Language
 excerpt: This note is about the application's implementation language
 sidebar:
   title: "/BMC_Anvil"
-  nav: sidebar-bmc_anvil
+  nav: sidebar-bmc_showcase
 ---
 
 ## JAVA: the app's Implementation Language
@@ -37,7 +37,7 @@ when extracting the language from the void into the real world, I considered:
 
 ### raw / frameworks performance
 
-I touched on frameworks benchmarks at the [introduction article](bmc-anvil-tech-intro).<br>
+I touched on frameworks benchmarks at the [introduction article](bmc-showcase-tech-intro).<br>
 at the top 10 we have js, java with small footprint frameworks, rust and c++ mainly.
 
 given the good performance on benchmarks, the extended ecosystem, stability and maturity of both the language and frameworks and adding the

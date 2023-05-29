@@ -3,7 +3,7 @@ title: Purpose of BMC Anvil
 excerpt: This note is about why create an application as a showcase of technology and skills
 sidebar:
   title: "/BMC_Anvil"
-  nav: sidebar-bmc_anvil
+  nav: sidebar-bmc_showcase
 ---
 
 You will find in these introductory notes, the 'why' of this Software and what to look for into the future.

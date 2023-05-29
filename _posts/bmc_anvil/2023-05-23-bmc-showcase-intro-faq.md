@@ -3,7 +3,7 @@ title: BMC Anvil's FAQs
 excerpt: This note group the FAQ for the software
 sidebar:
   title: "/BMC_Anvil"
-  nav: sidebar-bmc_anvil
+  nav: sidebar-bmc_showcase
 ---
 
 BMC Anvil's FAQ
