@@ -23,7 +23,7 @@ of use as guide for the chosen tech in a complex and "big" codebase.<br>
 
 {{ site.showcase.name }} aims to be a showcase teaching project management tool backed up by boards, scheduling, tasks and to-dos,
 statistics, and predictions.<br>
-the kind of tool that has been around for a long time, with many successful variants. If you check [alternativeto.net](alternativeto.net)
+the kind of tool that has been around for a long time, with many successful variants. If you check [alternativeto.net](https://alternativeto.net/)
 you will find several paying, freemium and free apps under the following categories that achieve the same as {{ site.showcase.name }}:
 
 * [issue-tracking](https://alternativeto.net/category/developer-tools/issue-tracking/)
