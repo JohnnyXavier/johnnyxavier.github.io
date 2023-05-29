@@ -46,21 +46,23 @@ fast time to market and dev availability java became the implementation language
 ### frameworks
 
 for web business apps java and its frameworks shine in this department. Not only extended frameworks like Hibernate, in mem caches, web
-containers, DI, etc. are solid and established, but internal utilities like streams, collections, concurrent collections, etc. are also
-far ahead the contenders and avoid the developers to hand code structures that have been around for a long time now.
+containers, DI, etc. are solid and well established, but internal utilities like streams, collections, concurrent collections, etc. are also
+very solid and avoid the developers to hand code structures that have been around for a long time now.
 
 ### footprint
 
-regarding footprint when compiling java + Quarkus + graalvm + native, startup times and memory/disk footprint are on par with more recent
-languages like Go.
+regarding footprint when compiling java + Quarkus + graalvm + native, startup times and memory / disk footprint are on par(ish) with more
+recent languages like Go.
+
+**note**: golang will compile almost instantly and compiling java natively to achieve small footprints will take quarkus minutes... many...
 
 ### time to market / productivity
 
-I owe a small explanation on `"time to market"` metric.
+I owe a small explanation on `"time to market"` """metric""".
 
-this metric is as tricky as it can be as there is no way to measure it, unless an exact same dev knowing all possible tricks on many
-languages, would implement an exact same feature in the best possible way for each language/framework. So I went for this imperfect but
-neutral measure:
+this metric is as tricky as it can be as there is no way to properly measure it, unless an exact same dev knowing all possible tricks on
+many languages, would implement an exact same feature in the best possible way for each language/framework. So I went for this imperfect
+measure:
 
 > given 2 languages that are on par on performance, stability, etc., which one takes the fewer lines of code to achieve a given new feature,
 > and / or an update to an existing one.
@@ -79,4 +81,4 @@ I understand it may not be fair, but it is at least a "neutral" way of measuring
 query run in a transaction".
 
 it is not only little code to achieve a lot of functionality but also requires little knowledge, which means less experienced developers
-may achieve it which directly translate in the project's costs.
+may achieve complex features, directly translating into the project's times and costs.

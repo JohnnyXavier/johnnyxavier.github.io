@@ -8,8 +8,6 @@ sidebar:
 
 ## A general intro to {{ site.showcase.name }}'s Tech Stack
 
-where the ***"why"*** each tech was chosen is revealed
-
 ### The trigger for the app, a little story
 
 an original thought to building this showcase app was to do so in a few languages and combinations of frameworks. Those languages and
@@ -26,12 +24,11 @@ in benchmarks I've seen over the web.<br>
 that idea was very quickly discarded as one of the points of interest was `time to market per feature`and my level on each of the above
 combinations not being equal would not make much justice to the task.
 
-having more experience in the java / js / ts family than in Golang it was quickly evident than a semi big app will play against Golang due
+having more experience in the java / js / ts family than in Golang it was quickly evident that a semi big app will play against Golang due
 to my own skills and not because of the language or ecosystem per se.
 
-I had to resort to Go experienced friends with many *"what's the fastest to market / fastest to execute / less LOCs way"* to achieve this or
-that questions. "Raw" golang will execute ok if directly hit against, but will be slower to deliver features unless an experienced dev is
-handling the code, and even then...
+I had to resort to Go experienced friends with many questions to achieve this or that feature in an efficient manner. "Raw" golang will
+execute ok if directly hit against, but will be slower to deliver features unless an experienced dev is handling the code, and even then...
 
 I'll never know how this app built around Go / JS would play against the tech stack I chose, but what follows is what I know from the
 benchmark world.
@@ -102,5 +99,5 @@ small examples to explain their own tech, that sometimes are hard to interpolate
 used
 to complement a few of these guides with bigger and more complex guides.
 
-If you came for the showcase or for the examples / guides, and have any question, feel free to reach out over 
+If you came for the showcase or for the examples / guides, and have any question, feel free to reach out over
 **[LinkedIn: Johnny X](https://www.linkedin.com/in/johnnyvera)** or [GitHub](https://github.com/JohnnyXavier).

@@ -8,8 +8,8 @@ sidebar:
 
 ## Authentication and Authorization Strategies and Implementation
 
-just as [caching](/bmc-anvil-tech-caching), authorization and authentication is key in any modern business application, and because of that,
-the first drop of {{ site.showcase.name }} as none. On purpose.
+just as [caching](/bmc-anvil-tech-caching), authorization and authentication are key in any modern business application, and because of
+that, the first drop of {{ site.showcase.name }} has none. On purpose.
 
 integrating with an auth framework or provider is not at all the reason I built the app. The main reason this application exists is to
 showcase possible answers to the many questions that arise in a tech interview and coding exercises and to learn and demonstrate exciting

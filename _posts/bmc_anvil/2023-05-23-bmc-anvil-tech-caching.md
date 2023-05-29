@@ -9,12 +9,18 @@ sidebar:
 ## Caching Technologies present and upcoming
 
 as caching is a major feature, I focused on getting the application out without adding an external cache layer.<br>
-to showcase tech and skills it is ok, but if the app evolves into something bigger a proper cache layer will be in order.
+to showcase tech and skills it is ok not to have a dedicated cache, but if the app evolves into something bigger a proper cache layer will
+be in order.
 
 ### present
 
 currently I implemented [caffeine cache](https://github.com/ben-manes/caffeine) over some expensive ops to demonstrate a few uses and tricks
-for startup-like applications.
+for startup-company-like applications.
+
+if you are curious on how to tackle bigger company apps that require proper caching, you can check
+this [functional reactive pipeline note](/language-java-reactive-functional-pipelines/) that shows the core engine of an application.
+
+the above note can be a preview of the evolution of {{ site.showcase.name }}.
 
 ### future
 
