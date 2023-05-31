@@ -25,7 +25,7 @@ entities and the app grew more and more complex...
 
 that got me thinking and I started reading and watching videos about testing strategies...
 
-I then created a suite in postman that would rarely change and still built some degree of a guardrail for the code. Basically, regardless
+I then created a suite in postman that would rarely change and still creates some degree of a guardrail for the code. Basically, regardless
 the implementation the result was still being tested and passed or failed.
 
 I am not yet sold on a given testing strategy, so I will meditate about this a little bit more before committing to test the code in one

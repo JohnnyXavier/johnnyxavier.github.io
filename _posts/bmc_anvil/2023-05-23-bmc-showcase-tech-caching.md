@@ -8,7 +8,7 @@ sidebar:
 
 ## Caching Technologies present and upcoming
 
-as caching is a major feature, I focused on getting the application out without adding an external cache layer.<br>
+caching being a major feature, I focused on getting the application out without adding an external cache layer.<br>
 to showcase tech and skills it is ok not to have a dedicated cache, but if the app evolves into something bigger a proper cache layer will
 be in order.
 

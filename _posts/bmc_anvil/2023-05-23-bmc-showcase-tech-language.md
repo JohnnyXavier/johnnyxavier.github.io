@@ -80,5 +80,5 @@ in the above case a single annotation.
 I understand it may not be fair, but it is at least a "neutral" way of measuring how much will it take to "add a cache" or "have your
 query run in a transaction".
 
-it is not only little code to achieve a lot of functionality but also requires little knowledge, which means less experienced developers
-may achieve complex features, directly translating into the project's times and costs.
+it is not only little code to achieve a lot of functionality but also, it does not require a high seniority, which means less experienced
+developers may achieve complex features, directly translating into the project's times and costs.

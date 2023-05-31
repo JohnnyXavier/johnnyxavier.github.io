@@ -43,26 +43,30 @@ I will be adding notes little by little until most or all the typical questions 
 if this showcase has enough traction, I'll add features as planned and requested and publish the whole as FOSS if possible (there will be
 details on the FE licence to solve)
 
-## how this showcase can be used
+## how -else- this showcase can be used
+
+### as a guide / teaching app
+
+this whole application, the notes and any fragment of the back-end code, **- and the back-end code only -**, can be used in your own
+applications or as snippets anywhere you like.<br>
+it's [currently released under apache](2023-05-23-bmc-showcase-intro-licenses) and even if I choose another license in the future it will
+most likely be another OSS kind of license.<br>
 
 ### as a real app (in the future)
 
-this is a real application that can be continued by yourself and used it to you convenience
+I will be adding features that I find would be interesting as showcase / teaching topics which will lead to growing the app to the point it
+may become a fully featured proper project management alternative.
 
-## as a guide / teaching app
-
-this whole application, the notes and any fragment of the back en code, **- and the back end code only -**, can be used in your own
-applications and as snippets anywhere you like, it's [currently released under apache](2023-05-23-bmc-showcase-intro-licenses) and even if I
-choose another license in the future it will most likely be another OSS kind of license.
+the application can be continued by yourself too, and used to your convenience if your put in the hours.
 
 ## a note on perfection and coherence on the app
 
 ### perfection
 
-creating a real application under time constraint, instead of small snippets can play against myself regarding technical evaluations, as
-each one of us has a style and preferences to tackle certain problems. You may find yourself thinking...
+creating a real application under a time constraint, instead of small snippets can play against myself regarding technical evaluations.<br>
+as each one of us has a style and preferences to tackle certain problems, you may find yourself thinking...
 
-* I wouldn't have a user with so many properties...
+* I wouldn't have an entity with so many properties...
 * I would have used liquibase...
 * I would try to avoid reflection...
 * I would normalize the database even more...
@@ -71,7 +75,7 @@ each one of us has a style and preferences to tackle certain problems. You may f
 * I don't like lombok...
 * ...
 
-and it is fine, we all have a way of doing things and on a real app showcase you will find room for improvement and change.
+and it is fine, we all have a way of doing things and on a showcase featuring a real app you will find room for improvement and change.
 
 ### code coherence
 
@@ -80,8 +84,9 @@ you will find a same problem solved in more than a single way... this is on purp
 for example:
 
 * I chose a few services to go full orm, others to add named queries, others to use native queries...
-* I chose to use an annotation here, but call on `Mutiny SessionFactory` there...
+* I chose to use an `@WithTransaction` annotation here, but call on `Mutiny SessionFactory` there...
 * I chose to add/remove "many to many records" fully manually here and via orm entities there...
+* ...
 
 it is the only way to showcase those different approaches by using a single application for it.
 
@@ -89,6 +94,6 @@ I tried to use the different approaches where they better fit, or to group them 
 teaching app, there may be features that seem unlikely to be used on a same class here and there.<br>
 when it is the case it will be accordingly flagged.
 
-There will also be, thou very few to avoid impacting the app, approaches that play against performance with an accompanying note and a fix
+There may also be, thou very few to avoid impacting the app, approaches that play against performance with an accompanying note and a fix
 on a subsequent method to showcase how to better approach some tasks or how to get out of a few troubles.
 

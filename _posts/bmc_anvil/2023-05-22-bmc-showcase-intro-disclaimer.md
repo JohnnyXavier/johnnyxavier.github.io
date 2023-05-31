@@ -62,7 +62,7 @@ Those few features became more than a few, and more complex and rounded, the sim
 scheduling...
 The scheduling started to grow with shrinkages and multiple accounts and metrics...
 
-By the time I had above 100 endpoints, several services and a completely modeled DB, the idea of adding a front end started forming...
+By the time I had above 100 endpoints, several services and a completely modeled DB, the idea of adding a front-end started forming...
 
 Given that I am mainly **not** a front-end developer, I decided to buy an admin template and connect the back-end to it myself to see what I
 had
@@ -117,7 +117,7 @@ Currently, the application is missing:
 ### Looking Into The Future
 
 So... What's next?!<br>
-**First and foremost**: This is an OSS system (bar the ui...) so you can check out the back end and add or modify anything you like if you
+**First and foremost**: This is an OSS system (bar the ui...) so you can check out the back-end and add or modify anything you like if you
 want to put on the hours.
 
 For my part: I will keep adding features and enhancing current ones, making this system more and more complete.

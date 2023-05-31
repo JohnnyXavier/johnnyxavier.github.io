@@ -35,19 +35,25 @@ sidebar-bmc_showcase:
     children:
       - title: "Introduction"
         url: /bmc-showcase-starter-intro/
-      - title: "OOP"
-        url: /bmc-showcase-upcoming/
+      - title: "OOP - Inheritance"
+        url: /bmc-showcase-oop-inheritance/
+      - title: "OOP - Polymorphism"
+        url: /bmc-showcase-oop-polymorphism/
+      - title: "OOP - Composition"
+        url: /bmc-showcase-oop-composition/
       - title: "Reactive Programming"
         url: /bmc-showcase-upcoming/
       - title: "Configuration"
         url: /bmc-showcase-upcoming/
-      - title: "Rest"
-        url: /bmc-showcase-upcoming/
-  - title: "articles - medium"
-    children:
       - title: "hbn simple entities"
         url: /bmc-showcase-upcoming/
       - title: "hbn simple mappings"
+        url: /bmc-showcase-upcoming/
+  - title: "articles - medium"
+    children:
+      - title: "REST tricks - maps for endpoints"
+        url: /bmc-showcase-upcoming/
+      - title: "hbn inheritance"
         url: /bmc-showcase-upcoming/
       - title: "hbn complex mappings"
         url: /bmc-showcase-upcoming/
@@ -61,9 +67,9 @@ sidebar-bmc_showcase:
         url: /bmc-showcase-upcoming/
   - title: "articles - hard"
     children:
-      - title: "Code reusability"
+      - title: "Generics"
         url: /bmc-showcase-upcoming/
-      - title: "Java reflection"
+      - title: "Reflection"
         url: /bmc-showcase-upcoming/
       - title: "Algorithms: Greenhopper"
         url: /bmc-showcase-upcoming/

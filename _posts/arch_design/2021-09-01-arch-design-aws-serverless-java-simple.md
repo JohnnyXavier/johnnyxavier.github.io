@@ -61,7 +61,7 @@ it can be used by shops during dev phases when a vendor gives us a json schema b
    * right now java is usually a no-no on lambdas, so we resort to node, python, etc...
 
 2. the shops I worked (and work) for, use java extensively.
-   * being able to the boost their most prevalent back end tech and personnel is a major win.
+   * being able to the boost their most prevalent back-end tech and personnel is a major win.
  
 if we could manage to build fast-starting, lightweight services using java, we could finally turn the page on *"java is slow and heavy for lambdas"*, and harness the power of the existing devs in jvm shops.  
 
@@ -382,7 +382,7 @@ running time and payload size are limited and, as lambdas are provisioned on the
 the above touches closely the implementation language of choice, as some languages are very fast to start and others will take quite some time.
 
 ## other custom environment on lambdas
-there are other back end languages that I discarded, that being potentially faster have higher `hidden` costs somewhere else, like c, c++, rust, goLang. The hidden costs could be: fewer devs in the market, steeper learning curves, fewer multipurpose business libraries, longer time to market, etc. Yes [c](https://en.wikipedia.org/wiki/C_(programming_language)) is faster and boots faster, and sure maybe you love [Go](https://golang.org/) or [zig](https://ziglang.org/) as a business app language for some reason and decide it's the right fit. (Life goes on Lukitas... ;-) )
+there are other back-end languages that I discarded, that being potentially faster have higher `hidden` costs somewhere else, like c, c++, rust, goLang. The hidden costs could be: fewer devs in the market, steeper learning curves, fewer multipurpose business libraries, longer time to market, etc. Yes [c](https://en.wikipedia.org/wiki/C_(programming_language)) is faster and boots faster, and sure maybe you love [Go](https://golang.org/) or [zig](https://ziglang.org/) as a business app language for some reason and decide it's the right fit. (Life goes on Lukitas... ;-) )
 
 ## tapping the expertise of your current staff
 hoping your current JVM devs will be **AS** good coders outside their comfort language is just well-wishing. I (and we probably all) have, witnessed experienced pro devs / managers say that "javascript is plain easy, python is so obvious, piece of cake...". Sure they are...

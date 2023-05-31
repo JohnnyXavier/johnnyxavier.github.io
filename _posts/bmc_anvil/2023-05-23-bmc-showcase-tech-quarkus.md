@@ -19,7 +19,7 @@ would do with python or js to run on aws lambdas, the one place where spring is 
 footprint. (the previous remark thou, is subject to change *shortly* with native support)
 
 I found Quarkus to have a fantastic set of tools no shy to spring and a few advantages too. When compiling an app in native mode, startup
-times and memo footprint are almost on par with js and golang. Quarkus made a java app running like no other java app.
+times and memo footprint are almost on par with js and golang. Quarkus made a java app to run like no other java app.
 
 ### So Quarkus
 
