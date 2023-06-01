@@ -41,45 +41,45 @@ sidebar-bmc_showcase:
         url: /bmc-showcase-oop-polymorphism/
       - title: "OOP - Composition"
         url: /bmc-showcase-oop-composition/
-      - title: "Reactive Programming"
+      - title: "Reactive Programming - soon"
         url: /bmc-showcase-upcoming/
-      - title: "Configuration"
+      - title: "Configuration - soon"
         url: /bmc-showcase-upcoming/
-      - title: "hbn simple entities"
+      - title: "hbn simple entities - soon"
         url: /bmc-showcase-upcoming/
-      - title: "hbn simple mappings"
+      - title: "hbn simple mappings - soon"
         url: /bmc-showcase-upcoming/
   - title: "articles - medium"
     children:
-      - title: "REST tricks - maps for endpoints"
+      - title: "REST tricks - maps for endpoints - soon"
         url: /bmc-showcase-upcoming/
-      - title: "hbn inheritance"
+      - title: "hbn inheritance - soon"
         url: /bmc-showcase-upcoming/
-      - title: "hbn complex mappings"
+      - title: "hbn complex mappings - soon"
         url: /bmc-showcase-upcoming/
-      - title: "hbn projections"
+      - title: "hbn projections - soon"
         url: /bmc-showcase-upcoming/
-      - title: "hbn reactive chains"
+      - title: "hbn reactive chains - soon"
         url: /bmc-showcase-upcoming/
-      - title: "hbn named queries"
+      - title: "hbn named queries - soon"
         url: /bmc-showcase-upcoming/
-      - title: "hbn native queries"
+      - title: "hbn native queries - soon"
         url: /bmc-showcase-upcoming/
   - title: "articles - hard"
     children:
-      - title: "Generics"
+      - title: "Generics - soon"
         url: /bmc-showcase-upcoming/
-      - title: "Reflection"
+      - title: "Reflection - soon"
         url: /bmc-showcase-upcoming/
-      - title: "Algorithms: Greenhopper"
+      - title: "Algorithms: Greenhopper - soon"
         url: /bmc-showcase-upcoming/
   - title: "articles - architecture"
     children:
-      - title: "Architecture considerations"
+      - title: "Architecture considerations - soon"
         url: /bmc-showcase-upcoming/
-      - title: "Approach to BE / FE"
+      - title: "Approach to BE / FE - soon"
         url: /bmc-showcase-upcoming/
-      - title: "Approach to caching"
+      - title: "Approach to caching - soon"
         url: /bmc-showcase-upcoming/
 
   - title: "etiquette"
