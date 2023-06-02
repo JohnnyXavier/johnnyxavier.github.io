@@ -36,15 +36,15 @@ sidebar-bmc_showcase:
       - title: "Introduction"
         url: /bmc-showcase-starter-intro/
       - title: "OOP - Inheritance"
-        url: /bmc-showcase-oop-inheritance/
+        url: /bmc-showcase-note-oop-inheritance/
       - title: "OOP - Polymorphism"
-        url: /bmc-showcase-oop-polymorphism/
+        url: /bmc-showcase-note-oop-polymorphism/
       - title: "OOP - Composition"
-        url: /bmc-showcase-oop-composition/
-      - title: "Reactive Programming - soon"
-        url: /bmc-showcase-upcoming/
-      - title: "Configuration - soon"
-        url: /bmc-showcase-upcoming/
+        url: /bmc-showcase-note-oop-composition/
+      - title: "Reactive Programming"
+        url: /bmc-showcase-note-reactive/
+      - title: "Configuration"
+        url: /bmc-showcase-note-configuration/
       - title: "hbn simple entities - soon"
         url: /bmc-showcase-upcoming/
       - title: "hbn simple mappings - soon"
