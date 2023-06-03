@@ -18,7 +18,7 @@ if a component was required, I would choose the reactive option.
 
 ### why choosing a fully reactive stack from Quarkus.io
 
-there are too main reason for that decision.
+there are two main reason for that decision.
 
 1. _to learn a new tech and a whole new framework_: I used Spring for years and project reactor was ok, but it was time to get out of
    the comfort zone and learn something new.
