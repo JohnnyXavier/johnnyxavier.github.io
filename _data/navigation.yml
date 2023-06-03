@@ -34,7 +34,7 @@ sidebar-bmc_showcase:
   - title: "articles - starter"
     children:
       - title: "Introduction"
-        url: /bmc-showcase-starter-intro/
+        url: /bmc-showcase-note-starter-intro/
       - title: "OOP - Inheritance"
         url: /bmc-showcase-note-oop-inheritance/
       - title: "OOP - Polymorphism"
