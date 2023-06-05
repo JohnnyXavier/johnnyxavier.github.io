@@ -33,8 +33,10 @@ sidebar-bmc_showcase:
         url: /bmc-showcase-tech-testing/
   - title: "articles - starter"
     children:
-      - title: "Introduction"
+      - title: "General Introduction"
         url: /bmc-showcase-note-starter-intro/
+      - title: "hibernate reactive introduction"
+        url: /bmc-showcase-note-hbn-intro-reactive/
       - title: "OOP - Inheritance"
         url: /bmc-showcase-note-oop-inheritance/
       - title: "OOP - Polymorphism"
@@ -45,25 +47,29 @@ sidebar-bmc_showcase:
         url: /bmc-showcase-note-reactive/
       - title: "Configuration"
         url: /bmc-showcase-note-configuration/
-      - title: "hbn simple entities - soon"
-        url: /bmc-showcase-upcoming/
-      - title: "hbn simple mappings - soon"
-        url: /bmc-showcase-upcoming/
+      - title: "utils - Lombok"
+        url: /bmc-showcase-note-utils-lombok/
+      - title: "hbn - simple entities"
+        url: /bmc-showcase-note-hbn-simple-entities/
+      - title: "hbn - simple mappings"
+        url: /bmc-showcase-note-hbn-simple-mappings/
   - title: "articles - medium"
     children:
       - title: "REST tricks - maps for endpoints - soon"
         url: /bmc-showcase-upcoming/
-      - title: "hbn inheritance - soon"
+      - title: "hbn - inheritance - soon"
         url: /bmc-showcase-upcoming/
-      - title: "hbn complex mappings - soon"
+      - title: "hbn - complex mappings - soon"
         url: /bmc-showcase-upcoming/
-      - title: "hbn projections - soon"
+      - title: "hbn - projections - soon"
         url: /bmc-showcase-upcoming/
-      - title: "hbn reactive chains - soon"
+      - title: "hbn - reactive chains - soon"
         url: /bmc-showcase-upcoming/
-      - title: "hbn named queries - soon"
+      - title: "hbn - named queries - soon"
         url: /bmc-showcase-upcoming/
-      - title: "hbn native queries - soon"
+      - title: "hbn - native queries - soon"
+        url: /bmc-showcase-upcoming/
+      - title: "in memory local caching"
         url: /bmc-showcase-upcoming/
   - title: "articles - hard"
     children:
