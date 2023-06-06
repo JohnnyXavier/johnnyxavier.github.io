@@ -79,11 +79,11 @@ I'll show here how a simple entity looks like in the application.
 @EqualsAndHashCode(onlyExplicitlyIncluded = true, callSuper = true)
 public class CommentEntity extends BaseEntity {
 
-    @Column(columnDefinition = "text")
-    private String comment;
+  @Column(columnDefinition = "text")
+  private String comment;
 
-    @ManyToOne
-    private CardEntity card;
+  @ManyToOne
+  private CardEntity card;
 
 }
 ```
