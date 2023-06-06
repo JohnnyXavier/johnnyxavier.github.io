@@ -68,7 +68,9 @@ class that extends from this `BaseEntity` inherits all 4 fields:
 when you think about this approach, I wanted every table to have creation and update info, the user responsible for creating a given record
 and the id type shared across all records will be of the uuid kind.
 
-let's check how it is used by examining a class that extends from this one.
+### the extending class
+
+let's check how the above is used by examining a class that extends from `BaseEntity`.
 
 ```java
 
