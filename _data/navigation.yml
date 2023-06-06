@@ -57,8 +57,8 @@ sidebar-bmc_showcase:
     children:
       - title: "REST tricks - maps for endpoints - soon"
         url: /bmc-showcase-upcoming/
-      - title: "hbn - inheritance - soon"
-        url: /bmc-showcase-upcoming/
+      - title: "hbn - inheritance"
+        url: /bmc-showcase-note-hbn-inheritance/
       - title: "hbn - complex mappings - soon"
         url: /bmc-showcase-upcoming/
       - title: "hbn - projections - soon"
