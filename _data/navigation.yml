@@ -51,12 +51,12 @@ sidebar-bmc_showcase:
         url: /bmc-showcase-note-utils-lombok/
       - title: "hbn - simple entities"
         url: /bmc-showcase-note-hbn-simple-entities/
-      - title: "hbn - simple mappings"
-        url: /bmc-showcase-note-hbn-simple-mappings/
+      - title: "hbn - simple mappings - soon"
+        url: /bmc-showcase-upcoming/
   - title: "articles - medium"
     children:
-      - title: "REST tricks - maps for endpoints - soon"
-        url: /bmc-showcase-upcoming/
+      - title: "REST tricks - maps for endpoints"
+        url: /bmc-showcase-note-rest-maps-on-endpoints/
       - title: "hbn - inheritance"
         url: /bmc-showcase-note-hbn-inheritance/
       - title: "hbn - complex mappings - soon"
