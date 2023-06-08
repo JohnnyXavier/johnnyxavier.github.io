@@ -69,13 +69,15 @@ sidebar-bmc_showcase:
         url: /bmc-showcase-upcoming/
       - title: "hbn - native queries - soon"
         url: /bmc-showcase-upcoming/
-      - title: "in memory local caching"
+      - title: "in memory local caching - soon"
         url: /bmc-showcase-upcoming/
-  - title: "articles - hard"
+  - title: "articles - Advanced"
     children:
       - title: "Generics - soon"
         url: /bmc-showcase-upcoming/
       - title: "Reflection - soon"
+        url: /bmc-showcase-upcoming/
+      - title: "Java Functions - soon"
         url: /bmc-showcase-upcoming/
       - title: "Algorithms: Greenhopper - soon"
         url: /bmc-showcase-upcoming/
