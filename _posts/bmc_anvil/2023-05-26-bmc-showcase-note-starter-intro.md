@@ -13,13 +13,13 @@ stated in many places already, I will just recap:
 > as a software dev / architect, applying for jobs always has a technical interview leg. Among the many styles of interviews there is a
 > mandatory technical challenge of some sort.
 >
-> {{ site.showcase.name }} aims to save the time recruiters and tech teams spend trying to find the correct candidate for their needs.
+> **{{ site.showcase.name }}** aims to save the time recruiters and tech teams spend trying to find the correct candidate for their needs.
 >
 > this app and the accompanying articles are extensive enough that any tech team can evaluate if the skills showcased here are what they
 > were
 > looking for.
 
-## how was {{ site.showcase.name }} done:
+## how was **{{ site.showcase.name }}** done:
 
 I set myself a few constrains for the first drop:
 

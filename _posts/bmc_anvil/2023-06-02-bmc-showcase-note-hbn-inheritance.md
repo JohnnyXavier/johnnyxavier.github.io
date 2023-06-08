@@ -21,7 +21,7 @@ about the same, with a few twists to consider.
 
 ## inheritance in the realm of orm
 
-let's dive into how I use inheritance in {{ site.showcase.name }} with an example.
+let's dive into how I use inheritance in **{{ site.showcase.name }}** with an example.
 
 ### the base class
 
@@ -108,7 +108,7 @@ to have a creator, and timestamps. A database inheritance of sorts.
 
 just like with common inheritance, cascading inheritance is supported.
 
-in {{ site.showcase.name }} we have 3 very distinct entity types.
+in **{{ site.showcase.name }}** we have 3 very distinct entity types.
 
 * **catalogs**: these are common datasets used by the application and by the record entities, ie: labels, statuses, seniority, etc.
 * **records**: this is the data we actually want to track, the meat of the app, ie: accounts, cards, projects, etc.

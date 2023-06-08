@@ -43,7 +43,7 @@ the highest benchmark performance:
 
 Quarkus dev tools are at another level.
 
-* the live reload on {{ site.showcase.name }} takes, with all libraries and a full `drop-create` of the database, just 2 seconds on the
+* the live reload on **{{ site.showcase.name }}** takes, with all libraries and a full `drop-create` of the database, just 2 seconds on the
   clock... and we are talking around 10K lines of code and 50 tables with seeded data. Changing the smallest thing on an entity or method is
   completely painless.
 * the dev UI allowing to change cache settings, reset DBs, change pools, check endpoints, browse scores, etc. all on they fly is near
@@ -54,7 +54,7 @@ I have not seen yet something like this except on hazelcast's settings and contr
 the importance of these features is again... `time to market`, the easier the system works for you, the easier to get quality things done
 faster. It makes also onboarding and training new devs easier and faster.
 
-the Quarkus version used by {{ site.showcase.name }} is {{ site.showcase.quarkus-version }}, but I usually update it as fast as they update.
+the Quarkus version used by **{{ site.showcase.name }}** is {{ site.showcase.quarkus-version }}, but I usually update it as fast as they update.
 
 ### easy to overlook features: support
 

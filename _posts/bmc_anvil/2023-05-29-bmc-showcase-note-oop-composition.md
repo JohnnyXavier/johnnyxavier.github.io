@@ -84,7 +84,7 @@ working with certain frameworks like hibernate or jackson composition has to be 
 
 let's see.
 
-on {{ site.showcase.name }}, each entity has a `UserEntity` that acts as the creator. Even a` UserEntity` has a creator itself.<br>
+on **{{ site.showcase.name }}**, each entity has a `UserEntity` that acts as the creator. Even a` UserEntity` has a creator itself.<br>
 when you create a `CardEntity` for example, that `CardEntity` has a `UserEntity` field named `createdBy`, and also many other fields such
 as `CardTypeEntity` or `StatusEntity` who themselves have their own `createdBy` field.<br>
 In addition, a card also has a set of `watchers` and a set of `assignees`, which... you guessed correctly... are also `UserEntities`.

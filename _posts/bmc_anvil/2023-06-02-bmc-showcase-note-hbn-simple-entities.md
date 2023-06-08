@@ -19,13 +19,13 @@ references:
 `entities` typically represent a table on a database, and each instance of an entity a row on that table. They can have logic code as seen
 on the active record pattern.
 
-an `entity` in {{ site.showcase.name }} is a `POJO` representing a table on a database, and except for accessors done via `lombok` it has no
+an `entity` in **{{ site.showcase.name }}** is a `POJO` representing a table on a database, and except for accessors done via `lombok` it has no
 logic.<br>
 
 in this application there is no code on the `entities` as I chose to use a repository approach instead of an active record approach to
 decouple the data access code from the data modeling.
 
-when looking at the `entities` in {{ site.showcase.name }} you are looking at the table structure of the application.
+when looking at the `entities` in **{{ site.showcase.name }}** you are looking at the table structure of the application.
 
 the `entities` can be very simple representations of a table of very complex representations of tables, relations, fields data types, etc.
 

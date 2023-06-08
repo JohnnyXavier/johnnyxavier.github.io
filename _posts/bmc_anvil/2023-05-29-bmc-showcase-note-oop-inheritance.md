@@ -302,7 +302,7 @@ the code relevant to the additional `findAll()` op on the `BasicCatalogResource.
 > **we are reusing 51 lines of code on each concrete class extending from the BasicCatalogResource.**<br>
 > **it only takes a 5 lines constructor to add basic CRUD endpoints to a new resource**
 
-given that at the time of this writing {{ site.showcase.name }} has:
+given that at the time of this writing **{{ site.showcase.name }}** has:
 
 * 7 resources inheriting from BasicCatalogResource
     * 7 * 51 = 357 lines of code reused
@@ -439,7 +439,7 @@ if we add these to the previously discussed 917 ones we are up to 1778 lines of 
 
 for the moment, all just lingo on OOP, but what can we extract of it into the real world?
 
-say your code is 6606 lines of code (which is current size of {{ site.showcase.name }}), and you saved from coding 1778 via reusability...
+say your code is 6606 lines of code (which is current size of **{{ site.showcase.name }}**), and you saved from coding 1778 via reusability...
 
 if the full codebase of 8384 lines of code (the 6606 + the 1778 we just saved) was to be delivered in 1 month, just by using OOP's
 inheritance we could deliver 21% faster, that's almost a full week!<br>

@@ -25,7 +25,7 @@ overloading can be considered outside polymorphism, but I will leave controversy
 
 ## overriding a method
 
-simple inheritance examples in {{ site.showcase.name }} refer to the abstract class `BasicPersistenceService.java` mentioned
+simple inheritance examples in **{{ site.showcase.name }}** refer to the abstract class `BasicPersistenceService.java` mentioned
 in [OOP - inheritance](/bmc-showcase-oop-inheritance) note.
 
 that base class serves part as a contract and part as implementation code to be reused.

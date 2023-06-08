@@ -12,7 +12,7 @@ Quarkus stack allows to choose from classic and reactive versions of many framew
 
 the reason behind this was a little due to performance gains but in this case mostly to learn a new stack and ways of working.
 
-all {{ site.showcase.name }} is done in a reactive way, every incorporation that can run in a reactive fashion was chosen over the "classic"
+all **{{ site.showcase.name }}** is done in a reactive way, every incorporation that can run in a reactive fashion was chosen over the "classic"
 counterpart.
 
 reactive stack powering the app comprises:

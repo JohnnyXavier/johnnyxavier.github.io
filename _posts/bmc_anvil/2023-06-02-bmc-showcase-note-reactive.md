@@ -12,7 +12,7 @@ This note is about reactive programming with Quarkus and Mutiny on the app.
 
 ## intro and resources
 
-{{ site.showcase.name }} is a fully reactive application. From the Quarkus core, to the web container and even the database client and orm.
+**{{ site.showcase.name }}** is a fully reactive application. From the Quarkus core, to the web container and even the database client and orm.
 
 if a component was required, I would choose the reactive option.
 
