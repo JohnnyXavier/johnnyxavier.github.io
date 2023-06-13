@@ -26,7 +26,7 @@ supported in java by extending or implementing classes, abstract classes and int
 with java 8, the line between abstract classes and interfaces became blurry.
 
 once upon a time... interfaces used to have no implementation code at all and would only provide "contracts" or "shapes" that the
-inheriting classes would implement. One could say a pre java 8 interface was a "pure abstract" class. With ith retro compatibility in mind,
+inheriting classes would implement. One could say a pre java 8 interface was a "pure abstract" class. With retro compatibility in mind,
 interfaces from java 8 onwards, can define `default methods` that can have implementation code.
 
 I'll show here a nice "feature" of inheritance: **code reusability**
@@ -40,17 +40,15 @@ productivity and quality.
 
 ### the API REST access commonality
 
-CRUD applications that have a web interface can have some common ops. We usually see many resources (controllers) getting / creating /
-updating / deleting the structure they respond for
+CRUD applications that have a web interface can have some common ops. We usually see many REST resources (controllers) getting / creating /
+updating / deleting the structure they respond for.
 
-if we have 5 endpoints, well, we may not care into thinking to abstract those common ops... if you many endpoints it seems like a good
+if we have 5 endpoints, well, we may not care into thinking to abstract those common ops... if you have many endpoints it seems like a good
 candidate to practice some oop!
 
 ### the basic ops resource
 
-[basic ops resource code in GitHub]()
-
-in {{ site.showcase.name}} you will see REST endpoints to access for labels, users, status, cards, comments, projects, accounts, etc.
+in {{ site.showcase.name }} you will see REST endpoints to access for labels, users, status, cards, comments, projects, accounts, etc.
 
 each one of those will have a `findById()` method as follows:
 
@@ -67,8 +65,8 @@ public Uni<Response> findById(final UUID id){
         }
 ```
 
-the above code is as simple as it can be, we receive a request with an id, we call the corresponding persistence service and return the
-result. Finding a single result by id is not going to change where it is a label, a user or a comment.
+the above code is as simple as it can be, we receive a request with an **id**, we call the corresponding persistence service and return the
+result. Finding a single result by id is not going to change whether it is a label, a user or a comment.
 
 but that's not the only thing we need in general... we also want:
 
@@ -144,20 +142,19 @@ public abstract class BasicOpsResource<D, E> {
 }
 ```
 
-a few things to ignore as they are out of oop scope:
+a few things to ignore as they are out of **oop** scope:
 
 * `@WithSession` is about reactive hibernate 6
 * `@JbossLog` is a lombok annotation for adding logging
 * `Uni<xxx>`, chaining of `.map()`, `.onFailure()` etc().
 * `ResponseUtils` is a helper class that will create a proper `Response` based on the error to handle
 
-examining the class, the first thing to note is that it is `abstract`, means it will not be instantiated on its own. We will extend it by
+examining the class, the first thing to note is that it is `abstract`, means it can not be instantiated on its own. We will extend it by
 the other rest resource classes to reuse its code.
 
 the second thing to note is that it uses a `persistence service` that is initialized on the constructor. More on that later...
 
-so this class then has a persistence service, and the 4 CRUD methods, and that's it... and it powers every single endpoint of the
-application.
+so this class has a persistence service, and the 4 CRUD methods, and that's it... and it powers every single endpoint of the application.
 
 let's do a quick dive into the `findById()` to understand what happens and introduce briefly Mutiny and its reactive style.
 
@@ -172,7 +169,7 @@ public Uni<Response> findById(final UUID id){
         }
 ```
 
-the `@GET` annotation is a jakarta EE to indicate the method responds to HTTP GET requests.<br>
+the `@GET` annotation indicates the method responds to HTTP GET requests.<br>
 the `@Path("{id}")` indicates that there is a path variable the request will be serving for.<br>
 
 the method signature `public Uni<Response> findById(final UUID id)` requires a little explanation.
@@ -182,8 +179,8 @@ jakarta `Response`.
 This represents the return of most of our signatures for most of the resources handling REST requests. We will return a response in an async
 manner. The `id` parameter accounts for the id we want to find in the database for a given entity.
 
-the body calls on our persistence service and performs a `findById()` op, maps the result in the response we want to return and cares for
-possible failures.
+the method's body calls on our persistence service and performs a `findById()` op, maps the result in the `Response` we want to return and
+cares for possible failures.
 
 ### bonus: cascading inheritance
 
@@ -230,25 +227,22 @@ let's check a few resource classes that extend our abstract class...
 
 ```java
 
-@Path("/v1/seniority")
+@Path("/v1/cardDifficulty")
 @Produces("application/json")
-public class SeniorityResource extends BasicCatalogResource<SeniorityDto, SeniorityEntity> {
+public class CardDifficultyResource extends BasicCatalogResource<CardDifficultyDto, CardDifficultyEntity> {
 
-    private final SeniorityService seniorityService;
-
-    public SeniorityResource(final SeniorityService seniorityService) {
-        super(seniorityService);
-        this.seniorityService = seniorityService;
+    public CardDifficultyResource(final CardDifficultyService cardDifficultyService) {
+        super(cardDifficultyService);
     }
 
 }
 ```
 
-this is the seniority resource that receives requests to CRUD an employee's seniority (jr, semi-sr, senior, etc.)
+this is the card difficulty resource that receives requests to CRUD a card's difficulty (easy, hard, trivial, etc.)
 
 it indicates the `@Path` it listens to.<br>
 it extends our `BasicOpsResource` class that had the minimal CRUD access methods, and it initializes it by passing the proper persistence
-service, the `SeniorityService`
+service, the `CardDifficultyService`
 
 ```java
 
@@ -256,17 +250,14 @@ service, the `SeniorityService`
 @Produces("application/json")
 public class DepartmentResource extends BasicCatalogResource<DepartmentDto, DepartmentEntity> {
 
-    private final DepartmentService departmentService;
-
     public DepartmentResource(final DepartmentService departmentService) {
         super(departmentService);
-        this.departmentService = departmentService;
     }
 
 }
 ```
 
-same as with seniority here...
+same with department here...
 
 ```java
 
@@ -274,21 +265,18 @@ same as with seniority here...
 @Produces("application/json")
 public class CardStatusResource extends BasicCatalogResource<StatusDto, StatusEntity> {
 
-    private final CardStatusService cardStatusService;
-
     public CardStatusResource(final CardStatusService cardStatusService) {
         super(cardStatusService);
-        this.cardStatusService = cardStatusService;
     }
 
 }
 ```
 
-and again with cardStatus...
+and again with card status...
 
-**wait a moment... so where are my seniority and department and card status endpoints?!**
+**wait a moment... so where are my card difficulty and department and card status endpoints?!**
 
-well, that's the magic to it!
+well, that's the beauty of it!
 
 as all resources extend from the abstract class, each one initializing it with its own persistence service, each one of the concrete
 services has access to all those minimal CRUD methods!
@@ -300,7 +288,7 @@ the code relevant to the additional `findAll()` op on the `BasicCatalogResource.
 
 > **we are reusing 40 lines of code on each concrete class extending from the BasicOpsResource.**<br>
 > **we are reusing 51 lines of code on each concrete class extending from the BasicCatalogResource.**<br>
-> **it only takes a 5 lines constructor to add basic CRUD endpoints to a new resource**
+> **it only takes a 2 lines constructor to add basic CRUD endpoints to a new resource**
 
 given that at the time of this writing **{{ site.showcase.name }}** has:
 
@@ -314,10 +302,9 @@ given that at the time of this writing **{{ site.showcase.name }}** has:
     * lines of code: **917**
     * methods: **91**
 
-not only we reused a lot of code looking back, but looking forward, if a new rest resource is required it takes 2 minutes and 5 lines of
-code to add it!
+not only we reused a lot of code looking back, but looking forward, if a new rest resource is required it 2 lines of code to add it!
 
-c bonus: that `@JBossLog` annotation...
+### bonus: that `@JBossLog` annotation...
 
 oh... it seemed like it was there for no reason as there were no logs anywhere, right?
 
@@ -413,11 +400,13 @@ public class LabelService extends BasicPersistenceService<LabelDto, LabelEntity>
         super(labelRepo, LabelDto.class);
         this.labelRepo = labelRepo;
     }
+
+    //[ more methods omitted]
 }
 ```
 
-the `LabelService`, just by extending the `BasicPersistenceService` class, has now access to findById and deleteById. It only has to pass to
-its constructor the `labelRepository` and the `labelDto` and the `BasicPersistenceService` code takes care of the rest.
+the `LabelService`, just by extending the `BasicPersistenceService` class, has now access to `findById()` and `deleteById()`. It only has to
+pass to its constructor the `labelRepository` and the `labelDto` and the `BasicPersistenceService` code takes care of the rest.
 
 omitted here do to their complexity for an oop basic note, all services that extend from `BasicPersistenceService` inherit the code for:
 
@@ -439,17 +428,18 @@ if we add these to the previously discussed 917 ones we are up to 1778 lines of 
 
 for the moment, all just lingo on OOP, but what can we extract of it into the real world?
 
-say your code is 6606 lines of code (which is current size of **{{ site.showcase.name }}**), and you saved from coding 1778 via reusability...
+say your code is 6606 lines of code (which is current size of **{{ site.showcase.name }}** not counting javadoc), and you saved from coding
+1778 via reusability...
 
 if the full codebase of 8384 lines of code (the 6606 + the 1778 we just saved) was to be delivered in 1 month, just by using OOP's
 inheritance we could deliver 21% faster, that's almost a full week!<br>
 care to translate time in money? or maybe extra time for additional features, training, etc.?
 
-the more you use the code you made reusable, the more you reap its benefits.
+the more you reuse code, the more you reap its benefits.
 
 ## on improving quality (defensively)
 
 you're not adding quality by a means of testing or anything of the like, but by reusing code you defensively protect yourself against
-possible drifting. You may slightly change code in one implementation that will break on a general update.<br>
+possible code drifting. You may slightly change code in one implementation that will break on a general update.<br>
 If you detect a problem, fixing a reusable method fixes the bug everywhere, if you want to add functionality or make an improvement, adding
 it on the abstract method spreads the new functionality everywhere.
