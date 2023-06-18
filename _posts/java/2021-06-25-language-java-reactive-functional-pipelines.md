@@ -10,7 +10,7 @@ sidebar:
 ## Intro
 this note is about an itch I had for some time now... about how to use the [reactive spring stack](https://spring.io/reactive) and how to make a java app as functional as the language and tools support.
 
-we are going to create a modular app that will take advantage of [webflux](https://docs.spring.io/spring-framework/docs/current/reference/html/web-reactive.html#spring-webflux), [webclient](https://docs.spring.io/spring-framework/docs/current/reference/html/web-reactive.html#webflux-client), and [hazelcast](https://hazelcast.com/open-source-projects/).
+we are going to create a modular app that will take advantage of [webflux](https://docs.spring.io/spring-framework/reference/web/webflux.html), [webclient](https://docs.spring.io/spring-framework/reference/web/webflux-webclient.html), and [hazelcast](https://hazelcast.com/open-source-projects/).
 
 with those components we will try to build a low latency + reactive + non-blocking + strategy backed, multipurpose engine that should be flexible enough to adapt through the evolution of an app. 
 
@@ -22,7 +22,7 @@ to our backing database on the other. The video club can be a suppliers service,
 this all started when trying to build a lightweight cloud service, backpressure and responsive ready a while ago, let's check the first part of the solution! (the second part, Quarkus + graal + native images is coming soon)
 
 ### What I understand as Functional
-from [wikipedia functional programming entry]()
+from [wikipedia functional programming entry](https://en.wikipedia.org/wiki/Functional_programming)
 > _**In computer science, functional programming is a programming paradigm where programs are constructed by applying and composing functions. It is a declarative programming paradigm in which function definitions are trees of expressions that map values to other values, rather than a sequence of imperative statements which update the running state of the program.**_
 
 thou the above is ok, I understand functional programming like this: **_it is programing by delegation_**
