@@ -54,7 +54,8 @@ I have not seen yet something like this except on hazelcast's settings and contr
 the importance of these features is again... `time to market`, the easier the system works for you, the easier to get quality things done
 faster. It makes also onboarding and training new devs easier and faster.
 
-the Quarkus version used by **{{ site.showcase.name }}** is {{ site.showcase.quarkus-version }}, but I usually update it as fast as they update.
+the Quarkus version used by **{{ site.showcase.name }}** is {{ site.showcase.quarkus-version }}, but I usually update
+it [as fast as they update](https://quarkus.io/blog/tag/release/).
 
 ### easy to overlook features: support
 

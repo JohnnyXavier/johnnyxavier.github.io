@@ -33,16 +33,18 @@ if the above becomes true, there will be a free self-hosted version available to
 
 I used [Java (OpenJDK)](https://openjdk.org/) as the implementation language and the following Technologies:
 
-* OpenJDK **{{ site.showcase.java-version }}** (and updating to latest as it gets out and proves compatible)
+* OpenJDK **{{ site.showcase.java-version }}** (and updating to latest as it gets out and proves compatible, **21ea**
+  is [currently not](/bmc-showcase-note-utils-lombok/#java-21-and-lombok-as-of-this-writing))
 * PostgreSQL **{{ site.showcase.postgres-version }}**
-* Quarkus **{{ site.showcase.quarkus-version }}** (and updating to latest as it gets out)
+* Quarkus **{{ site.showcase.quarkus-version }}** ([and updating to latest as it gets out](https://quarkus.io/blog/tag/release/))
     * quarkus-resteasy-reactive
     * quarkus-resteasy-reactive-jackson
     * quarkus-hibernate-reactive-panache
-    * quarkus-reactive-pg-client
     * quarkus-hibernate-validator
+    * quarkus-reactive-pg-client
     * quarkus-config-yaml
     * quarkus-arc
+* Hibernate reactive **{{ site.showcase.hibernate-version }}** (via quarkus dep)
 * utils:
     * lombok
     * maven
@@ -60,8 +62,8 @@ more!
 ### Where can I see / get the Back-End Code?
 
 the code is public and hosted on **GitHub**.<br>
-Go to [{{ site.showcase.name }}](https://github.com/JohnnyXavier)'s repo, or just hit your terminal with:<br>
+Go to [{{ site.showcase.name }}]({{ site.showcase.repo-url }})'s repo, or just hit your terminal with:<br>
 
  ```shell
- git clone https://github.com/JohnnyXavier
+ git clone https://github.com/JohnnyXavier/bare-metal-flow
  ```

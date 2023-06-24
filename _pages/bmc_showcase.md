@@ -45,8 +45,14 @@ welcome to **{{ site.showcase.name }}**!
 
 <figure>
     <a href="/assets/images/hero-kanban-dark.jpeg">
-    <img src="/assets/images/hero-kanban-dark.jpeg" alt="anvil showcase kanban"></a>
-  	<figcaption>anvil showcase kanban</figcaption>
+    <img src="/assets/images/hero-kanban-dark.jpeg" alt="anvil showcase kanban dark"></a>
+  	<figcaption>anvil showcase kanban dark</figcaption>
+</figure>
+
+<figure>
+    <a href="/assets/images/hero-kanban-light.jpeg">
+    <img src="/assets/images/hero-kanban-light.jpeg" alt="anvil showcase kanban light"></a>
+  	<figcaption>anvil showcase kanban light</figcaption>
 </figure>
 
 ---

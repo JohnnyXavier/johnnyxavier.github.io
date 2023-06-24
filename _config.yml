@@ -47,11 +47,11 @@ search_provider          : lunr # lunr (default), algolia, google
 # showcase
 showcase:
   name                   : "BMC_Anvil"
-  url                    : #"URL"
-  quarkus-version        : 3.1.0.FINAL
-  java-version           : 20
-  postgres-version       : 15.3
-  hibernate-version      : 6.2.1.FINAL
+  repo-url               : "https://github.com/JohnnyXavier/bare-metal-flow"
+  quarkus-version        : "3.1.2.FINAL"
+  java-version           : "20"
+  postgres-version       : "15.3"
+  hibernate-version      : "6.2.4.FINAL"
 # Analytics
 analytics:
   provider               : false # false (default), "google", "google-universal", "google-gtag", "custom"

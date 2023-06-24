@@ -73,12 +73,12 @@ sidebar-bmc_showcase:
         url: /bmc-showcase-upcoming/
   - title: "articles - Advanced"
     children:
-      - title: "Generics - soon"
-        url: /bmc-showcase-upcoming/
-      - title: "Reflection - soon"
-        url: /bmc-showcase-upcoming/
-      - title: "Java Functions - soon"
-        url: /bmc-showcase-upcoming/
+      - title: "Java Generics"
+        url: /bmc-showcase-note-generics/
+      - title: "Java Reflection"
+        url: /bmc-showcase-note-reflection/
+      - title: "Java Functions"
+        url: /bmc-showcase-note-functions/
       - title: "Algorithms: Greenhopper - soon"
         url: /bmc-showcase-upcoming/
   - title: "articles - architecture"
