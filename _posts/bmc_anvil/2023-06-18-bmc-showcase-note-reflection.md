@@ -137,8 +137,8 @@ public abstract class BasicPersistenceService<D, E> {
 
     @WithTransaction
     @SneakyThrows
-    protected Uni<Void> updateInPlace(final E toUpdate, final MethodNames methods, final Object value) {
-        Method m = toUpdate.getClass().getMethod(methods.getMethodName(), value.getClass());
+    protected Uni<Void> updateInPlace(final E toUpdate, final MethodNames methodName, final Object value) {
+        Method m = toUpdate.getClass().getMethod(methodName.getMethodName(), value.getClass());
         m.invoke(toUpdate, value);
 
         return Uni.createFrom().voidItem();
@@ -172,7 +172,7 @@ parameters we can define a single specific method to call from the given class.
 * the `MethodNames` is only an enum that holds the possible method names we want to call.
 * the value in itself can give us its class type by calling on the `getClass()` method.
 
-that first line is in charging of getting the method we want to call to update our given entity. Let's see how we actually call it:
+that first line is in charge of getting the method we want to call, to update our given entity. Let's see how we actually call it:
 
 ```java
 m.invoke(toUpdate,value);
@@ -180,9 +180,10 @@ m.invoke(toUpdate,value);
 
 what we got is a `Method` itself, to invoke it on a particular object and not another we call it by passing to the invoking method, the
 actual instantiated object and the value.<br>
-The above code is the same as `user.setCallSign()` or `label.setName()` or `card.setDescription()` or `board.setIsFavorite()`.
+The above code is the same as `user.setCallSign("Maverick")` or `label.setName("John")` or `card.setDescription("description here)`
+or `board.setIsFavorite(true)`.
 
-the full method returns a void `Uni`.
+the full method itself, returns a `Uni<Void>`.
 
 ## usage
 
@@ -209,11 +210,11 @@ now instead of explicitly calling the method we pass it as a variable and let re
 
 as you can see this is extremely powerful. We didn't need to code at all what method to call on which object for each update possibility.
 
-the technique allowed us to have a simple update method to update every entity and the common code every update need.
+the technique allowed us to have a simple update method to update every entity and to also reuse the common code every update needs.
 
 ### debugging
 
-debugging is straightforward as a breakpoint reveals everything we are working with
+debugging is straightforward as a breakpoint reveals everything we are working with.
 
 check how it looks like on an IDE:
 
@@ -222,5 +223,6 @@ check how it looks like on an IDE:
   	<figcaption>reflection debugging</figcaption>
 </figure>
 
-you can see how the generic `E`, resolves to the proper `CardEntity` type and the method is also correctly resolved as `SetDescription` with a
+you can see how the generic `E`, resolves to the proper `CardEntity` type and the method is also correctly resolved as `SetDescription` with
+a
 single parameter of type `String`

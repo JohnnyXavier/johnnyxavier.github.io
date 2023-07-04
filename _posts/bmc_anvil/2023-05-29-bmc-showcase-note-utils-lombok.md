@@ -238,7 +238,7 @@ public class CommentEntity extends BaseEntity {
 
 in this class we see again the getter and setter plus a slightly modified call
 to `@EqualsAndHashCode(onlyExplicitlyIncluded = true, callSuper = true)`, it has the extra parameter `callSuper = true`. That parameter
-means to go to the supper class to look for what defines equals/hashcode there.
+means to go to the super class to look for what defines equals/hashcode there.
 
 when we check the resulting class this is what we will see:
 
